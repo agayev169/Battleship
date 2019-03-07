@@ -32,6 +32,16 @@ public class Ship {
         return true;
     }
 
+    public boolean isAt(int x, int y) {
+        if (x - this.x != 0 && y - this.y != 0) return false;
+        if (isHorizontal && x - this.x < health.length && x - this.x >= 0) return  true;
+
+
+        return !(x - this.x != 0 && y - this.y != 0) &&
+            ((isHorizontal && x - this.x < health.length && x - this.x >= 0 && y - this.y == 0) ||
+            (!isHorizontal && y - this.y < health.length && y - this.y >= 0 && x - this.x == 0));
+    }
+
     @Override
     public String toString() {
         String result = "x: " + x + ", y: " + y + ", orientation: ";
@@ -44,6 +54,7 @@ public class Ship {
         return result;
     }
 
+    /*
     public static void main(String[] args) {
         Ship ship = new Ship(0, 0, 4, false);
         ship.getDamage(0, 0);
@@ -56,5 +67,13 @@ public class Ship {
         System.out.println(ship);
         ship.getDamage(3, 1);
         System.out.println(ship);
+        System.out.println(ship.isAt(0, 0));
+        System.out.println(ship.isAt(0, 1));
+        System.out.println(ship.isAt(0, 2));
+        System.out.println(ship.isAt(0, 3));
+        System.out.println(ship.isAt(1, 0));
+        System.out.println(ship.isAt(2, 0));
+        System.out.println(ship.isAt(3, 0));
     }
+    */
 }
