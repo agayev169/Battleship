@@ -1,11 +1,20 @@
 import java.io.IOException;
 
 public class Game {
-    private static int turn;
-    private static char[][] grid1 = new char[10][10];
-    private static char[][] grid2 = new char[10][10];
-    private static Ship[] ships1 = new Ship[5];
-    private static Ship[] ships2 = new Ship[5];
+    private int turn = 0;
+    private char[][] grid1 = new char[10][10];
+    private char[][] grid2 = new char[10][10];
+    private Ship[] ships1 = new Ship[5];
+    private Ship[] ships2 = new Ship[5];
+
+    public Game() {
+        turn = 0;
+        for (int i = 0; i < 10; ++i) {
+            for (int j = 0; j < 10; ++j) {
+                grid1[i][j] = grid2[i][j] = ' ';
+            }
+        }
+    }
 
     public static void showGrid(char[][] grid) throws IOException {
         System.out.print("\033c");
@@ -26,7 +35,65 @@ public class Game {
         System.out.println();
     }
 
-    public static void main(String[] args) throws IOException {
-        
+    public boolean canBuild(int x, int y, int segmentNum, boolean isHorizontal, boolean isUser) {
+        boolean[][] hasShip = new boolean[10][10];
+        if (isUser) {
+            for (Ship ship : ships1) {
+                if (ship.isHorizontal()) {
+                    for (int i = 0; i < ship.getHealth().length; ++i) {
+                        hasShip[ship.getY()][ship.getX() + i] = true;
+                    }
+                } else {
+                    for (int i = 0; i < ship.getHealth().length; ++i) {
+                        hasShip[ship.getY() + i][ship.getX()] = true;
+                    }
+                }
+            }
+        } else {
+            for (Ship ship : ships2) {
+                if (ship.isHorizontal()) {
+                    for (int i = 0; i < ship.getHealth().length; ++i) {
+                        hasShip[ship.getY()][ship.getX() + i] = true;
+                    }
+                } else {
+                    for (int i = 0; i < ship.getHealth().length; ++i) {
+                        hasShip[ship.getY() + i][ship.getX()] = true;
+                    }
+                }
+            }
+        }
+
+        if (isHorizontal) {
+            for (int i = 0; i < segmentNum; ++i) {
+                if (hasShip[y][x + i]) return false;
+            }
+        } else {
+            for (int i = 0; i < segmentNum; ++i) {
+                if (hasShip[y][x + i]) return false;
+            }
+        }
+
+        return true;
+    }
+
+    public boolean attemptToBuild(int x, int y, int segmentNum, boolean isHorizontal, boolean isUser) {
+        if ((isUser && ships1[4] != null) || (!isUser && ships2[4] != null)) {
+            System.out.println("Cannot build more than 5 ships");
+            return false;
+        }
+
+        if (canBuild(x, y, segmentNum, isHorizontal, isUser)) {
+            if (isUser) {
+                int indexFree = 0;
+                for (; ships1[indexFree] != null; ++indexFree);
+                ships1[indexFree] = new Ship(x, y, segmentNum, isHorizontal);
+            } else {
+                int indexFree = 0;
+                for (; ships2[indexFree] != null; ++indexFree);
+                ships2[indexFree] = new Ship(x, y, segmentNum, isHorizontal);
+            }
+        }
+
+        return true;
     }
 }
