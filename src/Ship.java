@@ -22,6 +22,10 @@ public class Ship {
             System.out.println("Error in getDamage function. Wrong coordinates for the ship.");
             return;
         }
+        if (x < 0 || x > 10 || y < 0 || y > 10) {
+            System.out.println("Error in getDamage function. Wrong coordinates (negative value) for the ship.");
+            return;
+        }
         health[(isHorizontal) ? x - this.x : y - this.y] = false;
     }
 
