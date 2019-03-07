@@ -14,6 +14,38 @@ public class Ship {
         }
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public boolean isHorizontal() {
+        return isHorizontal;
+    }
+
+    public boolean[] getHealth() {
+        return health;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void setHorizontal(boolean horizontal) {
+        isHorizontal = horizontal;
+    }
+
+    public void setHealth(boolean[] health) {
+        this.health = health;
+    }
+
     public void getDamage(int x, int y) {
         if ((x - this.x != 0 && y - this.y != 0) ||
                 x - this.x < 0 || x - this.x > health.length ||
