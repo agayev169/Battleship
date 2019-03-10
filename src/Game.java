@@ -7,6 +7,10 @@ public class Game {
     private Ship[] ships1 = new Ship[5];
     private Ship[] ships2 = new Ship[5];
 
+    private final static int MISS = 0;
+    private final static int HIT = 1;
+    private final static int SINK = 2;
+
     public Game() {
         turn = 0;
         for (int i = 0; i < 10; ++i) {
@@ -87,7 +91,7 @@ public class Game {
                 int indexFree = 0;
                 for (; ships1[indexFree] != null; ++indexFree);
                 ships1[indexFree] = new Ship(x, y, segmentNum, isHorizontal);
-                for (int i = 0; i < segmentNum; i++) {
+                for (int i = 0; i < segmentNum; ++i) {
                     if (isHorizontal) {
                         grid1[y][x + i] = 'o';
                     } else {
@@ -98,7 +102,7 @@ public class Game {
                 int indexFree = 0;
                 for (; ships2[indexFree] != null; ++indexFree);
                 ships2[indexFree] = new Ship(x, y, segmentNum, isHorizontal);
-                for (int i = 0; i < segmentNum; i++) {
+                for (int i = 0; i < segmentNum; ++i) {
                     if (isHorizontal) {
                         grid2[y][x + i] = 'o';
                     } else {
@@ -109,5 +113,33 @@ public class Game {
         }
 
         return true;
+    }
+
+    public int shoot(int x, int y, boolean isUser) {
+        if (isUser) {
+            if (grid2[y][x] == 'o') {
+                int indexShip = 0;
+                for (; indexShip < ships2.length; ++indexShip) {
+                    if (ships2[indexShip].isAt(x, y)) break;
+                }
+                ships2[indexShip].getDamage(x, y);
+                grid2[y][x] = 'x';
+                if (ships2[indexShip].isDead()) return SINK;
+                else return HIT;
+            }
+            return MISS;
+        } else {
+            if (grid1[y][x] == 'o') {
+                int indexShip = 0;
+                for (; indexShip < ships1.length; ++indexShip) {
+                    if (ships1[indexShip].isAt(x, y)) break;
+                }
+                ships1[indexShip].getDamage(x, y);
+                grid1[y][x] = 'x';
+                if (ships1[indexShip].isDead()) return SINK;
+                else return HIT;
+            }
+            return MISS;
+        }
     }
 }
