@@ -127,6 +127,7 @@ public class Game {
                 if (ships2[indexShip].isDead()) return SINK;
                 else return HIT;
             }
+            grid2[y][x] = '.';
             return MISS;
         } else {
             if (grid1[y][x] == 'o') {
@@ -139,6 +140,7 @@ public class Game {
                 if (ships1[indexShip].isDead()) return SINK;
                 else return HIT;
             }
+            grid1[y][x] = '.';
             return MISS;
         }
     }
