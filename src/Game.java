@@ -20,7 +20,7 @@ public class Game {
         }
     }
 
-    public static void showGrid(char[][] grid) throws IOException {
+    public void showGrid(boolean isUser) throws IOException {
         System.out.print("\033c");
         System.out.flush();
         System.out.println("    _____________________");
@@ -28,7 +28,11 @@ public class Game {
             if (y == 9) System.out.print((y + 1) + "  |");
             else System.out.print((y + 1) + "   |");
             for (int x = 0; x < 10; ++x) {
-                System.out.print(grid[y][x] + "|");
+                if (isUser) {
+                    System.out.print(grid1[y][x] + "|");
+                } else {
+                    System.out.print(grid2[y][x] + "|");
+                }
             }
             System.out.println();
         }
