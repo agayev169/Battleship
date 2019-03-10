@@ -45,7 +45,7 @@ public class Game {
 
     public boolean canBuild(int x, int y, int segmentNum, boolean isHorizontal, boolean isUser) {
         boolean[][] hasShip = new boolean[10][10];
-        if ((isHorizontal && (x + segmentNum >= 10 || x <= 0)) || (!isHorizontal && (y + segmentNum >= 10 || y <= 0)))
+        if ((isHorizontal && (x + segmentNum >= 10 || x < 0)) || (!isHorizontal && (y + segmentNum >= 10 || y < 0)))
             return  false;
         if (isUser) {
             for (Ship ship : ships1) {
