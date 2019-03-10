@@ -87,10 +87,24 @@ public class Game {
                 int indexFree = 0;
                 for (; ships1[indexFree] != null; ++indexFree);
                 ships1[indexFree] = new Ship(x, y, segmentNum, isHorizontal);
+                for (int i = 0; i < segmentNum; i++) {
+                    if (isHorizontal) {
+                        grid1[y][x + i] = 'o';
+                    } else {
+                        grid1[y + i][x] = 'o';
+                    }
+                }
             } else {
                 int indexFree = 0;
                 for (; ships2[indexFree] != null; ++indexFree);
                 ships2[indexFree] = new Ship(x, y, segmentNum, isHorizontal);
+                for (int i = 0; i < segmentNum; i++) {
+                    if (isHorizontal) {
+                        grid2[y][x + i] = 'o';
+                    } else {
+                        grid2[y + i][x] = 'o';
+                    }
+                }
             }
         }
 
