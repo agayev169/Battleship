@@ -7,6 +7,10 @@ public abstract class Player {
     private Game game;
     private final int id;
 
+    private final static int MISS = 0;
+    private final static int HIT = 1;
+    private final static int SINK = 2;
+
     public Player(Game game, int id) {
         this.game = game;
         this.id = id;
@@ -19,6 +23,12 @@ public abstract class Player {
 
     public Ship[] getShips() {
         return ships;
+    }
+
+    public Ship getShip(int index) {
+        if (index >= 0 && index < ships.length)
+            return ships[index];
+        return null;
     }
 
     public char[][] getGridMine() {
@@ -41,8 +51,16 @@ public abstract class Player {
         return game;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void setShips(Ship[] ships) {
         this.ships = ships;
+    }
+
+    public void setShip(int index, Ship ship) {
+        this.ships[index] = ship;
     }
 
     public void setGridMine(char[][] gridMine) {
@@ -69,8 +87,8 @@ public abstract class Player {
 
     public abstract void attack();
 
-    public boolean attemptToBuild(int x, int y, int segmentNum, boolean isHorizontal, boolean isUser) {
-        return game.attemptToBuild(x, y, segmentNum, isHorizontal, isUser);
+    public boolean attemptToBuild(int x, int y, int segmentNum, boolean isHorizontal) {
+        return game.attemptToBuild(x, y, segmentNum, isHorizontal, id);
     }
 
     public void showGridMine() {
@@ -109,5 +127,15 @@ public abstract class Player {
             System.out.print(c + " ");
         }
         System.out.println();
+    }
+
+    public int getDamage(int x, int y) {
+        int indexShip = 0;
+        for (; indexShip < ships.length; ++indexShip) {
+            if (ships[indexShip].isAt(x, y)) break;
+        }
+        ships[indexShip].getDamage(x, y);
+        if (ships[indexShip].isDead()) return SINK;
+        return HIT;
     }
 }
