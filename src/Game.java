@@ -1,14 +1,22 @@
 public class Game {
     private int turn = 0;
-    private Player[] players = new Player[2];
+    private Player[] players;
 
     private final static int MISS = 0;
     private final static int HIT = 1;
     private final static int SINK = 2;
 
     public Game() {
-        this.players[0] = new User(this, 0);
-        this.players[1] = new User(this, 1);
+        players = new Player[2];
+        players[0] = new User(this, 0);
+        players[1] = new User(this, 1);
+    }
+
+    public Game(int userNum) {
+        players = new Player[userNum];
+        for (int i = 0; i < userNum; i++) {
+            players[i] = new User(this, i);
+        }
     }
 
     public boolean canBuild(int x, int y, int segmentNum, boolean isHorizontal, int id) {
