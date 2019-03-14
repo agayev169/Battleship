@@ -7,9 +7,9 @@ public abstract class Player {
     private Game game;
     private final int id;
 
-    private final static int MISS = 0;
-    private final static int HIT = 1;
-    private final static int SINK = 2;
+    public final static int MISS = 0;
+    public final static int HIT = 1;
+    public final static int SINK = 2;
 
     public Player(Game game, int id) {
         this.game = game;
@@ -91,9 +91,11 @@ public abstract class Player {
         return game.attemptToBuild(x, y, segmentNum, isHorizontal, id);
     }
 
-    public void showGridMine() {
-        System.out.print("\033c");
-        System.out.flush();
+    public void showGridMine(boolean clear) {
+        if (clear) {
+            System.out.print("\033c");
+            System.out.flush();
+        }
         System.out.println("    _____________________");
         for (int y = 9; y >= 0; --y) {
             if (y == 9) System.out.print((y + 1) + "  |");
@@ -110,7 +112,11 @@ public abstract class Player {
         System.out.println();
     }
 
-    public void showGridOpponent() {
+    public void showGridOpponent(boolean clear) {
+        if (clear) {
+            System.out.print("\033c");
+            System.out.flush();
+        }
         System.out.print("\033c");
         System.out.flush();
         System.out.println("    _____________________");
