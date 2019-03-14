@@ -17,7 +17,7 @@ public class User extends Player {
         shipCount[3] = 1;
         boolean lastAttempt = true;
         while (shipCount[0] > 0 || shipCount[1] > 0 || shipCount[2] > 0 || shipCount[3] > 0) {
-            showGridMine();
+            showGridMine(true);
             if (!lastAttempt) {
                 System.out.println("Cannot build a ship with this configuration. Try again.");
             }
@@ -57,6 +57,15 @@ public class User extends Player {
 
     @Override
     public void attack() {
-
+        Scanner sc = new Scanner(System.in);
+        int retVal = HIT;
+        while (retVal != MISS) {
+            showGridOpponent(true);
+            System.out.print("Where do you want to shoot? (Ex: b 5) ");
+            char letter = sc.next().charAt(0);
+            int x = letter - 'a';
+            int y = sc.nextInt() - 1;
+            retVal = getGame().shoot(x, y, getId());
+        }
     }
 }
