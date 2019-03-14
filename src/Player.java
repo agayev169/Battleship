@@ -5,9 +5,16 @@ public abstract class Player {
     private char[][] gridMine = new char[10][10];
     private char[][] gridOpponent = new char[10][10];
     private Game game;
+    private final int id;
 
-    public Player(Game game) {
+    public Player(Game game, int id) {
         this.game = game;
+        this.id = id;
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                gridMine[i][j] = gridOpponent[i][j] = ' ';
+            }
+        }
     }
 
     public Ship[] getShips() {
@@ -59,9 +66,48 @@ public abstract class Player {
     }
 
     public abstract void buildShips() throws IOException;
+
     public abstract void attack();
 
     public boolean attemptToBuild(int x, int y, int segmentNum, boolean isHorizontal, boolean isUser) {
         return game.attemptToBuild(x, y, segmentNum, isHorizontal, isUser);
+    }
+
+    public void showGridMine() {
+        System.out.print("\033c");
+        System.out.flush();
+        System.out.println("    _____________________");
+        for (int y = 9; y >= 0; --y) {
+            if (y == 9) System.out.print((y + 1) + "  |");
+            else System.out.print((y + 1) + "   |");
+            for (int x = 0; x < 10; ++x) {
+                System.out.print(gridMine[y][x] + "|");
+            }
+            System.out.println();
+        }
+        System.out.print("     ");
+        for (char c = 'a'; c <= 'j'; ++c) {
+            System.out.print(c + " ");
+        }
+        System.out.println();
+    }
+
+    public void showGridOpponent() {
+        System.out.print("\033c");
+        System.out.flush();
+        System.out.println("    _____________________");
+        for (int y = 9; y >= 0; --y) {
+            if (y == 9) System.out.print((y + 1) + "  |");
+            else System.out.print((y + 1) + "   |");
+            for (int x = 0; x < 10; ++x) {
+                System.out.print(gridOpponent[y][x] + "|");
+            }
+            System.out.println();
+        }
+        System.out.print("     ");
+        for (char c = 'a'; c <= 'j'; ++c) {
+            System.out.print(c + " ");
+        }
+        System.out.println();
     }
 }
