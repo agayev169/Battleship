@@ -1,14 +1,13 @@
-import java.io.IOException;
 import java.util.Scanner;
 
 public class User extends Player {
 
-    public User(Game game) {
-        super(game);
+    public User(Game game, int id) {
+        super(game, id);
     }
 
     @Override
-    public void buildShips() throws IOException {
+    public void buildShips() {
         Scanner sc = new Scanner(System.in);
 
         int[] shipCount = new int[4];
@@ -18,7 +17,7 @@ public class User extends Player {
         shipCount[3] = 1;
         boolean lastAttempt = true;
         while (shipCount[0] > 0 || shipCount[1] > 0 || shipCount[2] > 0 || shipCount[3] > 0) {
-            game.showGrid(true);
+            showGridMine();
             if (!lastAttempt) {
                 System.out.println("Cannot build a ship with this configuration. Try again.");
             }
@@ -47,7 +46,7 @@ public class User extends Player {
                 isHorizontal = (orientation == 'H');
                 if (orientation != 'H' && orientation != 'V') System.out.println("Wrong orientation. Try again.");
             } while (orientation != 'H' && orientation != 'V');
-            if (game.attemptToBuild(x, y, segmentNum, isHorizontal, true)) {
+            if (attemptToBuild(x, y, segmentNum, isHorizontal)) {
                 --shipCount[segmentNum - 2];
                 lastAttempt = true;
             } else {
