@@ -2,9 +2,9 @@ public class Game {
     private int turn = 0;
     private Player[] players;
 
-    private final static int MISS = 0;
-    private final static int HIT = 1;
-    private final static int SINK = 2;
+    public final static int MISS = 0;
+    public final static int HIT = 1;
+    public final static int SINK = 2;
 
     public Game() {
         players = new Player[2];
@@ -21,7 +21,7 @@ public class Game {
 
     public boolean canBuild(int x, int y, int segmentNum, boolean isHorizontal, int id) {
         boolean[][] hasShip = new boolean[10][10];
-        if ((isHorizontal && (x + segmentNum >= 10 || x < 0)) || (!isHorizontal && (y + segmentNum >= 10 || y < 0)))
+        if ((isHorizontal && (x + segmentNum > 10 || x < 0)) || (!isHorizontal && (y + segmentNum > 10 || y < 0)))
             return false;
         for (Ship ship : players[id].getShips()) {
             if (ship == null) break;
