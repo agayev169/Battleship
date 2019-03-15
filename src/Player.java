@@ -1,5 +1,3 @@
-import java.io.IOException;
-
 public abstract class Player {
     private Ship[] ships = new Ship[5];
     private char[][] gridMine = new char[10][10];
