@@ -83,7 +83,7 @@ public abstract class Player {
         this.game = game;
     }
 
-    public abstract void buildShips() throws IOException;
+    public abstract void buildShips();
 
     public abstract void attack();
 
@@ -117,8 +117,6 @@ public abstract class Player {
             System.out.print("\033c");
             System.out.flush();
         }
-        System.out.print("\033c");
-        System.out.flush();
         System.out.println("    _____________________");
         for (int y = 9; y >= 0; --y) {
             if (y == 9) System.out.print((y + 1) + "  |");
