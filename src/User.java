@@ -57,6 +57,15 @@ public class User extends Player {
 
     @Override
     public void attack() {
-
+        Scanner sc = new Scanner(System.in);
+        int retVal = HIT;
+        while (retVal != MISS) {
+            showGridOpponent(true);
+            System.out.print("Where do you want to shoot? (Ex: b 5) ");
+            char letter = sc.next().charAt(0);
+            int x = letter - 'a';
+            int y = sc.nextInt() - 1;
+            retVal = getGame().shoot(x, y, getId());
+        }
     }
 }
