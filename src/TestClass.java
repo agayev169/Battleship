@@ -66,11 +66,70 @@ public class TestClass {
     }
 
     @Test
-    void shoot() {
+    void shoot2() {
         Game game = new Game();
         assertTrue(game.attemptToBuild(0, 0, 2, true, 1));
-        assertEquals(game.shoot(0, 0, 2), 1);
-        assertEquals(game.shoot(1, 0, 2), 2);
-        assertEquals(game.shoot(5, 5, 2), 0);
+        assertEquals(game.shoot(0, 0, 2), Game.HIT);
+        assertEquals(game.shoot(1, 0, 2), Game.SINK);
+        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+
+        assertTrue(game.attemptToBuild(5, 0, 2, false, 1));
+        assertEquals(game.shoot(5, 0, 2), Game.HIT);
+        assertEquals(game.shoot(5, 1, 2), Game.SINK);
+        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+    }
+
+    @Test
+    void shoot3() {
+        Game game = new Game();
+        assertTrue(game.attemptToBuild(0, 0, 3, true, 1));
+        assertEquals(game.shoot(0, 0, 2), Game.HIT);
+        assertEquals(game.shoot(1, 0, 2), Game.HIT);
+        assertEquals(game.shoot(2, 0, 2), Game.SINK);
+        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+
+        assertTrue(game.attemptToBuild(5, 0, 3, false, 1));
+        assertEquals(game.shoot(5, 0, 2), Game.HIT);
+        assertEquals(game.shoot(5, 1, 2), Game.HIT);
+        assertEquals(game.shoot(5, 2, 2), Game.SINK);
+        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+    }
+
+    @Test
+    void shoot4() {
+        Game game = new Game();
+        assertTrue(game.attemptToBuild(0, 0, 4, true, 1));
+        assertEquals(game.shoot(0, 0, 2), Game.HIT);
+        assertEquals(game.shoot(1, 0, 2), Game.HIT);
+        assertEquals(game.shoot(2, 0, 2), Game.HIT);
+        assertEquals(game.shoot(3, 0, 2), Game.SINK);
+        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+
+        assertTrue(game.attemptToBuild(5, 0, 4, false, 1));
+        assertEquals(game.shoot(5, 0, 2), Game.HIT);
+        assertEquals(game.shoot(5, 1, 2), Game.HIT);
+        assertEquals(game.shoot(5, 2, 2), Game.HIT);
+        assertEquals(game.shoot(5, 3, 2), Game.SINK);
+        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+    }
+
+    @Test
+    void shoot5() {
+        Game game = new Game();
+        assertTrue(game.attemptToBuild(0, 0, 5, true, 1));
+        assertEquals(game.shoot(0, 0, 2), Game.HIT);
+        assertEquals(game.shoot(1, 0, 2), Game.HIT);
+        assertEquals(game.shoot(2, 0, 2), Game.HIT);
+        assertEquals(game.shoot(3, 0, 2), Game.HIT);
+        assertEquals(game.shoot(4, 0, 2), Game.SINK);
+        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+
+        assertTrue(game.attemptToBuild(5, 0, 5, false, 1));
+        assertEquals(game.shoot(5, 0, 2), Game.HIT);
+        assertEquals(game.shoot(5, 1, 2), Game.HIT);
+        assertEquals(game.shoot(5, 2, 2), Game.HIT);
+        assertEquals(game.shoot(5, 3, 2), Game.HIT);
+        assertEquals(game.shoot(5, 4, 2), Game.SINK);
+        assertEquals(game.shoot(5, 5, 2), Game.MISS);
     }
 }
