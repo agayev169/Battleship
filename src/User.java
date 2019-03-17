@@ -59,6 +59,13 @@ public class User extends Player {
     @Override
     public void attack() {
         Scanner sc = new Scanner(System.in);
+        System.out.print("\033c");
+        System.out.flush();
+        String response = "";
+        while (!response.equals("ready")) {
+            System.out.print("The move of the player #" + getId() + " starts. Please type \"ready\" if you are ready. ");
+            response = sc.next();
+        }
         int retVal = HIT;
         while (retVal != MISS && getGame().gameOver() == -1) {
             showGridOpponent(true);
