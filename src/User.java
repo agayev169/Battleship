@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class User extends Player {
@@ -59,8 +60,9 @@ public class User extends Player {
     public void attack() {
         Scanner sc = new Scanner(System.in);
         int retVal = HIT;
-        while (retVal != MISS) {
+        while (retVal != MISS && getGame().gameOver() == -1) {
             showGridOpponent(true);
+            System.out.println("Turn #" + getGame().getTurn());
             System.out.print("Where do you want to shoot? (Ex: b 5) ");
             char letter = sc.next().charAt(0);
             int x = letter - 'a';
