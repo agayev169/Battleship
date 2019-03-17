@@ -12,11 +12,23 @@ public class Game {
         players[1] = new Bot(this, 1);
     }
 
+    public Game(boolean singlePlayer) {
+        players = new Player[2];
+        players[0] = new User(this, 0);
+        if (singlePlayer)
+            players[1] = new Bot(this, 1);
+        else players[1] = new User(this, 1);
+    }
+
     public Game(int userNum) {
         players = new Player[userNum];
         for (int i = 0; i < userNum; i++) {
             players[i] = new User(this, i);
         }
+    }
+
+    public int getTurn() {
+        return turn;
     }
 
     public boolean canBuild(int x, int y, int segmentNum, boolean isHorizontal, int id) {
@@ -36,7 +48,6 @@ public class Game {
             }
         }
 
-        System.out.println("x: " + x + " y: " + y);
         if (isHorizontal) {
             for (int i = 0; i < segmentNum; ++i) {
                 if (hasShip[y][x + i]) return false;
@@ -93,45 +104,33 @@ public class Game {
             ++turn;
             for (int i = 0; i < players.length; i++) {
                 players[i].attack();
-                int winner = gameOver();
-                if (winner != -1) {
-                    System.out.println("The winner of the game after " + turn + " turns is the player with id " + winner);
-                    players[0].showGridMine(false);
-                    players[0].showGridOpponent(false);
-                    players[1].showGridMine(false);
-                    players[1].showGridOpponent(false);
-
-                    break;
+                int loser = gameOver();
+                if (loser != -1) {
+                    System.out.println("------------------------------------------------------------");
+                    System.out.println("The winner of the game after " + turn + " turns is the player with id " + loser);
+                    for (int j = 0; j < players.length; j++) {
+                        System.out.println("Grid of player #" + players[j].getId());
+                        players[j].showGridMine(false);
+                        System.out.println("Player #" + players[j].getId() + " shot in the following way");
+                        players[j].showGridOpponent(false);
+                    }
+                    i = players.length;
                 }
             }
         }
     }
 
     public int gameOver() {
-        boolean[] lost = new boolean[players.length];
         for (int i = 0; i < players.length; i++) {
-            boolean allDead = true;
-            Ship[] ships = players[i].getShips();
-            for (int j = 0; j < ships.length; j++) {
-                if (!ships[j].isDead()) {
-                    allDead = false;
-                    break;
+            int hits = 0;
+            char[][] grid = players[i].getGridOpponent();
+            for (int y = 0; y < 10; y++) {
+                for (int x = 0; x < 10; x++) {
+                    if (grid[y][x] == 'x') ++hits;
                 }
             }
-            if (allDead) {
-                lost[i] = true;
-            }
+            if (hits == 17) return i;
         }
-
-        int winnersNum = 0;
-        int winner = -1;
-        for (int i = 0; i < players.length; i++) {
-            if (!lost[i]) {
-                ++winnersNum;
-                winner = i;
-            }
-        }
-        if (winnersNum == 1) return winner;
         return -1;
     }
 }
