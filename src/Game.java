@@ -9,7 +9,7 @@ public class Game {
     public Game() {
         players = new Player[2];
         players[0] = new User(this, 0);
-        players[1] = new User(this, 1);
+        players[1] = new Bot(this, 1);
     }
 
     public Game(int userNum) {
@@ -36,13 +36,14 @@ public class Game {
             }
         }
 
+        System.out.println("x: " + x + " y: " + y);
         if (isHorizontal) {
             for (int i = 0; i < segmentNum; ++i) {
                 if (hasShip[y][x + i]) return false;
             }
         } else {
             for (int i = 0; i < segmentNum; ++i) {
-                if (hasShip[y][x + i]) return false;
+                if (hasShip[y + i][x]) return false;
             }
         }
 
@@ -74,11 +75,63 @@ public class Game {
     }
 
     public int shoot(int x, int y, int id) {
+        if (players[(id) % players.length].getGridOpponent(x, y) == '.') return HIT; // Already shot at this point
         if (players[(id + 1) % players.length].getGridMine(x, y) == 'o') {
-            players[(id + 1) % players.length].setGridOpponent(x, y, 'x');
+            players[(id) % players.length].setGridOpponent(x, y, 'x');
             return players[(id + 1) % players.length].getDamage(x, y);
         }
-        players[(id + 1) % players.length].setGridOpponent(x, y, '.');
+        players[(id) % players.length].setGridOpponent(x, y, '.');
         return MISS;
+    }
+
+    public void play() {
+        for (int i = 0; i < players.length; i++) {
+            players[i].buildShips();
+        }
+
+        while (gameOver() == -1) {
+            ++turn;
+            for (int i = 0; i < players.length; i++) {
+                players[i].attack();
+                int winner = gameOver();
+                if (winner != -1) {
+                    System.out.println("The winner of the game after " + turn + " turns is the player with id " + winner);
+                    players[0].showGridMine(false);
+                    players[0].showGridOpponent(false);
+                    players[1].showGridMine(false);
+                    players[1].showGridOpponent(false);
+
+                    break;
+                }
+            }
+        }
+    }
+
+    public int gameOver() {
+        boolean[] lost = new boolean[players.length];
+        for (int i = 0; i < players.length; i++) {
+            boolean allDead = true;
+            Ship[] ships = players[i].getShips();
+            for (int j = 0; j < ships.length; j++) {
+                if (!ships[j].isDead()) {
+                    allDead = false;
+                    break;
+                }
+            }
+            if (allDead) {
+                lost[i] = true;
+            }
+        }
+
+        int winnersNum = 0;
+        int winner = -1;
+        for (int i = 0; i < players.length; i++) {
+            if (!lost[i]) {
+                ++winnersNum;
+                winner = i;
+            }
+        }
+        if (winnersNum == 1) return winner;
+        return -1;
     }
 }
