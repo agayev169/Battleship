@@ -47,10 +47,7 @@ public class Ship {
     }
 
     public void getDamage(int x, int y) {
-        if ((x - this.x != 0 && y - this.y != 0) ||
-                x - this.x < 0 || x - this.x > health.length ||
-                        y - this.y < 0 || y - this.y > health.length ||
-                            (isHorizontal && y - this.y != 0) || (!isHorizontal && x - this.x != 0)) {
+        if (!isAt(x, y)) {
             System.out.println("Error in getDamage function. Wrong coordinates for the ship.");
             return;
         }
