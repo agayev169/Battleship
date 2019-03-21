@@ -131,6 +131,37 @@ public abstract class Player {
         System.out.println();
     }
 
+    public void showGrids(boolean clear) {
+        if (clear) {
+            System.out.print("\033c");
+            System.out.flush();
+        }
+        System.out.println("    Your grid                     Opponent's grid");
+        System.out.println("    _____________________         _____________________");
+        for (int y = 9; y >= 0; --y) {
+            if (y == 9) System.out.print((y + 1) + "  |");
+            else System.out.print((y + 1) + "   |");
+            for (int x = 0; x < 10; ++x) {
+                System.out.print(gridMine[y][x] + "|");
+            }
+            System.out.print("         |");
+            for (int x = 0; x < 10; ++x) {
+                System.out.print(gridOpponent[y][x] + "|");
+            }
+            System.out.println();
+        }
+        System.out.print("     ");
+        for (char c = 'a'; c <= 'j'; ++c) {
+            System.out.print(c + " ");
+        }
+        System.out.print("          ");
+        for (char c = 'a'; c <= 'j'; ++c) {
+            System.out.print(c + " ");
+        }
+        System.out.println();
+
+    }
+
     public int getDamage(int x, int y) {
         int indexShip = 0;
         for (; indexShip < ships.length; ++indexShip) {

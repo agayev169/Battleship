@@ -68,7 +68,8 @@ public class User extends Player {
         }
         int retVal = HIT;
         while (retVal != MISS && getGame().gameOver() == -1) {
-            showGridOpponent(true);
+//            showGridOpponent(true);
+            showGrids(true);
             System.out.println("Turn #" + getGame().getTurn());
             System.out.print("Where do you want to shoot? (Ex: b 5) ");
             char letter = sc.next().charAt(0);

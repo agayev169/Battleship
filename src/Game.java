@@ -89,9 +89,11 @@ public class Game {
         if (players[(id) % players.length].getGridOpponent(x, y) == '.') return HIT; // Already shot at this point
         if (players[(id + 1) % players.length].getGridMine(x, y) == 'o') {
             players[(id) % players.length].setGridOpponent(x, y, 'x');
+            players[(id + 1) % players.length].setGridMine(x, y, 'x');
             return players[(id + 1) % players.length].getDamage(x, y);
         }
         players[(id) % players.length].setGridOpponent(x, y, '.');
+        players[(id + 1) % players.length].setGridMine(x, y, '.');
         return MISS;
     }
 
