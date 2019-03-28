@@ -12,7 +12,7 @@ public class TestGame {
 
     @BeforeEach
     void init() {
-        game = new Game();
+        game = new Game(Game.SINGLE_PLAYER);
     }
 
     @Test
