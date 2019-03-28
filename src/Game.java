@@ -6,24 +6,20 @@ public class Game {
     public final static int HIT = 1;
     public final static int SINK = 2;
 
-    public Game() {
-        players = new Player[2];
-        players[0] = new User(this, 0);
-        players[1] = new Bot(this, 1);
-    }
+    public final static int SINGLE_PLAYER = 0;
+    public final static int MULTIPLAYER_ONE_MACHINE = 1;
+    public final static int MULTIPLAYER_LOCAL = 2;
 
-    public Game(boolean singlePlayer) {
+    public Game(int gameType) {
         players = new Player[2];
-        players[0] = new User(this, 0);
-        if (singlePlayer)
+        if (gameType == SINGLE_PLAYER) {
+            players[0] = new User(this, 0);
             players[1] = new Bot(this, 1);
-        else players[1] = new User(this, 1);
-    }
-
-    public Game(int userNum) {
-        players = new Player[userNum];
-        for (int i = 0; i < userNum; i++) {
-            players[i] = new User(this, i);
+        } else if (gameType == MULTIPLAYER_ONE_MACHINE) {
+            players[0] = new User(this, 0);
+            players[1] = new User(this, 1);
+        } else if (gameType == MULTIPLAYER_LOCAL) {
+            // TODO: Add choice of creating a server or connecting to an existing server and implement it
         }
     }
 
