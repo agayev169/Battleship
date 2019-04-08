@@ -5,10 +5,6 @@ public abstract class Player {
     private Game game;
     private final int id;
 
-    public final static int MISS = 0;
-    public final static int HIT = 1;
-    public final static int SINK = 2;
-
     public Player(Game game, int id) {
         this.game = game;
         this.id = id;
@@ -168,7 +164,7 @@ public abstract class Player {
             if (ships[indexShip].isAt(x, y)) break;
         }
         ships[indexShip].getDamage(x, y);
-        if (ships[indexShip].isDead()) return SINK;
-        return HIT;
+        if (ships[indexShip].isDead()) return Game.SINK;
+        return Game.HIT;
     }
 }

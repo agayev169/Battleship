@@ -26,8 +26,8 @@ public class Bot extends Player {
     public void attack() {
         Random rand = new Random();
 
-        int retVal = HIT;
-        while (retVal != MISS && getGame().gameOver() == -1) {
+        int retVal = Game.HIT;
+        while (retVal != Game.MISS && getGame().gameOver() == -1) {
             int x = rand.nextInt(10);
             int y = rand.nextInt(10);
             while (getGridOpponent(x, y) == '.') {

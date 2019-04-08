@@ -2,6 +2,8 @@ public class Game {
     private int turn = 0;
     private Player[] players;
 
+    public final int userInterface;
+
     public final static int MISS = 0;
     public final static int HIT = 1;
     public final static int SINK = 2;
@@ -10,17 +12,25 @@ public class Game {
     public final static int MULTIPLAYER_ONE_MACHINE = 1;
     public final static int MULTIPLAYER_LOCAL = 2;
 
-    public Game(int gameType) {
+    public final static int TERMINAL = 0;
+    public final static int GUI = 1;
+
+    public Game(int gameType, int userInterface) {
         players = new Player[2];
+        this.userInterface = userInterface;
         if (gameType == SINGLE_PLAYER) {
-            players[0] = new User(this, 0);
+            players[0] = new User(this, 0, userInterface);
             players[1] = new Bot(this, 1);
         } else if (gameType == MULTIPLAYER_ONE_MACHINE) {
-            players[0] = new User(this, 0);
-            players[1] = new User(this, 1);
+            players[0] = new User(this, 0, userInterface);
+            players[1] = new User(this, 1, userInterface);
         } else if (gameType == MULTIPLAYER_LOCAL) {
             // TODO: Add choice of creating a server or connecting to an existing server and implement it
         }
+    }
+
+    public Player[] getPlayers() {
+        return players;
     }
 
     public int getTurn() {
