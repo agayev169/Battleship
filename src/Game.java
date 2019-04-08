@@ -104,6 +104,8 @@ public class Game {
     }
 
     public void play() {
+        // TODO: Connect Game with GUI!!!!!
+
         for (int i = 0; i < players.length; i++) {
             players[i].buildShips();
         }

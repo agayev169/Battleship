@@ -109,20 +109,22 @@ public class GridPanel extends JPanel implements MouseListener, MouseMotionListe
 
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
-        int x = mouseEvent.getX() / (WIDTH / 21);
-        int y = mouseEvent.getY() / (HEIGHT / 10);
-        if (buildIndex < 5) {
-            if (game.attemptToBuild(x, y, toBuild[buildIndex], isHorizontal, player.getId())) {
-                ++buildIndex;
+        if (SwingUtilities.isLeftMouseButton(mouseEvent)) {
+            int x = mouseEvent.getX() / (WIDTH / 21);
+            int y = mouseEvent.getY() / (HEIGHT / 10);
+            if (buildIndex < 5) {
+                if (game.attemptToBuild(x, y, toBuild[buildIndex], isHorizontal, player.getId())) {
+                    ++buildIndex;
+                }
+            } else if (x >= WIDTH / 21 * 11) {
+                game.shoot(x / (WIDTH / 21) - 11, y / (HEIGHT / 10), player.getId());
             }
-        } else {
-            game.shoot(x - 11, y, player.getId());
         }
     }
 
     @Override
     public void mousePressed(MouseEvent mouseEvent) {
-
+        if (SwingUtilities.isRightMouseButton(mouseEvent)) isHorizontal = !isHorizontal;
     }
 
     @Override
