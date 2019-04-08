@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class GridPanel extends JPanel implements MouseListener, MouseMotionListener, ActionListener {
+public class GridPanel extends JPanel implements MouseListener, MouseMotionListener, KeyListener, ActionListener {
     public final int WIDTH;
     public final int HEIGHT;
 
@@ -30,22 +30,32 @@ public class GridPanel extends JPanel implements MouseListener, MouseMotionListe
 
         addMouseListener(this);
         addMouseMotionListener(this);
+        setFocusable(true);
+        requestFocus();
+        addKeyListener(this);
     }
 
-    private void drawShip(int x_, int y_, int segmentNum, boolean isHorizontal, Color color, Graphics g) {
-        int x = x_ / (WIDTH / 21);
-        int y = y_ / (HEIGHT / 10);
+    private void drawSegment(int x, int y, Color color, Graphics g) {
         g.setColor(color);
+        g.fillRect(x * WIDTH / 21, y * HEIGHT / 10, WIDTH / 21, HEIGHT / 10);
+    }
 
+    private void drawSunkSegment(int x, int y, Color color, Graphics g) {
+        drawSegment(x, y, color, g);
+
+        // TODO: Add X on a drawn segment
+    }
+
+    private void drawShip(int x, int y, int segmentNum, boolean isHorizontal, Color color, Graphics g) {
         if (isHorizontal) {
             if (x + segmentNum > 10) return;
             for (int i = x; i < x + segmentNum; i++) {
-                g.fillRect(i * WIDTH / 21, y * HEIGHT / 10, WIDTH / 21, HEIGHT / 10);
+                drawSegment(i, y, color, g);
             }
         } else {
-            if (y - segmentNum < -1) return;
-            for (int i = y; i > y - segmentNum; i--) {
-                g.fillRect(x * WIDTH / 21, i * HEIGHT / 10, WIDTH / 21, HEIGHT / 10);
+            if (y + segmentNum > 10) return;
+            for (int i = y; i < y + segmentNum; i++) {
+                drawSegment(x, i, color, g);
             }
         }
     }
@@ -69,10 +79,27 @@ public class GridPanel extends JPanel implements MouseListener, MouseMotionListe
             g.drawLine((int) (WIDTH / 2.0 + WIDTH / 42.0), i, WIDTH, i);
         }
 
+        // Drawing built ships
+
+        char[][] grid1 = player.getGridMine();
+        char[][] grid2 = player.getGridOpponent();
+
+        for (int y = 0; y < grid1.length; y++) {
+            for (int x = 0; x < grid1[y].length; x++) {
+                if (grid1[y][x] == 'o') {
+                    drawShip(x, y,1, true, new Color(0, 0, 0, 150), g);
+                } else if (grid1[y][x] == 'x') {
+
+                }
+            }
+        }
+
 
         // "Animation" for building and attacking
         if (buildIndex < 5) {
-            drawShip(mouseX, mouseY, toBuild[buildIndex], isHorizontal, new Color(100, 100, 100, 150), g);
+            if (mouseX < WIDTH / 21 * 10)
+                drawShip(mouseX / (WIDTH / 21), mouseY / (HEIGHT / 10), toBuild[buildIndex],
+                    isHorizontal, new Color(100, 100, 100, 150), g);
         } else {
             // TODO: Add attacking "animation"
         }
@@ -82,14 +109,14 @@ public class GridPanel extends JPanel implements MouseListener, MouseMotionListe
 
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
-        int x = mouseEvent.getX() / 42;
-        int y = mouseEvent.getY() / 10;
+        int x = mouseEvent.getX() / (WIDTH / 21);
+        int y = mouseEvent.getY() / (HEIGHT / 10);
         if (buildIndex < 5) {
             if (game.attemptToBuild(x, y, toBuild[buildIndex], isHorizontal, player.getId())) {
                 ++buildIndex;
             }
         } else {
-            game.shoot(x, y, player.getId());
+            game.shoot(x - 11, y, player.getId());
         }
     }
 
@@ -128,5 +155,22 @@ public class GridPanel extends JPanel implements MouseListener, MouseMotionListe
     public void mouseMoved(MouseEvent mouseEvent) {
         mouseX = mouseEvent.getX();
         mouseY = mouseEvent.getY();
+    }
+
+    @Override
+    public void keyTyped(KeyEvent keyEvent) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent keyEvent) {
+        if (keyEvent.getKeyChar() == 'r' || keyEvent.getKeyChar() == 'R') {
+            isHorizontal = !isHorizontal;
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent keyEvent) {
+
     }
 }
