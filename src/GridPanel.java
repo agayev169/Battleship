@@ -131,9 +131,7 @@ public class GridPanel extends JPanel implements MouseListener, MouseMotionListe
         if (buildIndex < 5) {
             if (mouseX < WIDTH / 21 * 10)
                 drawShip(mouseX / (WIDTH / 21), mouseY / (HEIGHT / 10), toBuild[buildIndex],
-                    isHorizontal, new Color(100, 100, 100, 150), true, g);
-        } else {
-            // TODO: Add attacking "animation"
+                        isHorizontal, new Color(100, 100, 100, 150), true, g);
         }
 
         timer.start();
@@ -152,10 +150,10 @@ public class GridPanel extends JPanel implements MouseListener, MouseMotionListe
                     player.setReady(true);
                 }
             } else if (x >= 11) {
-                System.out.println("Shooting at (" + x + ", " + y + ")");
+//                System.out.println("Shooting at (" + x + ", " + y + ")");
                 if (game.shoot(x - 11, y , player.getId()) == Game.MISS) {
                     player.setReady(true);
-                } else System.out.println("HIT. Continue");
+                } /* else System.out.println("HIT. Continue"); */
             }
         }
     }

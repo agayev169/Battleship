@@ -86,7 +86,7 @@ public class User extends Player {
                 retVal = getGame().shoot(x, y, getId());
             }
         } else {
-            while (!isReady());
+            while (!isReady() && getGame().gameOver() == -1);
             setReady(false);
         }
     }

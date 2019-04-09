@@ -92,7 +92,8 @@ public class Game {
     }
 
     public int shoot(int x, int y, int id) {
-        if (players[(id) % players.length].getGridOpponent(x, y) == '.') return HIT; // Already shot at this point
+        if (players[(id) % players.length].getGridOpponent(x, y) == '.' ||
+                players[(id) % players.length].getGridOpponent(x, y) == 'x') return HIT; // Already shot at this point
         if (players[(id + 1) % players.length].getGridMine(x, y) == 'o') {
             players[(id) % players.length].setGridOpponent(x, y, 'x');
             players[(id + 1) % players.length].setGridMine(x, y, 'x');
@@ -110,13 +111,13 @@ public class Game {
             players[i].buildShips();
         }
 
-        System.out.println("Ships are built");
+//        System.out.println("Ships are built");
 
         while (gameOver() == -1) {
             ++turn;
-            System.out.println("Turn: " + turn);
+//            System.out.println("Turn: " + turn);
             for (int i = 0; i < players.length; i++) {
-                System.out.println("Turn #" + turn + ". Player #" + i + " attacks");
+//                System.out.println("Turn #" + turn + ". Player #" + i + " attacks");
                 players[i].attack();
                 int loser = gameOver();
                 if (loser != -1) {
