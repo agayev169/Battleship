@@ -35,27 +35,43 @@ public class GridPanel extends JPanel implements MouseListener, MouseMotionListe
         addKeyListener(this);
     }
 
-    private void drawSegment(int x, int y, Color color, Graphics g) {
+    private void drawSegment(int x, int y, Color color, boolean left, Graphics g) {
         g.setColor(color);
-        g.fillRect(x * WIDTH / 21, y * HEIGHT / 10, WIDTH / 21, HEIGHT / 10);
+        if (left)
+            g.fillRect(x * WIDTH / 21, y * HEIGHT / 10, WIDTH / 21, HEIGHT / 10);
+        else
+            g.fillRect(WIDTH / 21 * 11 + x * WIDTH / 21, y * HEIGHT / 10, WIDTH / 21, HEIGHT / 10);
     }
 
-    private void drawSunkSegment(int x, int y, Color color, Graphics g) {
-        drawSegment(x, y, color, g);
-
+    private void drawSunkSegment(int x, int y, Color color, boolean left, Graphics g) {
+        drawSegment(x, y, color, left, g);
         // TODO: Add X on a drawn segment
+        g.setColor(Color.RED);
+        if (left) {
+            g.drawLine(x * WIDTH / 21, y * HEIGHT / 10, (x + 1) * WIDTH / 21, (y + 1) * HEIGHT / 10);
+            g.drawLine(x * WIDTH / 21, (y + 1) * HEIGHT / 10, (x + 1) * WIDTH / 21, (y) * HEIGHT / 10);
+        } else {
+            g.drawLine(WIDTH / 21 * 11 + x * WIDTH / 21,
+                    y * HEIGHT / 10,
+                    WIDTH / 21 * 11 + (x + 1) * WIDTH / 21,
+                    (y + 1) * HEIGHT / 10);
+            g.drawLine(WIDTH / 21 * 11 + x * WIDTH / 21,
+                    (y + 1) * HEIGHT / 10,
+                    WIDTH / 21 * 11 + (x + 1) * WIDTH / 21,
+                    (y) * HEIGHT / 10);
+        }
     }
 
-    private void drawShip(int x, int y, int segmentNum, boolean isHorizontal, Color color, Graphics g) {
+    private void drawShip(int x, int y, int segmentNum, boolean isHorizontal, Color color, boolean left, Graphics g) {
         if (isHorizontal) {
             if (x + segmentNum > 10) return;
             for (int i = x; i < x + segmentNum; i++) {
-                drawSegment(i, y, color, g);
+                drawSegment(i, y, color, left, g);
             }
         } else {
             if (y + segmentNum > 10) return;
             for (int i = y; i < y + segmentNum; i++) {
-                drawSegment(x, i, color, g);
+                drawSegment(x, i, color, left, g);
             }
         }
     }
@@ -87,9 +103,25 @@ public class GridPanel extends JPanel implements MouseListener, MouseMotionListe
         for (int y = 0; y < grid1.length; y++) {
             for (int x = 0; x < grid1[y].length; x++) {
                 if (grid1[y][x] == 'o') {
-                    drawShip(x, y,1, true, new Color(0, 0, 0, 150), g);
+                    drawSegment(x, y, new Color(0, 0, 0, 150), true, g);
                 } else if (grid1[y][x] == 'x') {
+                    drawSunkSegment(x, y, new Color(0, 0, 0, 150), true, g);
+                }
+            }
+        }
 
+
+
+        for (int y = 0; y < grid2.length; y++) {
+            for (int x = 0; x < grid2[y].length; x++) {
+                if (grid2[y][x] == 'x') {
+                    drawSunkSegment(x, y, new Color(0, 0, 0, 150), false, g);
+                } else if (grid2[y][x] == '.') {
+                    g.setColor(Color.BLACK);
+                    g.fillOval(WIDTH / 21 * 11 + x * WIDTH / 21 + WIDTH / 42 - WIDTH / 21 / 10,
+                            y * HEIGHT / 10 + HEIGHT / 20 - HEIGHT / 10 / 10,
+                            2 * WIDTH / 21 / 10,
+                            2 * HEIGHT / 10 / 10);
                 }
             }
         }
@@ -99,7 +131,7 @@ public class GridPanel extends JPanel implements MouseListener, MouseMotionListe
         if (buildIndex < 5) {
             if (mouseX < WIDTH / 21 * 10)
                 drawShip(mouseX / (WIDTH / 21), mouseY / (HEIGHT / 10), toBuild[buildIndex],
-                    isHorizontal, new Color(100, 100, 100, 150), g);
+                    isHorizontal, new Color(100, 100, 100, 150), true, g);
         } else {
             // TODO: Add attacking "animation"
         }
@@ -116,8 +148,14 @@ public class GridPanel extends JPanel implements MouseListener, MouseMotionListe
                 if (game.attemptToBuild(x, y, toBuild[buildIndex], isHorizontal, player.getId())) {
                     ++buildIndex;
                 }
-            } else if (x >= WIDTH / 21 * 11) {
-                game.shoot(x / (WIDTH / 21) - 11, y / (HEIGHT / 10), player.getId());
+                if (buildIndex == 5) {
+                    player.setReady(true);
+                }
+            } else if (x >= 11) {
+                System.out.println("Shooting at (" + x + ", " + y + ")");
+                if (game.shoot(x - 11, y , player.getId()) == Game.MISS) {
+                    player.setReady(true);
+                } else System.out.println("HIT. Continue");
             }
         }
     }

@@ -57,6 +57,9 @@ public class User extends Player {
                     lastAttempt = false;
                 }
             }
+        } else {
+            while (!isReady());
+            setReady(false);
         }
     }
 
@@ -82,6 +85,9 @@ public class User extends Player {
                 int y = sc.nextInt() - 1;
                 retVal = getGame().shoot(x, y, getId());
             }
+        } else {
+            while (!isReady());
+            setReady(false);
         }
     }
 }

@@ -4,6 +4,8 @@ public abstract class Player {
     private char[][] gridOpponent = new char[10][10];
     private Game game;
     private final int id;
+    private volatile boolean ready = false;
+
 
     public Player(Game game, int id) {
         this.game = game;
@@ -75,6 +77,14 @@ public abstract class Player {
 
     public void setGame(Game game) {
         this.game = game;
+    }
+
+    public boolean isReady() {
+        return ready;
+    }
+
+    public void setReady(boolean ready) {
+        this.ready = ready;
     }
 
     public abstract void buildShips();

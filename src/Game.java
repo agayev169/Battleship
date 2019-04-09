@@ -110,9 +110,13 @@ public class Game {
             players[i].buildShips();
         }
 
+        System.out.println("Ships are built");
+
         while (gameOver() == -1) {
             ++turn;
+            System.out.println("Turn: " + turn);
             for (int i = 0; i < players.length; i++) {
+                System.out.println("Turn #" + turn + ". Player #" + i + " attacks");
                 players[i].attack();
                 int loser = gameOver();
                 if (loser != -1) {
@@ -128,6 +132,7 @@ public class Game {
                 }
             }
         }
+        System.out.println("Game over");
     }
 
     public int gameOver() {
