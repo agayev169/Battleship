@@ -82,7 +82,8 @@ public class Game {
     }
 
     public int shoot(int x, int y, int id) {
-        if (players[(id) % players.length].getGridOpponent(x, y) == '.') return HIT; // Already shot at this point
+        if (players[(id) % players.length].getGridOpponent(x, y) == '.' ||
+                players[(id) % players.length].getGridOpponent(x, y) == 'x') return HIT; // Already shot at this point
         if (players[(id + 1) % players.length].getGridMine(x, y) == 'o') {
             players[(id) % players.length].setGridOpponent(x, y, 'x');
             players[(id + 1) % players.length].setGridMine(x, y, 'x');
