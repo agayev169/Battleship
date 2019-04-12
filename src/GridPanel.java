@@ -2,22 +2,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class GridPanel extends JPanel implements MouseListener, MouseMotionListener, KeyListener, ActionListener {
+public class GridPanel extends JPanel implements ActionListener {
     public final int WIDTH;
     public final int HEIGHT;
 
     private Player player;
     private Game game;
 
-    private int[] toBuild = {2, 3, 3, 4, 5};
-    private int buildIndex = 0;
-    boolean isHorizontal = true;
-
-    private int mouseX = 0;
-    private int mouseY = 0;
-
-
-    private Timer timer = new Timer(1, this);
+    private Timer timer;
+    private GUIListener listener;
 
     public GridPanel(int width, int height, Player player, Game game) {
         WIDTH = width;
@@ -28,11 +21,15 @@ public class GridPanel extends JPanel implements MouseListener, MouseMotionListe
         setLayout(new BorderLayout());
         setSize(WIDTH, HEIGHT);
 
-        addMouseListener(this);
-        addMouseMotionListener(this);
+        listener = new GUIListener(WIDTH, HEIGHT, game, player);
+
+        addMouseListener(listener);
+        addMouseMotionListener(listener);
         setFocusable(true);
         requestFocus();
-        addKeyListener(this);
+        addKeyListener(listener);
+
+        timer = new Timer(1, this);
     }
 
     private void drawSegment(int x, int y, Color color, boolean left, Graphics g) {
@@ -128,9 +125,13 @@ public class GridPanel extends JPanel implements MouseListener, MouseMotionListe
 
 
         // "Animation" for building and attacking
-        if (buildIndex < 5) {
+        int shipSize = listener.getShipSize();
+        int mouseX = listener.getMouseX();
+        int mouseY = listener.getMouseY();
+        boolean isHorizontal = listener.isHorizontal();
+        if (shipSize > 0) {
             if (mouseX < WIDTH / 21 * 10)
-                drawShip(mouseX / (WIDTH / 21), mouseY / (HEIGHT / 10), toBuild[buildIndex],
+                drawShip(mouseX / (WIDTH / 21), mouseY / (HEIGHT / 10), shipSize,
                         isHorizontal, new Color(100, 100, 100, 150), true, g);
         }
 
@@ -138,77 +139,7 @@ public class GridPanel extends JPanel implements MouseListener, MouseMotionListe
     }
 
     @Override
-    public void mouseClicked(MouseEvent mouseEvent) {
-        if (SwingUtilities.isLeftMouseButton(mouseEvent)) {
-            int x = mouseEvent.getX() / (WIDTH / 21);
-            int y = mouseEvent.getY() / (HEIGHT / 10);
-            if (buildIndex < 5) {
-                if (game.attemptToBuild(x, y, toBuild[buildIndex], isHorizontal, player.getId())) {
-                    ++buildIndex;
-                }
-                if (buildIndex == 5) {
-                    player.setReady(true);
-                }
-            } else if (x >= 11) {
-//                System.out.println("Shooting at (" + x + ", " + y + ")");
-                if (game.shoot(x - 11, y , player.getId()) == Game.MISS) {
-                    player.setReady(true);
-                } /* else System.out.println("HIT. Continue"); */
-            }
-        }
-    }
-
-    @Override
-    public void mousePressed(MouseEvent mouseEvent) {
-        if (SwingUtilities.isRightMouseButton(mouseEvent)) isHorizontal = !isHorizontal;
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent mouseEvent) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent mouseEvent) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent mouseEvent) {
-
-    }
-
-    @Override
     public void actionPerformed(ActionEvent actionEvent) {
         repaint();
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent mouseEvent) {
-        mouseX = mouseEvent.getX();
-        mouseY = mouseEvent.getY();
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent mouseEvent) {
-        mouseX = mouseEvent.getX();
-        mouseY = mouseEvent.getY();
-    }
-
-    @Override
-    public void keyTyped(KeyEvent keyEvent) {
-
-    }
-
-    @Override
-    public void keyPressed(KeyEvent keyEvent) {
-        if (keyEvent.getKeyChar() == 'r' || keyEvent.getKeyChar() == 'R') {
-            isHorizontal = !isHorizontal;
-        }
-    }
-
-    @Override
-    public void keyReleased(KeyEvent keyEvent) {
-
     }
 }
