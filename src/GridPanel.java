@@ -7,19 +7,24 @@ public class GridPanel extends JPanel implements ActionListener {
     public final int HEIGHT;
 
     private Player player;
+    private Game game;
 
     private Timer timer;
     private GUIListener listener;
+
+    private boolean isReady = false;
+    private JButton readyButton;
 
     public GridPanel(int width, int height, Player player, Game game) {
         WIDTH = width;
         HEIGHT = height;
         this.player = player;
+        this.game = game;
 
-        setLayout(new BorderLayout());
+        setLayout(new FlowLayout());
         setSize(WIDTH, HEIGHT);
 
-        listener = new GUIListener(WIDTH, HEIGHT, game, player);
+        listener = new GUIListener(WIDTH, HEIGHT, game, player, this);
 
         addMouseListener(listener);
         addMouseMotionListener(listener);
@@ -27,7 +32,22 @@ public class GridPanel extends JPanel implements ActionListener {
         requestFocus();
         addKeyListener(listener);
 
+        readyButton = new JButton("Ready");
+        add(readyButton);
+        readyButton.addActionListener(actionEvent -> {
+            isReady = true;
+            readyButton.setVisible(false);
+        });
+
         timer = new Timer(1, this);
+    }
+
+    public boolean isReady() {
+        return isReady;
+    }
+
+    public void setReady(boolean ready) {
+        isReady = ready;
     }
 
     private void drawSegment(int x, int y, Color color, boolean left, Graphics g) {
@@ -72,64 +92,83 @@ public class GridPanel extends JPanel implements ActionListener {
 
     @Override
     protected void paintComponent(Graphics g) {
-        // Background and grid
-        g.setColor(Color.WHITE);
-        g.fillRect(0, 0, WIDTH, HEIGHT);
+        if (isReady) {
+            readyButton.setVisible(false);
+            listener.setActive(true);
 
-        g.setColor(new Color(0xDCDCDC));
-        g.fillRect((int) (WIDTH / 2.0 - WIDTH / 42.0), 0, (int) (WIDTH / 21.0), HEIGHT);
+            // Background and grid
+            g.setColor(Color.WHITE);
+            g.fillRect(0, 0, WIDTH, HEIGHT);
 
-        g.setColor(Color.BLACK);
-        for (int i = 0; i <= WIDTH; i += WIDTH / 21.0) {
-            g.drawLine(i, 0, i, WIDTH);
-        }
+            g.setColor(new Color(0xDCDCDC));
+            g.fillRect((int) (WIDTH / 2.0 - WIDTH / 42.0), 0, (int) (WIDTH / 21.0), HEIGHT);
 
-        for (int i = 0; i <= HEIGHT; i += HEIGHT / 10.0) {
-            g.drawLine(0, i, (int) (WIDTH / 2.0 - WIDTH / 42.0), i);
-            g.drawLine((int) (WIDTH / 2.0 + WIDTH / 42.0), i, WIDTH, i);
-        }
+            g.setColor(Color.BLACK);
+            for (int i = 0; i <= WIDTH; i += WIDTH / 21.0) {
+                g.drawLine(i, 0, i, WIDTH);
+            }
 
-        // Drawing built ships
+            for (int i = 0; i <= HEIGHT; i += HEIGHT / 10.0) {
+                g.drawLine(0, i, (int) (WIDTH / 2.0 - WIDTH / 42.0), i);
+                g.drawLine((int) (WIDTH / 2.0 + WIDTH / 42.0), i, WIDTH, i);
+            }
 
-        char[][] grid1 = player.getGridMine();
-        char[][] grid2 = player.getGridOpponent();
+            // Drawing built ships
 
-        for (int y = 0; y < grid1.length; y++) {
-            for (int x = 0; x < grid1[y].length; x++) {
-                if (grid1[y][x] == 'o') {
-                    drawSegment(x, y, new Color(0, 0, 0, 150), true, g);
-                } else if (grid1[y][x] == 'x') {
-                    drawSunkSegment(x, y, new Color(0, 0, 0, 150), true, g);
+            char[][] grid1 = player.getGridMine();
+            char[][] grid2 = player.getGridOpponent();
+
+            for (int y = 0; y < grid1.length; y++) {
+                for (int x = 0; x < grid1[y].length; x++) {
+                    if (grid1[y][x] == 'o') {
+                        drawSegment(x, y, new Color(0, 0, 0, 150), true, g);
+                    } else if (grid1[y][x] == 'x') {
+                        drawSunkSegment(x, y, new Color(0, 0, 0, 150), true, g);
+                    } else if (grid1[y][x] == '.') {
+                        g.setColor(Color.BLACK);
+                        g.fillOval(x * WIDTH / 21 + WIDTH / 42 - WIDTH / 21 / 10,
+                                y * HEIGHT / 10 + HEIGHT / 20 - HEIGHT / 10 / 10,
+                                2 * WIDTH / 21 / 10,
+                                2 * HEIGHT / 10 / 10);
+                    }
                 }
             }
-        }
 
 
-
-        for (int y = 0; y < grid2.length; y++) {
-            for (int x = 0; x < grid2[y].length; x++) {
-                if (grid2[y][x] == 'x') {
-                    drawSunkSegment(x, y, new Color(0, 0, 0, 150), false, g);
-                } else if (grid2[y][x] == '.') {
-                    g.setColor(Color.BLACK);
-                    g.fillOval(WIDTH / 21 * 11 + x * WIDTH / 21 + WIDTH / 42 - WIDTH / 21 / 10,
-                            y * HEIGHT / 10 + HEIGHT / 20 - HEIGHT / 10 / 10,
-                            2 * WIDTH / 21 / 10,
-                            2 * HEIGHT / 10 / 10);
+            for (int y = 0; y < grid2.length; y++) {
+                for (int x = 0; x < grid2[y].length; x++) {
+                    if (grid2[y][x] == 'x') {
+                        drawSunkSegment(x, y, new Color(0, 0, 0, 150), false, g);
+                    } else if (grid2[y][x] == '.') {
+                        g.setColor(Color.BLACK);
+                        g.fillOval(WIDTH / 21 * 11 + x * WIDTH / 21 + WIDTH / 42 - WIDTH / 21 / 10,
+                                y * HEIGHT / 10 + HEIGHT / 20 - HEIGHT / 10 / 10,
+                                2 * WIDTH / 21 / 10,
+                                2 * HEIGHT / 10 / 10);
+                    }
                 }
             }
-        }
 
 
-        // "Animation" for building and attacking
-        int shipSize = listener.getShipSize();
-        int mouseX = listener.getMouseX();
-        int mouseY = listener.getMouseY();
-        boolean isHorizontal = listener.isHorizontal();
-        if (shipSize > 0) {
-            if (mouseX < WIDTH / 21 * 10)
-                drawShip(mouseX / (WIDTH / 21), mouseY / (HEIGHT / 10), shipSize,
-                        isHorizontal, new Color(100, 100, 100, 150), true, g);
+            // "Animation" for building and attacking
+            int shipSize = listener.getShipSize();
+            int mouseX = listener.getMouseX();
+            int mouseY = listener.getMouseY();
+            boolean isHorizontal = listener.isHorizontal();
+            if (shipSize > 0) {
+                if (mouseX < WIDTH / 21 * 10)
+                    drawShip(mouseX / (WIDTH / 21), mouseY / (HEIGHT / 10), shipSize,
+                            isHorizontal, new Color(100, 100, 100, 150), true, g);
+            }
+
+            if (game.gameOver() != -1) {
+                listener.setActive(false);
+            }
+        } else {
+            listener.setActive(false);
+            g.setColor(new Color(0xDCDCDC));
+            g.fillRect(0, 0, WIDTH, HEIGHT);
+            readyButton.setVisible(true);
         }
 
         timer.start();
