@@ -7,7 +7,6 @@ public class GridPanel extends JPanel implements ActionListener {
     public final int HEIGHT;
 
     private Player player;
-    private Game game;
 
     private Timer timer;
     private GUIListener listener;
@@ -16,7 +15,6 @@ public class GridPanel extends JPanel implements ActionListener {
         WIDTH = width;
         HEIGHT = height;
         this.player = player;
-        this.game = game;
 
         setLayout(new BorderLayout());
         setSize(WIDTH, HEIGHT);
@@ -42,7 +40,6 @@ public class GridPanel extends JPanel implements ActionListener {
 
     private void drawSunkSegment(int x, int y, Color color, boolean left, Graphics g) {
         drawSegment(x, y, color, left, g);
-        // TODO: Add X on a drawn segment
         g.setColor(Color.RED);
         if (left) {
             g.drawLine(x * WIDTH / 21, y * HEIGHT / 10, (x + 1) * WIDTH / 21, (y + 1) * HEIGHT / 10);

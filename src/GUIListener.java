@@ -12,8 +12,8 @@ public class GUIListener implements KeyListener, MouseListener, MouseMotionListe
     private boolean isHorizontal = true;
     private Player player;
 
-    private int mouseX = -1;
-    private int mouseY = -1;
+    private int mouseX = 0;
+    private int mouseY = 0;
 
     public GUIListener(int width, int height, Game game, Player player) {
         this.WIDTH = width;
