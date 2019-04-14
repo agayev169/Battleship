@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class GUIListener implements KeyListener, MouseListener, MouseMotionListener {
@@ -63,12 +64,21 @@ public class GUIListener implements KeyListener, MouseListener, MouseMotionListe
                 if (buildIndex == 5) {
                     player.setReady(true);
                     panel.setReady(false);
+
+                    JPanel clPanel = panel.getCardLayoutPanel();
+                    CardLayout cl = (CardLayout) clPanel.getLayout();
+
+                    cl.next(clPanel);
                 }
             } else if (x >= 11) {
 //                System.out.println("Shooting at (" + x + ", " + y + ")");
                 if (game.shoot(x - 11, y , player.getId()) == Game.MISS) {
                     player.setReady(true);
                     panel.setReady(false);
+                    JPanel clPanel = panel.getCardLayoutPanel();
+                    CardLayout cl = (CardLayout) clPanel.getLayout();
+
+                    cl.next(clPanel);
                 } /* else System.out.println("HIT. Continue"); */
             }
         }

@@ -15,7 +15,9 @@ public class GridPanel extends JPanel implements ActionListener {
     private boolean isReady = true;
     private JButton readyButton;
 
-    public GridPanel(int width, int height, Player player, Game game) {
+    private final JPanel cardLayoutPanel;
+
+    public GridPanel(int width, int height, Player player, Game game, JPanel cardLayoutPanel) {
         WIDTH = width;
         HEIGHT = height;
         this.player = player;
@@ -42,6 +44,8 @@ public class GridPanel extends JPanel implements ActionListener {
             isReady = false;
         }
 
+        this.cardLayoutPanel = cardLayoutPanel;
+
         timer = new Timer(1, this);
     }
 
@@ -51,6 +55,10 @@ public class GridPanel extends JPanel implements ActionListener {
 
     public void setReady(boolean ready) {
         isReady = ready;
+    }
+
+    public JPanel getCardLayoutPanel() {
+        return cardLayoutPanel;
     }
 
     private void drawSegment(int x, int y, Color color, boolean left, Graphics g) {
@@ -120,7 +128,6 @@ public class GridPanel extends JPanel implements ActionListener {
             }
 
             // Drawing built ships
-
             char[][] grid1 = player.getGridMine();
             char[][] grid2 = player.getGridOpponent();
 
@@ -183,5 +190,10 @@ public class GridPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         repaint();
+    }
+
+    @Override
+    public String toString() {
+        return "Player id: " + player.getId();
     }
 }
