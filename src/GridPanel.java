@@ -12,7 +12,7 @@ public class GridPanel extends JPanel implements ActionListener {
     private Timer timer;
     private GUIListener listener;
 
-    private boolean isReady = false;
+    private boolean isReady = true;
     private JButton readyButton;
 
     public GridPanel(int width, int height, Player player, Game game) {
@@ -32,12 +32,15 @@ public class GridPanel extends JPanel implements ActionListener {
         requestFocus();
         addKeyListener(listener);
 
-        readyButton = new JButton("Ready");
-        add(readyButton);
-        readyButton.addActionListener(actionEvent -> {
-            isReady = true;
-            readyButton.setVisible(false);
-        });
+        if (game.getGameType() == Game.MULTIPLAYER_ONE_MACHINE) {
+            readyButton = new JButton("Ready");
+            add(readyButton);
+            readyButton.addActionListener(actionEvent -> {
+                isReady = true;
+                readyButton.setVisible(false);
+            });
+            isReady = false;
+        }
 
         timer = new Timer(1, this);
     }
@@ -92,9 +95,12 @@ public class GridPanel extends JPanel implements ActionListener {
 
     @Override
     protected void paintComponent(Graphics g) {
-        if (isReady) {
-            readyButton.setVisible(false);
-            listener.setActive(true);
+        if (isReady || game.getGameType() != Game.MULTIPLAYER_ONE_MACHINE) {
+            // Ready button
+            if (game.getGameType() == Game.MULTIPLAYER_ONE_MACHINE) {
+                readyButton.setVisible(false);
+                listener.setActive(true);
+            }
 
             // Background and grid
             g.setColor(Color.WHITE);
@@ -164,7 +170,7 @@ public class GridPanel extends JPanel implements ActionListener {
             if (game.gameOver() != -1) {
                 listener.setActive(false);
             }
-        } else {
+        } else if (game.getGameType() == Game.MULTIPLAYER_ONE_MACHINE) {
             listener.setActive(false);
             g.setColor(new Color(0xDCDCDC));
             g.fillRect(0, 0, WIDTH, HEIGHT);

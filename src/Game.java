@@ -15,9 +15,12 @@ public class Game {
     public final static int TERMINAL = 0;
     public final static int GUI = 1;
 
+    private final int gameType;
+
     public Game(int gameType, int userInterface) {
         players = new Player[2];
         this.userInterface = userInterface;
+        this.gameType = gameType;
         if (gameType == SINGLE_PLAYER) {
             players[0] = new User(this, 0, userInterface);
             players[1] = new Bot(this, 1);
@@ -35,6 +38,10 @@ public class Game {
 
     public int getTurn() {
         return turn;
+    }
+
+    public int getGameType() {
+        return gameType;
     }
 
     public boolean canBuild(int x, int y, int segmentNum, boolean isHorizontal, int id) {
