@@ -184,6 +184,15 @@ public class GridPanel extends JPanel implements ActionListener {
             readyButton.setVisible(true);
         }
 
+        int winner = game.gameOver();
+        if (winner != -1) {
+            g.setColor(Color.RED);
+            String toPrint = "Player " + Integer.toString(winner + 1) + " wins";
+            int fontSize = 64;
+            g.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, fontSize));
+            g.drawString(toPrint, (int) (WIDTH / 2 - (toPrint.length() / 2) * fontSize / 1.6), HEIGHT / 5);
+        }
+
         timer.start();
     }
 

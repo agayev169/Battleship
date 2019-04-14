@@ -65,20 +65,25 @@ public class GUIListener implements KeyListener, MouseListener, MouseMotionListe
                     player.setReady(true);
                     panel.setReady(false);
 
-                    JPanel clPanel = panel.getCardLayoutPanel();
-                    CardLayout cl = (CardLayout) clPanel.getLayout();
+                    if (game.getGameType() == Game.MULTIPLAYER_ONE_MACHINE) {
+                        JPanel clPanel = panel.getCardLayoutPanel();
+                        CardLayout cl = (CardLayout) clPanel.getLayout();
 
-                    cl.next(clPanel);
+                        cl.show(clPanel, Integer.toString(player.getId() ^ 1));
+                    }
                 }
             } else if (x >= 11) {
 //                System.out.println("Shooting at (" + x + ", " + y + ")");
                 if (game.shoot(x - 11, y , player.getId()) == Game.MISS) {
                     player.setReady(true);
                     panel.setReady(false);
-                    JPanel clPanel = panel.getCardLayoutPanel();
-                    CardLayout cl = (CardLayout) clPanel.getLayout();
 
-                    cl.next(clPanel);
+                    if (game.getGameType() == Game.MULTIPLAYER_ONE_MACHINE) {
+                        JPanel clPanel = panel.getCardLayoutPanel();
+                        CardLayout cl = (CardLayout) clPanel.getLayout();
+
+                        cl.show(clPanel, Integer.toString(player.getId() ^ 1));
+                    }
                 } /* else System.out.println("HIT. Continue"); */
             }
         }

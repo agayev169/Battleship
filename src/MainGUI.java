@@ -15,16 +15,17 @@ public class MainGUI {
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setLocationRelativeTo(null);
         jf.setResizable(false);
-        jf.setVisible(true);
 
         JPanel playerPanels = new JPanel(new CardLayout());
         if (game.getGameType() == Game.MULTIPLAYER_ONE_MACHINE) {
-            playerPanels.add(new GridPanel(WIDTH, HEIGHT, game.getPlayers()[0], game, playerPanels));
-            playerPanels.add(new GridPanel(WIDTH, HEIGHT, game.getPlayers()[1], game, playerPanels));
+            playerPanels.add("0", new GridPanel(WIDTH, HEIGHT, game.getPlayers()[0], game, playerPanels));
+            playerPanels.add("1", new GridPanel(WIDTH, HEIGHT, game.getPlayers()[1], game, playerPanels));
         } else {
             playerPanels.add(new GridPanel(WIDTH, HEIGHT, game.getPlayers()[0], game, playerPanels));
         }
         jf.add(playerPanels);
+        jf.setVisible(true);
+
 
         game.play();
     }
