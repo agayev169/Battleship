@@ -4,10 +4,8 @@ public abstract class Player {
     private char[][] gridOpponent = new char[10][10];
     private Game game;
     private final int id;
+    private volatile boolean ready = false;
 
-    public final static int MISS = 0;
-    public final static int HIT = 1;
-    public final static int SINK = 2;
 
     public Player(Game game, int id) {
         this.game = game;
@@ -79,6 +77,14 @@ public abstract class Player {
 
     public void setGame(Game game) {
         this.game = game;
+    }
+
+    public boolean isReady() {
+        return ready;
+    }
+
+    public void setReady(boolean ready) {
+        this.ready = ready;
     }
 
     public abstract void buildShips();
@@ -168,7 +174,7 @@ public abstract class Player {
             if (ships[indexShip].isAt(x, y)) break;
         }
         ships[indexShip].getDamage(x, y);
-        if (ships[indexShip].isDead()) return SINK;
-        return HIT;
+        if (ships[indexShip].isDead()) return Game.SINK;
+        return Game.HIT;
     }
 }
