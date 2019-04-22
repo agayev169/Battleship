@@ -10,7 +10,7 @@ public class MainMenuPanel extends JPanel {
     private JButton buttonSP;
     private JButton buttonMP;
 
-    public MainMenuPanel(int width, int height, JPanel playerPanels) {
+    public MainMenuPanel(int width, int height, JPanel playerPanels, MainGUI runner) {
         super(null);
         WIDTH = width;
         HEIGHT = height;
@@ -41,17 +41,12 @@ public class MainMenuPanel extends JPanel {
         buttonSP.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                Game game = new Game(Game.SINGLE_PLAYER, Game.GUI);
-                playerPanels.add(new GridPanel(WIDTH, HEIGHT, game.getPlayers()[0], game, playerPanels));
-                CardLayout cl = (CardLayout) playerPanels.getLayout();
-                cl.next(playerPanels);
-                game.play();
+                runner.start = 1;
             }
 
             @Override
             public void mousePressed(MouseEvent mouseEvent) {
-//                jf.setVisible(false);
-//                new MainGUI(Game.SINGLE_PLAYER);
+
             }
 
             @Override
@@ -73,18 +68,12 @@ public class MainMenuPanel extends JPanel {
         buttonMP.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                Game game = new Game(Game.MULTIPLAYER_ONE_MACHINE, Game.GUI);
-                playerPanels.add("0", new GridPanel(WIDTH, HEIGHT, game.getPlayers()[0], game, playerPanels));
-                playerPanels.add("1", new GridPanel(WIDTH, HEIGHT, game.getPlayers()[1], game, playerPanels));
-                CardLayout cl = (CardLayout) playerPanels.getLayout();
-                cl.show(playerPanels, "0");
-                game.play(); // TODO: Fix bug with freezing window
+                runner.start = 2;
             }
 
             @Override
             public void mousePressed(MouseEvent mouseEvent) {
-//                jf.setVisible(false);
-//                new MainGUI(Game.MULTIPLAYER_ONE_MACHINE);
+
             }
 
             @Override
