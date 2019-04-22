@@ -6,8 +6,11 @@ public class MainGUI {
     public final static int WIDTH = 1050;
     public final static int HEIGHT = 500;
 
-    public static void main(String[] args) {
-        Game game = new Game(Game.MULTIPLAYER_ONE_MACHINE, Game.GUI);
+    volatile int start = 0;
+
+    public MainGUI() {
+        Game game1 = new Game(Game.SINGLE_PLAYER, Game.GUI);
+        Game game2 = new Game(Game.MULTIPLAYER_ONE_MACHINE, Game.GUI);
 
         JFrame jf = new JFrame("Battleship");
         jf.setSize(WIDTH, HEIGHT);
@@ -17,16 +20,27 @@ public class MainGUI {
         jf.setResizable(false);
 
         JPanel playerPanels = new JPanel(new CardLayout());
-        if (game.getGameType() == Game.MULTIPLAYER_ONE_MACHINE) {
-            playerPanels.add("0", new GridPanel(WIDTH, HEIGHT, game.getPlayers()[0], game, playerPanels));
-            playerPanels.add("1", new GridPanel(WIDTH, HEIGHT, game.getPlayers()[1], game, playerPanels));
-        } else {
-            playerPanels.add(new GridPanel(WIDTH, HEIGHT, game.getPlayers()[0], game, playerPanels));
-        }
+        playerPanels.add("menu", new MainMenuPanel(WIDTH, HEIGHT, playerPanels, this));
         jf.add(playerPanels);
         jf.setVisible(true);
 
 
-        game.play();
+        while (start == 0);
+        if (start == 1) {
+            playerPanels.add("0", new GridPanel(WIDTH, HEIGHT, game1.getPlayers()[0], game1, playerPanels));
+            CardLayout cl = (CardLayout) playerPanels.getLayout();
+            cl.show(playerPanels, "0");
+            game1.play();
+        } else {
+            playerPanels.add("0", new GridPanel(WIDTH, HEIGHT, game2.getPlayers()[0], game2, playerPanels));
+            playerPanels.add("1", new GridPanel(WIDTH, HEIGHT, game2.getPlayers()[1], game2, playerPanels));
+            CardLayout cl = (CardLayout) playerPanels.getLayout();
+            cl.show(playerPanels, "0");
+            game2.play();
+        }
+    }
+
+    public static void main(String[] args) {
+        new MainGUI();
     }
 }

@@ -118,7 +118,7 @@ public class Game {
             players[i].buildShips();
         }
 
-//        System.out.println("Ships are built");
+        System.out.println("Ships are built");
 
         while (gameOver() == -1) {
             ++turn;
