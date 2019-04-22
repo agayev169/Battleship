@@ -10,13 +10,13 @@ public class MainMenuPanel extends JPanel {
     private JButton buttonSP;
     private JButton buttonMP;
 
-    public MainMenuPanel(int width, int height, JPanel playerPanels, MainGUI runner) {
+    public MainMenuPanel(int width, int height, MainGUI runner) {
         super(null);
         WIDTH = width;
         HEIGHT = height;
 
         int buttonWidth = WIDTH / 2;
-        int buttonHeight = (int) (buttonWidth / 5);
+        int buttonHeight = (buttonWidth / 5);
 
         int fontSize = buttonWidth / 12;
 

@@ -20,7 +20,7 @@ public class MainGUI {
         jf.setResizable(false);
 
         JPanel playerPanels = new JPanel(new CardLayout());
-        playerPanels.add("menu", new MainMenuPanel(WIDTH, HEIGHT, playerPanels, this));
+        playerPanels.add("menu", new MainMenuPanel(WIDTH, HEIGHT, this));
         jf.add(playerPanels);
         jf.setVisible(true);
 

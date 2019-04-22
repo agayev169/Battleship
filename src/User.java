@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class User extends Player {
 
-    int userInterface;
+    private int userInterface;
 
     public User(Game game, int id, int userInterface) {
         super(game, id);
