@@ -6,7 +6,7 @@ public class MainGUI {
     public final static int WIDTH = 1050;
     public final static int HEIGHT = 500;
 
-    volatile int start = 0;
+    private volatile int start = 0;
 
     public MainGUI() {
         Game game1 = new Game(Game.SINGLE_PLAYER, Game.GUI);
@@ -38,6 +38,14 @@ public class MainGUI {
             cl.show(playerPanels, "0");
             game2.play();
         }
+    }
+
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
     }
 
     public static void main(String[] args) {

@@ -41,7 +41,7 @@ public class MainMenuPanel extends JPanel {
         buttonSP.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                runner.start = 1;
+                runner.setStart(1);
             }
 
             @Override
@@ -68,7 +68,7 @@ public class MainMenuPanel extends JPanel {
         buttonMP.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                runner.start = 2;
+                runner.setStart(2);
             }
 
             @Override
