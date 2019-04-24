@@ -7,13 +7,11 @@ import java.net.Socket;
 
 public class GameClient {
     private final Socket socket;
-    private final Game game;
 
     private BufferedReader reader;
     private PrintWriter writer;
 
-    public GameClient(Game game) throws IOException {
-        this.game = game;
+    public GameClient() throws IOException {
         socket = new Socket(InetAddress.getLocalHost(), 1337);
 
         reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));

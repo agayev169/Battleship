@@ -8,13 +8,11 @@ import java.net.Socket;
 public class GameServer {
     private final ServerSocket serverSocket;
     private final Socket socket;
-    private final Game game;
 
     private BufferedReader reader;
     private PrintWriter writer;
 
-    public GameServer(Game game) throws IOException {
-        this.game = game;
+    public GameServer() throws IOException {
         serverSocket = new ServerSocket(1337);
         socket = serverSocket.accept();
 
@@ -28,10 +26,6 @@ public class GameServer {
 
     public Socket getSocket() {
         return socket;
-    }
-
-    public Game getGame() {
-        return game;
     }
 
     public String read() throws IOException {
