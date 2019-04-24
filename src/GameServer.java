@@ -5,12 +5,12 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class GameServer {
+public class GameServer implements NetworkManager {
     private final ServerSocket serverSocket;
     private final Socket socket;
 
-    private BufferedReader reader;
-    private PrintWriter writer;
+    private final BufferedReader reader;
+    private final PrintWriter writer;
 
     public GameServer() throws IOException {
         serverSocket = new ServerSocket(1337);
@@ -37,8 +37,8 @@ public class GameServer {
     }
 
     public void close() throws IOException {
-        socket.close();
         serverSocket.close();
+        socket.close();
         reader.close();
         writer.close();
     }

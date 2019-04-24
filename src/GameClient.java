@@ -5,17 +5,21 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 
-public class GameClient {
+public class GameClient implements NetworkManager {
     private final Socket socket;
 
-    private BufferedReader reader;
-    private PrintWriter writer;
+    private final BufferedReader reader;
+    private final PrintWriter writer;
 
     public GameClient() throws IOException {
         socket = new Socket(InetAddress.getLocalHost(), 1337);
 
         reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         writer = new PrintWriter(socket.getOutputStream());
+    }
+
+    public Socket getSocket() {
+        return socket;
     }
 
     public String read() throws IOException {
