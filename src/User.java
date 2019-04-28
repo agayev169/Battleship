@@ -18,11 +18,8 @@ public class User extends Player {
                         (getGame().getNetworkManager().getClass().getName().equals("GameServer") && getId() == 1))) {
             System.out.println("Waiting for opponent");
             String move = getGame().getNetworkManager().read();
-            System.out.println("Opponent has done his move");
-            System.out.println("Move: " + move);
             String[] lines = move.split(System.getProperty("line.separator"));
             for (String line : lines) {
-                System.out.println("line: " + line);
                 String[] args = line.split(" ");
                 getGame().attemptToBuild(new Integer(args[0]), new Integer(args[1]), new Integer(args[2]), args[3].equals("H"), getId());
             }
@@ -98,7 +95,6 @@ public class User extends Player {
                         (getGame().getNetworkManager().getClass().getName().equals("GameServer") && getId() == 1))) {
             System.out.println("Waiting for opponent");
             String move = getGame().getNetworkManager().read();
-            System.out.println("Opponent has done his move");
             String[] lines = move.split(System.getProperty("line.separator"));
             for (String line : lines) {
                 String[] args = line.split(" ");

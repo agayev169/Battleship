@@ -24,11 +24,9 @@ public class GameClient implements NetworkManager {
 
     public String read() throws IOException {
         int linesNumber = new Integer(reader.readLine());
-        System.out.println("Lines number: " + linesNumber);
         StringBuilder lines = new StringBuilder();
         for (int i = 0; i < linesNumber; i++) {
             lines.append(reader.readLine() + "\n");
-            System.out.println("Lines: " + lines);
         }
         return lines.toString();
     }
