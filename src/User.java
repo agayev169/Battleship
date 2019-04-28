@@ -1,8 +1,10 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class User extends Player {
 
     private int userInterface;
+    private StringBuilder lastMove;
 
     public User(Game game, int id, int userInterface) {
         super(game, id);
@@ -10,7 +12,25 @@ public class User extends Player {
     }
 
     @Override
-    public void buildShips() {
+    public void buildShips() throws IOException {
+        if (getGame().getGameType() == Game.MULTIPLAYER_LOCAL && (
+                (getGame().getNetworkManager().getClass().getName().equals("GameClient") && getId() == 0) ||
+                        (getGame().getNetworkManager().getClass().getName().equals("GameServer") && getId() == 1))) {
+            System.out.println("Waiting for opponent");
+            String move = getGame().getNetworkManager().read();
+            System.out.println("Opponent has done his move");
+            System.out.println("Move: " + move);
+            String[] lines = move.split(System.getProperty("line.separator"));
+            for (String line : lines) {
+                System.out.println("line: " + line);
+                String[] args = line.split(" ");
+                getGame().attemptToBuild(new Integer(args[0]), new Integer(args[1]), new Integer(args[2]), args[3].equals("H"), getId());
+            }
+            return;
+        }
+
+        int lineCounter = 0;
+        lastMove = new StringBuilder();
         if (userInterface == Game.TERMINAL) {
             Scanner sc = new Scanner(System.in);
 
@@ -50,6 +70,8 @@ public class User extends Player {
                     isHorizontal = (orientation == 'H');
                     if (orientation != 'H' && orientation != 'V') System.out.println("Wrong orientation. Try again.");
                 } while (orientation != 'H' && orientation != 'V');
+                lastMove.append(x + " " + y + " " + segmentNum + " " + orientation + "\n");
+                ++lineCounter;
                 if (attemptToBuild(x, y, segmentNum, isHorizontal)) {
                     --shipCount[segmentNum - 2];
                     lastAttempt = true;
@@ -61,18 +83,42 @@ public class User extends Player {
             while (!isReady());
             setReady(false);
         }
+        if (getGame().getGameType() == Game.MULTIPLAYER_LOCAL) {
+            System.out.println("Sending move");
+            lastMove.insert(0, lineCounter + "\n");
+            getGame().getNetworkManager().write(lastMove.toString());
+        }
+        System.out.println(lastMove.toString());
     }
 
     @Override
-    public void attack() {
+    public void attack() throws IOException {
+        if (getGame().getGameType() == Game.MULTIPLAYER_LOCAL && (
+                (getGame().getNetworkManager().getClass().getName().equals("GameClient") && getId() == 0) ||
+                        (getGame().getNetworkManager().getClass().getName().equals("GameServer") && getId() == 1))) {
+            System.out.println("Waiting for opponent");
+            String move = getGame().getNetworkManager().read();
+            System.out.println("Opponent has done his move");
+            String[] lines = move.split(System.getProperty("line.separator"));
+            for (String line : lines) {
+                String[] args = line.split(" ");
+                getGame().shoot(new Integer(args[0]), new Integer(args[1]), getId());
+            }
+            return;
+        }
+
+        int lineCounter = 0;
+        lastMove = new StringBuilder();
         if (userInterface == Game.TERMINAL) {
             Scanner sc = new Scanner(System.in);
             System.out.print("\033c");
             System.out.flush();
             String response = "";
-            while (!response.equals("ready")) {
-                System.out.print("The move of the player #" + getId() + " starts. Please type \"ready\" if you are ready. ");
-                response = sc.next();
+            if (getGame().getGameType() == Game.MULTIPLAYER_ONE_MACHINE) {
+                while (!response.equals("ready")) {
+                    System.out.print("The move of the player #" + getId() + " starts. Please type \"ready\" if you are ready. ");
+                    response = sc.next();
+                }
             }
             int retVal = Game.HIT;
             while (retVal != Game.MISS && getGame().gameOver() == -1) {
@@ -84,10 +130,16 @@ public class User extends Player {
                 int x = letter - 'a';
                 int y = sc.nextInt() - 1;
                 retVal = getGame().shoot(x, y, getId());
+                lastMove.append(x + " " + y + "\n");
+                ++lineCounter;
             }
         } else {
             while (!isReady() && getGame().gameOver() == -1);
             setReady(false);
+        }
+        if (getGame().getGameType() == Game.MULTIPLAYER_LOCAL) {
+            lastMove.insert(0, lineCounter + "\n");
+            getGame().getNetworkManager().write(lastMove.toString());
         }
     }
 }

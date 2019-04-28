@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public abstract class Player {
     private Ship[] ships = new Ship[5];
     private char[][] gridMine = new char[10][10];
@@ -87,9 +89,9 @@ public abstract class Player {
         this.ready = ready;
     }
 
-    public abstract void buildShips();
+    public abstract void buildShips() throws IOException;
 
-    public abstract void attack();
+    public abstract void attack() throws IOException;
 
     public boolean attemptToBuild(int x, int y, int segmentNum, boolean isHorizontal) {
         return game.attemptToBuild(x, y, segmentNum, isHorizontal, id);
@@ -165,7 +167,6 @@ public abstract class Player {
             System.out.print(c + " ");
         }
         System.out.println();
-
     }
 
     public int getDamage(int x, int y) {

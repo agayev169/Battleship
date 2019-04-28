@@ -6,12 +6,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 public class TestGame {
 
     private Game game;
 
     @BeforeEach
-    void init() {
+    void init() throws IOException {
         game = new Game(Game.SINGLE_PLAYER, Game.TERMINAL);
     }
 

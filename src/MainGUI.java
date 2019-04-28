@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class MainGUI {
 
@@ -8,7 +9,7 @@ public class MainGUI {
 
     private volatile int start = 0;
 
-    public MainGUI() {
+    public MainGUI() throws IOException {
         Game game1 = new Game(Game.SINGLE_PLAYER, Game.GUI);
         Game game2 = new Game(Game.MULTIPLAYER_ONE_MACHINE, Game.GUI);
 
@@ -48,7 +49,7 @@ public class MainGUI {
         this.start = start;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new MainGUI();
     }
 }

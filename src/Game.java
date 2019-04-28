@@ -1,3 +1,6 @@
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Game {
     private int turn = 0;
     private Player[] players;
@@ -17,7 +20,9 @@ public class Game {
 
     private final int gameType;
 
-    public Game(int gameType, int userInterface) {
+    private NetworkManager networkManager;
+
+    public Game(int gameType, int userInterface) throws IOException {
         players = new Player[2];
         this.userInterface = userInterface;
         this.gameType = gameType;
@@ -28,7 +33,23 @@ public class Game {
             players[0] = new User(this, 0, userInterface);
             players[1] = new User(this, 1, userInterface);
         } else if (gameType == MULTIPLAYER_LOCAL) {
-            // TODO: Add choice of creating a server or connecting to an existing server and implement it
+            if (userInterface == TERMINAL) {
+                Scanner sc = new Scanner(System.in);
+                String input;
+                do {
+                    System.out.println("Do you want to create a server(s) or to connect to an existing one(c)?");
+                    input = sc.next();
+                } while(!input.equals("s") && !input.equals("c"));
+                if (input.equals("s")) {
+                    networkManager = new GameServer();
+                    players[0] = new User(this, 0, userInterface);
+                    players[1] = new User(this, 1, userInterface);
+                } else {
+                    networkManager = new GameClient();
+                    players[0] = new User(this, 0, userInterface);
+                    players[1] = new User(this, 1, userInterface);
+                }
+            }
         }
     }
 
@@ -42,6 +63,10 @@ public class Game {
 
     public int getGameType() {
         return gameType;
+    }
+
+    public NetworkManager getNetworkManager() {
+        return networkManager;
     }
 
     public boolean canBuild(int x, int y, int segmentNum, boolean isHorizontal, int id) {
@@ -111,9 +136,7 @@ public class Game {
         return MISS;
     }
 
-    public void play() {
-        // TODO: Connect Game with GUI!!!!!
-
+    public void play() throws IOException {
         for (int i = 0; i < players.length; i++) {
             players[i].buildShips();
         }
@@ -137,6 +160,7 @@ public class Game {
             }
         }
         System.out.println("Game over");
+        networkManager.close();
     }
 
     public int gameOver() {

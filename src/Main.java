@@ -1,16 +1,19 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         String response = "";
-        while (!response.equals("s") && !response.equals("m")) {
+        while (!response.equals("s") && !response.equals("m") && !response.equals("n")) {
             System.out.println("Type 's' to play against the bot.");
             System.out.println("Type 'm' to play against another user.");
+            System.out.println("Type 'n' to play against another user via network.");
             response = sc.next();
         }
-        Game game = new Game(response.equals("s") ? Game.SINGLE_PLAYER : Game.MULTIPLAYER_ONE_MACHINE, Game.TERMINAL);
+        Game game = new Game(response.equals("s") ? Game.SINGLE_PLAYER : (response.equals("m") ?
+                Game.MULTIPLAYER_ONE_MACHINE : Game.MULTIPLAYER_LOCAL), Game.TERMINAL);
         game.play();
     }
 }
