@@ -6,7 +6,7 @@ public class GridPanel extends JPanel implements ActionListener {
     public final int WIDTH;
     public final int HEIGHT;
 
-    private Player player;
+    private User user;
     private Game game;
 
     private Timer timer;
@@ -17,10 +17,10 @@ public class GridPanel extends JPanel implements ActionListener {
 
     private final JPanel cardLayoutPanel;
 
-    public GridPanel(int width, int height, Player player, Game game, JPanel cardLayoutPanel) {
+    public GridPanel(int width, int height, User player, Game game, JPanel cardLayoutPanel) {
         WIDTH = width;
         HEIGHT = height;
-        this.player = player;
+        this.user = player;
         this.game = game;
 
         setLayout(new FlowLayout());
@@ -47,6 +47,14 @@ public class GridPanel extends JPanel implements ActionListener {
         this.cardLayoutPanel = cardLayoutPanel;
 
         timer = new Timer(1, this);
+    }
+
+    public GUIListener getListener() {
+        return listener;
+    }
+
+    public Game getGame() {
+        return game;
     }
 
     public boolean isReady() {
@@ -128,8 +136,8 @@ public class GridPanel extends JPanel implements ActionListener {
             }
 
             // Drawing built ships
-            char[][] grid1 = player.getGridMine();
-            char[][] grid2 = player.getGridOpponent();
+            char[][] grid1 = user.getGridMine();
+            char[][] grid2 = user.getGridOpponent();
 
             for (int y = 0; y < grid1.length; y++) {
                 for (int x = 0; x < grid1[y].length; x++) {
@@ -191,6 +199,12 @@ public class GridPanel extends JPanel implements ActionListener {
             int fontSize = 64;
             g.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, fontSize));
             g.drawString(toPrint, (int) (WIDTH / 2 - (toPrint.length() / 2) * fontSize / 1.6), HEIGHT / 5);
+        } else if (listener.isActive() == false && game.getGameType() == Game.MULTIPLAYER_LOCAL) {
+            g.setColor(Color.RED);
+            String toPrint = "Waiting for the opponent's move";
+            int fontSize = 32;
+            g.setFont(new Font(Font.SANS_SERIF,  Font.BOLD, fontSize));
+            g.drawString(toPrint, (int) (WIDTH / 2 - (toPrint.length() / 2) * fontSize / 1.6), HEIGHT / 5);
         }
 
         timer.start();
@@ -203,6 +217,6 @@ public class GridPanel extends JPanel implements ActionListener {
 
     @Override
     public String toString() {
-        return "Player id: " + player.getId();
+        return "Player id: " + user.getId();
     }
 }

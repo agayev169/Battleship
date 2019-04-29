@@ -19,6 +19,9 @@ public class GUIListener implements KeyListener, MouseListener, MouseMotionListe
 
     private boolean active = true;
 
+    private int lineCounter = 0;
+    private StringBuilder lastMove = new StringBuilder();
+
     public GUIListener(int width, int height, Game game, Player player, GridPanel panel) {
         this.WIDTH = width;
         this.HEIGHT = height;
@@ -59,9 +62,20 @@ public class GUIListener implements KeyListener, MouseListener, MouseMotionListe
             int y = mouseEvent.getY() / (HEIGHT / 10);
             if (buildIndex < 5) {
                 if (game.attemptToBuild(x, y, toBuild[buildIndex], isHorizontal, player.getId())) {
+                    if (panel.getGame().getGameType() == Game.MULTIPLAYER_LOCAL) {
+                        ++lineCounter;
+                        lastMove.append(x + " " + y + " " + toBuild[buildIndex] + " " + ((isHorizontal) ? "H" : "V") + "\n");
+                    }
                     ++buildIndex;
                 }
                 if (buildIndex == 5) {
+                    if (panel.getGame().getGameType() == Game.MULTIPLAYER_LOCAL) {
+                        lastMove.insert(0, lineCounter + "\n");
+                        game.getNetworkManager().write(lastMove.toString());
+                        lastMove.setLength(0);
+                        lineCounter = 0;
+                    }
+
                     player.setReady(true);
                     panel.setReady(false);
 
@@ -75,6 +89,15 @@ public class GUIListener implements KeyListener, MouseListener, MouseMotionListe
             } else if (x >= 11) {
 //                System.out.println("Shooting at (" + x + ", " + y + ")");
                 if (game.shoot(x - 11, y , player.getId()) == Game.MISS) {
+                    if (panel.getGame().getGameType() == Game.MULTIPLAYER_LOCAL) {
+                        ++lineCounter;
+                        lastMove.append((x - 11) + " " + y + "\n");
+                        lastMove.insert(0, lineCounter + "\n");
+                        game.getNetworkManager().write(lastMove.toString());
+                        lastMove.setLength(0);
+                        lineCounter = 0;
+                    }
+
                     player.setReady(true);
                     panel.setReady(false);
 
@@ -84,7 +107,14 @@ public class GUIListener implements KeyListener, MouseListener, MouseMotionListe
 
                         cl.show(clPanel, Integer.toString(player.getId() ^ 1));
                     }
-                } /* else System.out.println("HIT. Continue"); */
+                } else if (panel.getGame().getGameType() == Game.MULTIPLAYER_LOCAL) {
+                    ++lineCounter;
+                    lastMove.append((x - 11) + " " + y + "\n");
+                    if (game.gameOver() != -1) {
+                        lastMove.insert(0, lineCounter + "\n");
+                        game.getNetworkManager().write(lastMove.toString());
+                    }
+                }
             }
         }
     }

@@ -5,7 +5,6 @@ public class Game {
     private int turn = 0;
     private Player[] players;
 
-    public final int userInterface;
 
     public final static int MISS = 0;
     public final static int HIT = 1;
@@ -14,13 +13,16 @@ public class Game {
     public final static int SINGLE_PLAYER = 0;
     public final static int MULTIPLAYER_ONE_MACHINE = 1;
     public final static int MULTIPLAYER_LOCAL = 2;
+    private final int gameType;
 
     public final static int TERMINAL = 0;
     public final static int GUI = 1;
+    public final int userInterface;
 
-    private final int gameType;
 
     private NetworkManager networkManager;
+
+    private GridPanel gridPanel;
 
     public Game(int gameType, int userInterface) throws IOException {
         players = new Player[2];
@@ -33,24 +35,45 @@ public class Game {
             players[0] = new User(this, 0, userInterface);
             players[1] = new User(this, 1, userInterface);
         } else if (gameType == MULTIPLAYER_LOCAL) {
-            if (userInterface == TERMINAL) {
-                Scanner sc = new Scanner(System.in);
-                String input;
-                do {
-                    System.out.println("Do you want to create a server(s) or to connect to an existing one(c)?");
-                    input = sc.next();
-                } while(!input.equals("s") && !input.equals("c"));
-                if (input.equals("s")) {
-                    networkManager = new GameServer();
-                    players[0] = new User(this, 0, userInterface);
-                    players[1] = new User(this, 1, userInterface);
-                } else {
-                    networkManager = new GameClient();
-                    players[0] = new User(this, 0, userInterface);
-                    players[1] = new User(this, 1, userInterface);
-                }
+            Scanner sc = new Scanner(System.in);
+            String input;
+            do {
+                System.out.println("Do you want to create a server(s) or to connect to an existing one(c)?");
+                input = sc.next();
+            } while (!input.equals("s") && !input.equals("c"));
+            if (input.equals("s")) {
+                networkManager = new GameServer();
+                players[0] = new User(this, 0, userInterface);
+                players[1] = new User(this, 1, userInterface);
+            } else {
+                networkManager = new GameClient();
+                players[0] = new User(this, 0, userInterface);
+                players[1] = new User(this, 1, userInterface);
             }
         }
+    }
+
+    public Game(int userInterface, boolean isServer) throws  IOException {
+        players = new Player[2];
+        this.userInterface = userInterface;
+        this.gameType = Game.MULTIPLAYER_LOCAL;
+        if (isServer) {
+            networkManager = new GameServer();
+            players[0] = new User(this, 0, userInterface);
+            players[1] = new User(this, 1, userInterface);
+        } else {
+            networkManager = new GameClient();
+            players[0] = new User(this, 0, userInterface);
+            players[1] = new User(this, 1, userInterface);
+        }
+    }
+
+    public GridPanel getGridPanel() {
+        return gridPanel;
+    }
+
+    public void setGridPanel(GridPanel gridPanel) {
+        this.gridPanel = gridPanel;
     }
 
     public Player[] getPlayers() {
@@ -67,6 +90,10 @@ public class Game {
 
     public NetworkManager getNetworkManager() {
         return networkManager;
+    }
+
+    public int getUserInterface() {
+        return userInterface;
     }
 
     public boolean canBuild(int x, int y, int segmentNum, boolean isHorizontal, int id) {
@@ -160,7 +187,8 @@ public class Game {
             }
         }
         System.out.println("Game over");
-        networkManager.close();
+        if (networkManager != null && userInterface == TERMINAL)
+            networkManager.close();
     }
 
     public int gameOver() {

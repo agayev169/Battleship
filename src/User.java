@@ -17,7 +17,10 @@ public class User extends Player {
                 (getGame().getNetworkManager().getClass().getName().equals("GameClient") && getId() == 0) ||
                         (getGame().getNetworkManager().getClass().getName().equals("GameServer") && getId() == 1))) {
             System.out.println("Waiting for opponent");
+            getGame().getGridPanel().getListener().setActive(false);
+//            gridPanel.setReady(false);
             String move = getGame().getNetworkManager().read();
+            getGame().getGridPanel().getListener().setActive(true);
             String[] lines = move.split(System.getProperty("line.separator"));
             for (String line : lines) {
                 String[] args = line.split(" ");
@@ -80,12 +83,10 @@ public class User extends Player {
             while (!isReady());
             setReady(false);
         }
-        if (getGame().getGameType() == Game.MULTIPLAYER_LOCAL) {
-            System.out.println("Sending move");
+        if (getGame().getGameType() == Game.MULTIPLAYER_LOCAL && getGame().getUserInterface() == Game.TERMINAL) {
             lastMove.insert(0, lineCounter + "\n");
             getGame().getNetworkManager().write(lastMove.toString());
         }
-        System.out.println(lastMove.toString());
     }
 
     @Override
@@ -94,7 +95,10 @@ public class User extends Player {
                 (getGame().getNetworkManager().getClass().getName().equals("GameClient") && getId() == 0) ||
                         (getGame().getNetworkManager().getClass().getName().equals("GameServer") && getId() == 1))) {
             System.out.println("Waiting for opponent");
+            getGame().getGridPanel().getListener().setActive(false);
+//            gridPanel.setReady(false);
             String move = getGame().getNetworkManager().read();
+            getGame().getGridPanel().getListener().setActive(true);
             String[] lines = move.split(System.getProperty("line.separator"));
             for (String line : lines) {
                 String[] args = line.split(" ");
@@ -133,7 +137,7 @@ public class User extends Player {
             while (!isReady() && getGame().gameOver() == -1);
             setReady(false);
         }
-        if (getGame().getGameType() == Game.MULTIPLAYER_LOCAL) {
+        if (getGame().getGameType() == Game.MULTIPLAYER_LOCAL && getGame().getUserInterface() == Game.TERMINAL) {
             lastMove.insert(0, lineCounter + "\n");
             getGame().getNetworkManager().write(lastMove.toString());
         }

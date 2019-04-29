@@ -10,8 +10,7 @@ public class MainGUI {
     private volatile int start = 0;
 
     public MainGUI() throws IOException {
-        Game game1 = new Game(Game.SINGLE_PLAYER, Game.GUI);
-        Game game2 = new Game(Game.MULTIPLAYER_ONE_MACHINE, Game.GUI);
+        Game game;
 
         JFrame jf = new JFrame("Battleship");
         jf.setSize(WIDTH, HEIGHT);
@@ -26,18 +25,36 @@ public class MainGUI {
         jf.setVisible(true);
 
 
-        while (start == 0);
+        while (start == 0) ;
         if (start == 1) {
-            playerPanels.add("0", new GridPanel(WIDTH, HEIGHT, game1.getPlayers()[0], game1, playerPanels));
+            game = new Game(Game.SINGLE_PLAYER, Game.GUI);
+            playerPanels.add("0", new GridPanel(WIDTH, HEIGHT, (User) game.getPlayers()[0], game, playerPanels));
             CardLayout cl = (CardLayout) playerPanels.getLayout();
             cl.show(playerPanels, "0");
-            game1.play();
-        } else {
-            playerPanels.add("0", new GridPanel(WIDTH, HEIGHT, game2.getPlayers()[0], game2, playerPanels));
-            playerPanels.add("1", new GridPanel(WIDTH, HEIGHT, game2.getPlayers()[1], game2, playerPanels));
+            game.play();
+        } else if (start == 2) {
+            game = new Game(Game.MULTIPLAYER_ONE_MACHINE, Game.GUI);
+            playerPanels.add("0", new GridPanel(WIDTH, HEIGHT, (User) game.getPlayers()[0], game, playerPanels));
+            playerPanels.add("1", new GridPanel(WIDTH, HEIGHT, (User) game.getPlayers()[1], game, playerPanels));
             CardLayout cl = (CardLayout) playerPanels.getLayout();
             cl.show(playerPanels, "0");
-            game2.play();
+            game.play();
+        } else if (start == 3) {
+            game = new Game(Game.GUI, true);
+            CardLayout cl = (CardLayout) playerPanels.getLayout();
+            GridPanel gridPanel = new GridPanel(WIDTH, HEIGHT, (User) game.getPlayers()[0], game, playerPanels);
+            playerPanels.add("0", gridPanel);
+            game.setGridPanel(gridPanel);
+            cl.show(playerPanels, "0");
+            game.play();
+        } else if (start == 4) {
+            game = new Game(Game.GUI, false);
+            CardLayout cl = (CardLayout) playerPanels.getLayout();
+            GridPanel gridPanel = new GridPanel(WIDTH, HEIGHT, (User) game.getPlayers()[1], game, playerPanels);
+            playerPanels.add("1", gridPanel);
+            game.setGridPanel(gridPanel);
+            cl.show(playerPanels, "1");
+            game.play();
         }
     }
 
