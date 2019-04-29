@@ -7,10 +7,50 @@ public class MainMenuPanel extends JPanel {
     public final int WIDTH;
     public final int HEIGHT;
 
-    private JButton buttonSP;
-    private JButton buttonMP;
-    private JButton buttonMPL1;
-    private JButton buttonMPL2;
+    private class Button extends JButton {
+        Button(String name, int fontSize, int buttonWidth, int buttonHeight, MainGUI runner, int state, int WIDTH, int HEIGHT) {
+            super(name);
+            setFont(new Font(Font.SANS_SERIF, Font.BOLD, fontSize));
+            setBounds(WIDTH / 2 - buttonWidth / 2, HEIGHT / 2 - 2 * buttonHeight + (state - 1) * buttonHeight,
+                    buttonWidth, buttonHeight);
+            setBackground(Color.WHITE);
+            setForeground(Color.RED);
+            setFocusPainted(false);
+            setBorderPainted(false);
+
+            addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent mouseEvent) {
+                    runner.setStart(state);
+                }
+
+                @Override
+                public void mousePressed(MouseEvent mouseEvent) {
+
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent mouseEvent) {
+
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent mouseEvent) {
+
+                }
+
+                @Override
+                public void mouseExited(MouseEvent mouseEvent) {
+
+                }
+            });
+        }
+    }
+
+    private Button buttonSP;
+    private Button buttonMP;
+    private Button buttonMPL1;
+    private Button buttonMPL2;
 
     public MainMenuPanel(int width, int height, MainGUI runner) {
         super(null);
@@ -22,149 +62,10 @@ public class MainMenuPanel extends JPanel {
 
         int fontSize = buttonWidth / 18;
 
-        buttonSP = new JButton("SINGLE PLAYER");
-        buttonSP.setFont(new Font(Font.SANS_SERIF, Font.BOLD, fontSize));
-        buttonSP.setBounds(WIDTH / 2 - buttonWidth / 2, HEIGHT / 2 - 2 * buttonHeight,
-                buttonWidth, buttonHeight);
-        buttonSP.setBackground(Color.WHITE);
-        buttonSP.setForeground(Color.RED);
-        buttonSP.setFocusPainted(false);
-        buttonSP.setBorderPainted(false);
-
-        buttonMP = new JButton("MULTIPLAYER");
-        buttonMP.setFont(new Font(Font.SANS_SERIF, Font.BOLD, fontSize));
-        buttonMP.setBounds(WIDTH / 2 - buttonWidth / 2, HEIGHT / 2 - buttonHeight,
-                buttonWidth, buttonHeight);
-        buttonMP.setBackground(Color.WHITE);
-        buttonMP.setForeground(Color.RED);
-        buttonMP.setFocusPainted(false);
-        buttonMP.setBorderPainted(false);
-
-        buttonMPL1 = new JButton("MULTIPLAYER SERVER");
-        buttonMPL1.setFont(new Font(Font.SANS_SERIF, Font.BOLD, fontSize));
-        buttonMPL1.setBounds(WIDTH / 2 - buttonWidth / 2, HEIGHT / 2,
-                buttonWidth, buttonHeight);
-        buttonMPL1.setBackground(Color.WHITE);
-        buttonMPL1.setForeground(Color.RED);
-        buttonMPL1.setFocusPainted(false);
-        buttonMPL1.setBorderPainted(false);
-
-        buttonMPL2 = new JButton("MULTIPLAYER CLIENT");
-        buttonMPL2.setFont(new Font(Font.SANS_SERIF, Font.BOLD, fontSize));
-        buttonMPL2.setBounds(WIDTH / 2 - buttonWidth / 2, HEIGHT / 2 + buttonHeight,
-                buttonWidth, buttonHeight);
-        buttonMPL2.setBackground(Color.WHITE);
-        buttonMPL2.setForeground(Color.RED);
-        buttonMPL2.setFocusPainted(false);
-        buttonMPL2.setBorderPainted(false);
-
-        buttonSP.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                runner.setStart(1);
-            }
-
-            @Override
-            public void mousePressed(MouseEvent mouseEvent) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent mouseEvent) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent mouseEvent) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent mouseEvent) {
-
-            }
-        });
-
-        buttonMP.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                runner.setStart(2);
-            }
-
-            @Override
-            public void mousePressed(MouseEvent mouseEvent) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent mouseEvent) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent mouseEvent) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent mouseEvent) {
-
-            }
-        });
-
-        buttonMPL1.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                runner.setStart(3);
-            }
-
-            @Override
-            public void mousePressed(MouseEvent mouseEvent) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent mouseEvent) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent mouseEvent) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent mouseEvent) {
-
-            }
-        });
-
-        buttonMPL2.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent mouseEvent) {
-                runner.setStart(4);
-            }
-
-            @Override
-            public void mousePressed(MouseEvent mouseEvent) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent mouseEvent) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent mouseEvent) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent mouseEvent) {
-
-            }
-        });
+        buttonSP = new Button("SINGLE PLAYER", fontSize, buttonWidth, buttonHeight, runner, 1, WIDTH, HEIGHT);
+        buttonMP = new Button("MULTIPLAYER", fontSize, buttonWidth, buttonHeight, runner, 2, WIDTH, HEIGHT);
+        buttonMPL1 = new Button("MULTIPLAYER SERVER", fontSize, buttonWidth, buttonHeight, runner, 3, WIDTH, HEIGHT);
+        buttonMPL2 = new Button("MULTIPLAYER CLIENT", fontSize, buttonWidth, buttonHeight, runner, 4, WIDTH, HEIGHT);
 
 
         add(buttonSP);

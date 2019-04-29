@@ -31,14 +31,12 @@ public class MainGUI {
             playerPanels.add("0", new GridPanel(WIDTH, HEIGHT, (User) game.getPlayers()[0], game, playerPanels));
             CardLayout cl = (CardLayout) playerPanels.getLayout();
             cl.show(playerPanels, "0");
-            game.play();
         } else if (start == 2) {
             game = new Game(Game.MULTIPLAYER_ONE_MACHINE, Game.GUI);
             playerPanels.add("0", new GridPanel(WIDTH, HEIGHT, (User) game.getPlayers()[0], game, playerPanels));
             playerPanels.add("1", new GridPanel(WIDTH, HEIGHT, (User) game.getPlayers()[1], game, playerPanels));
             CardLayout cl = (CardLayout) playerPanels.getLayout();
             cl.show(playerPanels, "0");
-            game.play();
         } else if (start == 3) {
             game = new Game(Game.GUI, true);
             CardLayout cl = (CardLayout) playerPanels.getLayout();
@@ -46,16 +44,15 @@ public class MainGUI {
             playerPanels.add("0", gridPanel);
             game.setGridPanel(gridPanel);
             cl.show(playerPanels, "0");
-            game.play();
-        } else if (start == 4) {
+        } else {
             game = new Game(Game.GUI, false);
             CardLayout cl = (CardLayout) playerPanels.getLayout();
             GridPanel gridPanel = new GridPanel(WIDTH, HEIGHT, (User) game.getPlayers()[1], game, playerPanels);
             playerPanels.add("1", gridPanel);
             game.setGridPanel(gridPanel);
             cl.show(playerPanels, "1");
-            game.play();
         }
+        game.play();
     }
 
     public int getStart() {

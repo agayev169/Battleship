@@ -29,10 +29,8 @@ public class Game {
         this.userInterface = userInterface;
         this.gameType = gameType;
         if (gameType == SINGLE_PLAYER) {
-            players[0] = new User(this, 0, userInterface);
             players[1] = new Bot(this, 1);
         } else if (gameType == MULTIPLAYER_ONE_MACHINE) {
-            players[0] = new User(this, 0, userInterface);
             players[1] = new User(this, 1, userInterface);
         } else if (gameType == MULTIPLAYER_LOCAL) {
             Scanner sc = new Scanner(System.in);
@@ -43,14 +41,12 @@ public class Game {
             } while (!input.equals("s") && !input.equals("c"));
             if (input.equals("s")) {
                 networkManager = new GameServer();
-                players[0] = new User(this, 0, userInterface);
-                players[1] = new User(this, 1, userInterface);
             } else {
                 networkManager = new GameClient();
-                players[0] = new User(this, 0, userInterface);
-                players[1] = new User(this, 1, userInterface);
             }
+            players[1] = new User(this, 1, userInterface);
         }
+        players[0] = new User(this, 0, userInterface);
     }
 
     public Game(int userInterface, boolean isServer) throws  IOException {
