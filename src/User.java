@@ -1,14 +1,27 @@
 import java.util.Scanner;
 
+/**
+ * User class.
+ * Class representing a user that plays a game.
+ */
 public class User extends Player {
 
     private int userInterface;
 
+    /**
+     * Constructor.
+     * @param game Game object.
+     * @param id id of a player.
+     */
     public User(Game game, int id, int userInterface) {
         super(game, id);
         this.userInterface = userInterface;
     }
 
+    /**
+     * Build ships.
+     * A method to build ships.
+     */
     @Override
     public void buildShips() {
         if (userInterface == Game.TERMINAL) {
@@ -63,6 +76,9 @@ public class User extends Player {
         }
     }
 
+    /**
+     * Attack the opponent's Ship's.
+     */
     @Override
     public void attack() {
         if (userInterface == Game.TERMINAL) {

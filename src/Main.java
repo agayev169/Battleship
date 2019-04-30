@@ -1,7 +1,12 @@
 import java.util.Scanner;
 
+/**
+ * Main class to run a game.
+ */
 public class Main {
-
+    /**
+     * Starting point of a game.
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String response = "";
@@ -10,7 +15,7 @@ public class Main {
             System.out.println("Type 'm' to play against another user.");
             response = sc.next();
         }
-        Game game = new Game(response.equals("s") ? Game.SINGLE_PLAYER : Game.MULTIPLAYER_ONE_MACHINE, Game.TERMINAL);
+        Game game = new Game(response.equals("s"));
         game.play();
     }
 }

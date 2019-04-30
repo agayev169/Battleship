@@ -1,0 +1,266 @@
+\hypertarget{classShip}{}\section{Ship Class Reference}
+\label{classShip}\index{Ship@{Ship}}
+
+
+\hyperlink{classShip}{Ship} class.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classShip_aad9f864d03a4d6e4410ef058a07a887d}{Ship} (int x, int y, int segment\+Num, boolean is\+Horizontal)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+int \hyperlink{classShip_a1cb1ffc138ae22488954a8f9cbd7a227}{getX} ()
+\begin{DoxyCompactList}\small\item\em Getter for x. \end{DoxyCompactList}\item 
+int \hyperlink{classShip_a7dd07d0fdb652e1ce70f2442d6b1171c}{getY} ()
+\begin{DoxyCompactList}\small\item\em Getter for y. \end{DoxyCompactList}\item 
+boolean \hyperlink{classShip_a5931f11cfaaecf82200263373d777249}{is\+Horizontal} ()
+\begin{DoxyCompactList}\small\item\em Getter for orientation of a ship. \end{DoxyCompactList}\item 
+boolean\mbox{[}$\,$\mbox{]} \hyperlink{classShip_ab18527e0957bdb9a286a91fea5bfd500}{get\+Health} ()
+\begin{DoxyCompactList}\small\item\em Getter for HP. \end{DoxyCompactList}\item 
+void \hyperlink{classShip_ae5dfe53a340d63db1dfcda3d43138775}{setX} (int x)
+\begin{DoxyCompactList}\small\item\em Setter for x. \end{DoxyCompactList}\item 
+void \hyperlink{classShip_a8b4bd2064164d6310f2035249b5c2e8d}{setY} (int y)
+\begin{DoxyCompactList}\small\item\em Setter for y. \end{DoxyCompactList}\item 
+void \hyperlink{classShip_a170cbc736f06285b709a3d110b0f3da9}{set\+Horizontal} (boolean horizontal)
+\begin{DoxyCompactList}\small\item\em Setter for orientation. \end{DoxyCompactList}\item 
+void \hyperlink{classShip_af1524176d95bdcd4699606020f491a36}{set\+Health} (boolean\mbox{[}$\,$\mbox{]} health)
+\begin{DoxyCompactList}\small\item\em Setter for HP. \end{DoxyCompactList}\item 
+void \hyperlink{classShip_ab7049cd23905649a2b382a8e1f022baf}{get\+Damage} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Get damage at given (x, y) coordinates. \end{DoxyCompactList}\item 
+boolean \hyperlink{classShip_a60e1c5cd27f8779cdd668580bc76fb2f}{is\+Dead} ()
+\begin{DoxyCompactList}\small\item\em Is a ship sunk? \end{DoxyCompactList}\item 
+boolean \hyperlink{classShip_a4a9ded86f4c02bb9ab8936314dd228aa}{is\+At} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Is a ship at (x, y)? \end{DoxyCompactList}\item 
+String \hyperlink{classShip_a6fc0a9eec35370be3fa5e0c4efcb041c}{to\+String} ()
+\begin{DoxyCompactList}\small\item\em Convert a ship to String. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classShip}{Ship} class. 
+
+Class that realizes the idea of a ship in game. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Ship@{Ship}!Ship@{Ship}}
+\index{Ship@{Ship}!Ship@{Ship}}
+\subsubsection[{\texorpdfstring{Ship(int x, int y, int segment\+Num, boolean is\+Horizontal)}{Ship(int x, int y, int segmentNum, boolean isHorizontal)}}]{\setlength{\rightskip}{0pt plus 5cm}Ship.\+Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{segment\+Num, }
+\item[{boolean}]{is\+Horizontal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classShip_aad9f864d03a4d6e4410ef058a07a887d}{}\label{classShip_aad9f864d03a4d6e4410ef058a07a887d}
+
+
+Constructor. 
+
+Construct a segment\+Num-\/segment ship at given x, y coordinates in the given orientation. 
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate of a ship. \\
+\hline
+{\em y} & y-\/coordinate of a ship. \\
+\hline
+{\em segment\+Num} & number of segments of a ship. \\
+\hline
+{\em is\+Horizontal} & is ship located horizontally? \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Ship@{Ship}!get\+Damage@{get\+Damage}}
+\index{get\+Damage@{get\+Damage}!Ship@{Ship}}
+\subsubsection[{\texorpdfstring{get\+Damage(int x, int y)}{getDamage(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Ship.\+get\+Damage (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classShip_ab7049cd23905649a2b382a8e1f022baf}{}\label{classShip_ab7049cd23905649a2b382a8e1f022baf}
+
+
+Get damage at given (x, y) coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate. \\
+\hline
+{\em y} & y-\/coordinate. \\
+\hline
+\end{DoxyParams}
+\index{Ship@{Ship}!get\+Health@{get\+Health}}
+\index{get\+Health@{get\+Health}!Ship@{Ship}}
+\subsubsection[{\texorpdfstring{get\+Health()}{getHealth()}}]{\setlength{\rightskip}{0pt plus 5cm}boolean \mbox{[}$\,$\mbox{]} Ship.\+get\+Health (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classShip_ab18527e0957bdb9a286a91fea5bfd500}{}\label{classShip_ab18527e0957bdb9a286a91fea5bfd500}
+
+
+Getter for HP. 
+
+\begin{DoxyReturn}{Returns}
+array of boolean containing information about the state of a segment. 
+\end{DoxyReturn}
+\index{Ship@{Ship}!getX@{getX}}
+\index{getX@{getX}!Ship@{Ship}}
+\subsubsection[{\texorpdfstring{get\+X()}{getX()}}]{\setlength{\rightskip}{0pt plus 5cm}int Ship.\+getX (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classShip_a1cb1ffc138ae22488954a8f9cbd7a227}{}\label{classShip_a1cb1ffc138ae22488954a8f9cbd7a227}
+
+
+Getter for x. 
+
+\begin{DoxyReturn}{Returns}
+x-\/coordinate of a ship. 
+\end{DoxyReturn}
+\index{Ship@{Ship}!getY@{getY}}
+\index{getY@{getY}!Ship@{Ship}}
+\subsubsection[{\texorpdfstring{get\+Y()}{getY()}}]{\setlength{\rightskip}{0pt plus 5cm}int Ship.\+getY (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classShip_a7dd07d0fdb652e1ce70f2442d6b1171c}{}\label{classShip_a7dd07d0fdb652e1ce70f2442d6b1171c}
+
+
+Getter for y. 
+
+\begin{DoxyReturn}{Returns}
+y-\/coordinate of a ship. 
+\end{DoxyReturn}
+\index{Ship@{Ship}!is\+At@{is\+At}}
+\index{is\+At@{is\+At}!Ship@{Ship}}
+\subsubsection[{\texorpdfstring{is\+At(int x, int y)}{isAt(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}boolean Ship.\+is\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classShip_a4a9ded86f4c02bb9ab8936314dd228aa}{}\label{classShip_a4a9ded86f4c02bb9ab8936314dd228aa}
+
+
+Is a ship at (x, y)? 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate. \\
+\hline
+{\em y} & y-\/coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if ship is at (x, y), false otherwise. 
+\end{DoxyReturn}
+\index{Ship@{Ship}!is\+Dead@{is\+Dead}}
+\index{is\+Dead@{is\+Dead}!Ship@{Ship}}
+\subsubsection[{\texorpdfstring{is\+Dead()}{isDead()}}]{\setlength{\rightskip}{0pt plus 5cm}boolean Ship.\+is\+Dead (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classShip_a60e1c5cd27f8779cdd668580bc76fb2f}{}\label{classShip_a60e1c5cd27f8779cdd668580bc76fb2f}
+
+
+Is a ship sunk? 
+
+\begin{DoxyReturn}{Returns}
+true if ship is sunk, false elsotherwisee. 
+\end{DoxyReturn}
+\index{Ship@{Ship}!is\+Horizontal@{is\+Horizontal}}
+\index{is\+Horizontal@{is\+Horizontal}!Ship@{Ship}}
+\subsubsection[{\texorpdfstring{is\+Horizontal()}{isHorizontal()}}]{\setlength{\rightskip}{0pt plus 5cm}boolean Ship.\+is\+Horizontal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classShip_a5931f11cfaaecf82200263373d777249}{}\label{classShip_a5931f11cfaaecf82200263373d777249}
+
+
+Getter for orientation of a ship. 
+
+\begin{DoxyReturn}{Returns}
+true if ship is horizontal, false otherwise. 
+\end{DoxyReturn}
+\index{Ship@{Ship}!set\+Health@{set\+Health}}
+\index{set\+Health@{set\+Health}!Ship@{Ship}}
+\subsubsection[{\texorpdfstring{set\+Health(boolean[] health)}{setHealth(boolean[] health)}}]{\setlength{\rightskip}{0pt plus 5cm}void Ship.\+set\+Health (
+\begin{DoxyParamCaption}
+\item[{boolean\mbox{[}$\,$\mbox{]}}]{health}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classShip_af1524176d95bdcd4699606020f491a36}{}\label{classShip_af1524176d95bdcd4699606020f491a36}
+
+
+Setter for HP. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em health} & boolean array of HP of each segment. \\
+\hline
+\end{DoxyParams}
+\index{Ship@{Ship}!set\+Horizontal@{set\+Horizontal}}
+\index{set\+Horizontal@{set\+Horizontal}!Ship@{Ship}}
+\subsubsection[{\texorpdfstring{set\+Horizontal(boolean horizontal)}{setHorizontal(boolean horizontal)}}]{\setlength{\rightskip}{0pt plus 5cm}void Ship.\+set\+Horizontal (
+\begin{DoxyParamCaption}
+\item[{boolean}]{horizontal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classShip_a170cbc736f06285b709a3d110b0f3da9}{}\label{classShip_a170cbc736f06285b709a3d110b0f3da9}
+
+
+Setter for orientation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em horizontal} & new orientation of a ship. \\
+\hline
+\end{DoxyParams}
+\index{Ship@{Ship}!setX@{setX}}
+\index{setX@{setX}!Ship@{Ship}}
+\subsubsection[{\texorpdfstring{set\+X(int x)}{setX(int x)}}]{\setlength{\rightskip}{0pt plus 5cm}void Ship.\+setX (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classShip_ae5dfe53a340d63db1dfcda3d43138775}{}\label{classShip_ae5dfe53a340d63db1dfcda3d43138775}
+
+
+Setter for x. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & new x-\/coordinate of a ship. \\
+\hline
+\end{DoxyParams}
+\index{Ship@{Ship}!setY@{setY}}
+\index{setY@{setY}!Ship@{Ship}}
+\subsubsection[{\texorpdfstring{set\+Y(int y)}{setY(int y)}}]{\setlength{\rightskip}{0pt plus 5cm}void Ship.\+setY (
+\begin{DoxyParamCaption}
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classShip_a8b4bd2064164d6310f2035249b5c2e8d}{}\label{classShip_a8b4bd2064164d6310f2035249b5c2e8d}
+
+
+Setter for y. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & new y-\/coordinate of a ship. \\
+\hline
+\end{DoxyParams}
+\index{Ship@{Ship}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Ship@{Ship}}
+\subsubsection[{\texorpdfstring{to\+String()}{toString()}}]{\setlength{\rightskip}{0pt plus 5cm}String Ship.\+to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classShip_a6fc0a9eec35370be3fa5e0c4efcb041c}{}\label{classShip_a6fc0a9eec35370be3fa5e0c4efcb041c}
+
+
+Convert a ship to String. 
+
+\begin{DoxyReturn}{Returns}
+String containing x-\/, y-\/coorinates, orientation and HP of a ship. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Ship.\+java\end{DoxyCompactItemize}

@@ -3,6 +3,10 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * Panel of main menu.
+ * Class representing a main menu panel.
+ */
 public class MainMenuPanel extends JPanel {
     public final int WIDTH;
     public final int HEIGHT;
@@ -10,6 +14,12 @@ public class MainMenuPanel extends JPanel {
     private JButton buttonSP;
     private JButton buttonMP;
 
+    /**
+     * Constructor.
+     * @param width width of panel. 
+     * @param height height of panel.
+     * @param runner MainGUI object creating the panel.
+     */
     public MainMenuPanel(int width, int height, MainGUI runner) {
         super(null);
         WIDTH = width;
@@ -97,6 +107,9 @@ public class MainMenuPanel extends JPanel {
         add(buttonMP);
     }
 
+    /**
+     * Draw the background.
+     */
     @Override
     protected void paintComponent(Graphics g) {
         g.setColor(Color.WHITE);

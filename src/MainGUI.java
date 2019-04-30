@@ -1,13 +1,20 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Main class.
+ * Class that runs a game.
+ */
 public class MainGUI {
-
     public final static int WIDTH = 1050;
     public final static int HEIGHT = 500;
 
     private volatile int start = 0;
 
+    /**
+     * Constructor.
+     * Creates panels and runs a game.
+     */
     public MainGUI() {
         Game game1 = new Game(Game.SINGLE_PLAYER, Game.GUI);
         Game game2 = new Game(Game.MULTIPLAYER_ONE_MACHINE, Game.GUI);
@@ -40,14 +47,25 @@ public class MainGUI {
         }
     }
 
+    /**
+     * Getter for start.
+     * @return value of start.
+     */
     public int getStart() {
         return start;
     }
 
+    /**
+     * Setter for start.
+     * @param start value of start.
+     */
     public void setStart(int start) {
         this.start = start;
     }
 
+    /**
+     * Starting point of a game.
+     */
     public static void main(String[] args) {
         new MainGUI();
     }

@@ -1,0 +1,250 @@
+\hypertarget{classGame}{}\section{Game Class Reference}
+\label{classGame}\index{Game@{Game}}
+
+
+Engine of a game.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGame_ae0ca81a868814b02a8267768494527b2}{Game} (int game\+Type, int user\+Interface)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classPlayer}{Player}\mbox{[}$\,$\mbox{]} \hyperlink{classGame_a506ae8e369b87240b4c93e6da86d5cee}{get\+Players} ()
+\begin{DoxyCompactList}\small\item\em Getter for \hyperlink{classPlayer}{Player}\textquotesingle{}s array. \end{DoxyCompactList}\item 
+int \hyperlink{classGame_ae518e278826e5feba6f9fc5f3818ad02}{get\+Turn} ()
+\begin{DoxyCompactList}\small\item\em Getter for turn number. \end{DoxyCompactList}\item 
+int \hyperlink{classGame_a21b344d249e50b6a12fbbb2ab15fd988}{get\+Game\+Type} ()
+\begin{DoxyCompactList}\small\item\em Getter for a type of a game. \end{DoxyCompactList}\item 
+boolean \hyperlink{classGame_af151f3c1db692f8dc482b5ad2351c723}{can\+Build} (int x, int y, int segment\+Num, boolean is\+Horizontal, int id)
+\begin{DoxyCompactList}\small\item\em Can build a ship? Is it possible to build a ship with given configuration? \end{DoxyCompactList}\item 
+boolean \hyperlink{classGame_af2b475289d83fd193e7e648e0f98a69d}{attempt\+To\+Build} (int x, int y, int segment\+Num, boolean is\+Horizontal, int id)
+\begin{DoxyCompactList}\small\item\em Attemp to build a ship. \end{DoxyCompactList}\item 
+int \hyperlink{classGame_acdb27fef4ad28c9a9c07e7f095611f36}{shoot} (int x, int y, int id)
+\begin{DoxyCompactList}\small\item\em Shoot at the player. \end{DoxyCompactList}\item 
+void \hyperlink{classGame_afeae4232ad3b23d07dcccc383e14ff08}{play} ()
+\begin{DoxyCompactList}\small\item\em Play function. \end{DoxyCompactList}\item 
+int \hyperlink{classGame_a81bd2e305d61946b102ed5094d2fa6c0}{game\+Over} ()
+\begin{DoxyCompactList}\small\item\em Is game over? \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final int {\bfseries user\+Interface}\hypertarget{classGame_a8ccbeac22c3c1dd4c9e25d958849a00b}{}\label{classGame_a8ccbeac22c3c1dd4c9e25d958849a00b}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int {\bfseries M\+I\+SS} = 0\hypertarget{classGame_a66375c0a8f7f1a1480bd47221bc31917}{}\label{classGame_a66375c0a8f7f1a1480bd47221bc31917}
+
+\item 
+static final int {\bfseries H\+IT} = 1\hypertarget{classGame_a3840c1d15fa897a006516377a7f2e340}{}\label{classGame_a3840c1d15fa897a006516377a7f2e340}
+
+\item 
+static final int {\bfseries S\+I\+NK} = 2\hypertarget{classGame_a025eaf2e2b3235687cebe23b45f74467}{}\label{classGame_a025eaf2e2b3235687cebe23b45f74467}
+
+\item 
+static final int {\bfseries S\+I\+N\+G\+L\+E\+\_\+\+P\+L\+A\+Y\+ER} = 0\hypertarget{classGame_a5339842157512627a57fd244ddf6fee1}{}\label{classGame_a5339842157512627a57fd244ddf6fee1}
+
+\item 
+static final int {\bfseries M\+U\+L\+T\+I\+P\+L\+A\+Y\+E\+R\+\_\+\+O\+N\+E\+\_\+\+M\+A\+C\+H\+I\+NE} = 1\hypertarget{classGame_a154eba714e497a72538c02a4a242e6f0}{}\label{classGame_a154eba714e497a72538c02a4a242e6f0}
+
+\item 
+static final int {\bfseries M\+U\+L\+T\+I\+P\+L\+A\+Y\+E\+R\+\_\+\+L\+O\+C\+AL} = 2\hypertarget{classGame_a33173902f263a3da1fcc20039c5270c4}{}\label{classGame_a33173902f263a3da1fcc20039c5270c4}
+
+\item 
+static final int {\bfseries T\+E\+R\+M\+I\+N\+AL} = 0\hypertarget{classGame_a5b128fb3114228cd96da20f04a242ece}{}\label{classGame_a5b128fb3114228cd96da20f04a242ece}
+
+\item 
+static final int {\bfseries G\+UI} = 1\hypertarget{classGame_a9946b16728ee007ef31ec57e6578d2a2}{}\label{classGame_a9946b16728ee007ef31ec57e6578d2a2}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Engine of a game. 
+
+Implementation of a concept of game. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\subsubsection[{\texorpdfstring{Game(int game\+Type, int user\+Interface)}{Game(int gameType, int userInterface)}}]{\setlength{\rightskip}{0pt plus 5cm}Game.\+Game (
+\begin{DoxyParamCaption}
+\item[{int}]{game\+Type, }
+\item[{int}]{user\+Interface}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGame_ae0ca81a868814b02a8267768494527b2}{}\label{classGame_ae0ca81a868814b02a8267768494527b2}
+
+
+Constructor. 
+
+Creates a game of certain type. 
+\begin{DoxyParams}{Parameters}
+{\em game\+Type} & type of a game, i.\+e. single player, multiplayer. \\
+\hline
+{\em user\+Interface} & user interface of a game, i.\+e. text or graphical \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Game@{Game}!attempt\+To\+Build@{attempt\+To\+Build}}
+\index{attempt\+To\+Build@{attempt\+To\+Build}!Game@{Game}}
+\subsubsection[{\texorpdfstring{attempt\+To\+Build(int x, int y, int segment\+Num, boolean is\+Horizontal, int id)}{attemptToBuild(int x, int y, int segmentNum, boolean isHorizontal, int id)}}]{\setlength{\rightskip}{0pt plus 5cm}boolean Game.\+attempt\+To\+Build (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{segment\+Num, }
+\item[{boolean}]{is\+Horizontal, }
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGame_af2b475289d83fd193e7e648e0f98a69d}{}\label{classGame_af2b475289d83fd193e7e648e0f98a69d}
+
+
+Attemp to build a ship. 
+
+Try to build a ship with given configuration. 
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate. \\
+\hline
+{\em y} & y-\/coordinate. \\
+\hline
+{\em segment\+Num} & number of segments of a ship. \\
+\hline
+{\em is\+Horizontal} & \\
+\hline
+{\em id} & id of a player. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it attempt is successful, false otherwise. 
+\end{DoxyReturn}
+\index{Game@{Game}!can\+Build@{can\+Build}}
+\index{can\+Build@{can\+Build}!Game@{Game}}
+\subsubsection[{\texorpdfstring{can\+Build(int x, int y, int segment\+Num, boolean is\+Horizontal, int id)}{canBuild(int x, int y, int segmentNum, boolean isHorizontal, int id)}}]{\setlength{\rightskip}{0pt plus 5cm}boolean Game.\+can\+Build (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{segment\+Num, }
+\item[{boolean}]{is\+Horizontal, }
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGame_af151f3c1db692f8dc482b5ad2351c723}{}\label{classGame_af151f3c1db692f8dc482b5ad2351c723}
+
+
+Can build a ship? Is it possible to build a ship with given configuration? 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate. \\
+\hline
+{\em y} & y-\/coordinate. \\
+\hline
+{\em segment\+Num} & number of segments of a ship. \\
+\hline
+{\em is\+Horizontal} & boolean specifying the orientation of a ship. \\
+\hline
+{\em id} & id of a player. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it is possible to build a ship, false otherwise. 
+\end{DoxyReturn}
+\index{Game@{Game}!game\+Over@{game\+Over}}
+\index{game\+Over@{game\+Over}!Game@{Game}}
+\subsubsection[{\texorpdfstring{game\+Over()}{gameOver()}}]{\setlength{\rightskip}{0pt plus 5cm}int Game.\+game\+Over (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGame_a81bd2e305d61946b102ed5094d2fa6c0}{}\label{classGame_a81bd2e305d61946b102ed5094d2fa6c0}
+
+
+Is game over? 
+
+\begin{DoxyReturn}{Returns}
+id of a loser if game is over, -\/1 otherwise. 
+\end{DoxyReturn}
+\index{Game@{Game}!get\+Game\+Type@{get\+Game\+Type}}
+\index{get\+Game\+Type@{get\+Game\+Type}!Game@{Game}}
+\subsubsection[{\texorpdfstring{get\+Game\+Type()}{getGameType()}}]{\setlength{\rightskip}{0pt plus 5cm}int Game.\+get\+Game\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGame_a21b344d249e50b6a12fbbb2ab15fd988}{}\label{classGame_a21b344d249e50b6a12fbbb2ab15fd988}
+
+
+Getter for a type of a game. 
+
+\begin{DoxyReturn}{Returns}
+type of a game. 
+\end{DoxyReturn}
+\index{Game@{Game}!get\+Players@{get\+Players}}
+\index{get\+Players@{get\+Players}!Game@{Game}}
+\subsubsection[{\texorpdfstring{get\+Players()}{getPlayers()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Player} \mbox{[}$\,$\mbox{]} Game.\+get\+Players (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGame_a506ae8e369b87240b4c93e6da86d5cee}{}\label{classGame_a506ae8e369b87240b4c93e6da86d5cee}
+
+
+Getter for \hyperlink{classPlayer}{Player}\textquotesingle{}s array. 
+
+\begin{DoxyReturn}{Returns}
+array of \hyperlink{classPlayer}{Player}\textquotesingle{}s. 
+\end{DoxyReturn}
+\index{Game@{Game}!get\+Turn@{get\+Turn}}
+\index{get\+Turn@{get\+Turn}!Game@{Game}}
+\subsubsection[{\texorpdfstring{get\+Turn()}{getTurn()}}]{\setlength{\rightskip}{0pt plus 5cm}int Game.\+get\+Turn (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGame_ae518e278826e5feba6f9fc5f3818ad02}{}\label{classGame_ae518e278826e5feba6f9fc5f3818ad02}
+
+
+Getter for turn number. 
+
+\begin{DoxyReturn}{Returns}
+turn of the game. 
+\end{DoxyReturn}
+\index{Game@{Game}!play@{play}}
+\index{play@{play}!Game@{Game}}
+\subsubsection[{\texorpdfstring{play()}{play()}}]{\setlength{\rightskip}{0pt plus 5cm}void Game.\+play (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGame_afeae4232ad3b23d07dcccc383e14ff08}{}\label{classGame_afeae4232ad3b23d07dcccc383e14ff08}
+
+
+Play function. 
+
+Runs a game. \index{Game@{Game}!shoot@{shoot}}
+\index{shoot@{shoot}!Game@{Game}}
+\subsubsection[{\texorpdfstring{shoot(int x, int y, int id)}{shoot(int x, int y, int id)}}]{\setlength{\rightskip}{0pt plus 5cm}int Game.\+shoot (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGame_acdb27fef4ad28c9a9c07e7f095611f36}{}\label{classGame_acdb27fef4ad28c9a9c07e7f095611f36}
+
+
+Shoot at the player. 
+
+\hyperlink{classPlayer}{Player} with given id shoots at (x, y). 
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate. \\
+\hline
+{\em y} & y-\/coordinate. \\
+\hline
+{\em id} & id of a player. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+H\+I\+T/\+M\+I\+S\+S/\+S\+I\+NK 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Game.\+java\end{DoxyCompactItemize}

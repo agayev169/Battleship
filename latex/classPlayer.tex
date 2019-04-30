@@ -1,0 +1,507 @@
+\hypertarget{classPlayer}{}\section{Player Class Reference}
+\label{classPlayer}\index{Player@{Player}}
+
+
+\hyperlink{classPlayer}{Player} abstract class.  
+
+
+
+
+Inheritance diagram for Player\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{classPlayer__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPlayer_a0444e17b6e068f2cbee6937244c8f921}{Player} (\hyperlink{classGame}{Game} game, int id)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classShip}{Ship}\mbox{[}$\,$\mbox{]} \hyperlink{classPlayer_a992bcaa016d561372f176b0021b624d2}{get\+Ships} ()
+\begin{DoxyCompactList}\small\item\em Getter for array of ships. \end{DoxyCompactList}\item 
+\hyperlink{classShip}{Ship} \hyperlink{classPlayer_af2d7d0a6c12ccb105fedf289516463ca}{get\+Ship} (int index)
+\begin{DoxyCompactList}\small\item\em Getter for a ship at given index. \end{DoxyCompactList}\item 
+char\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{classPlayer_ae9eb4d4e55b285791cdfa946f33042ae}{get\+Grid\+Mine} ()
+\begin{DoxyCompactList}\small\item\em Getter for the player\textquotesingle{}s grid. \end{DoxyCompactList}\item 
+char \hyperlink{classPlayer_aee4d0aabd398122c3406d9a193d2fc33}{get\+Grid\+Mine} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Getter for an element of the player\textquotesingle{}s grid. \end{DoxyCompactList}\item 
+char\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \hyperlink{classPlayer_ae8c3f7b3895e4d8f5e96f5f072bf7211}{get\+Grid\+Opponent} ()
+\begin{DoxyCompactList}\small\item\em Getter for the oppoent\textquotesingle{}s grid. \end{DoxyCompactList}\item 
+char \hyperlink{classPlayer_ab82aed9ca2e326d51614a6287dd355d9}{get\+Grid\+Opponent} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Getter for an element of the opponent\textquotesingle{}s grid. \end{DoxyCompactList}\item 
+\hyperlink{classGame}{Game} \hyperlink{classPlayer_a08580623035eedb19e8b7a028ad64914}{get\+Game} ()
+\begin{DoxyCompactList}\small\item\em Getter for a game. \end{DoxyCompactList}\item 
+int \hyperlink{classPlayer_adea0e90dc94ac68c20d672f801dc951a}{get\+Id} ()
+\begin{DoxyCompactList}\small\item\em Getter for id. \end{DoxyCompactList}\item 
+void \hyperlink{classPlayer_ae4027662c9c93b5c023838a36a303a04}{set\+Ships} (\hyperlink{classShip}{Ship}\mbox{[}$\,$\mbox{]} ships)
+\begin{DoxyCompactList}\small\item\em Setter for array of \hyperlink{classShip}{Ship} objects. \end{DoxyCompactList}\item 
+void \hyperlink{classPlayer_a3235c3e8a2434947ebe9748abed80fda}{set\+Ship} (int index, \hyperlink{classShip}{Ship} ship)
+\begin{DoxyCompactList}\small\item\em Setter for the index-\/th element of an array of \hyperlink{classShip}{Ship}\textquotesingle{}s. \end{DoxyCompactList}\item 
+void \hyperlink{classPlayer_affa3bbe73b17f997591a92aaf6d8da33}{set\+Grid\+Mine} (char\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} grid\+Mine)
+\begin{DoxyCompactList}\small\item\em Setter for the player\textquotesingle{}s grid. \end{DoxyCompactList}\item 
+void \hyperlink{classPlayer_a8f3ce6a037eabdb592f421b77948af27}{set\+Grid\+Mine} (int x, int y, char val)
+\begin{DoxyCompactList}\small\item\em Setter for an (x, y)-\/element of player\textquotesingle{}s grid. \end{DoxyCompactList}\item 
+void \hyperlink{classPlayer_a3b65aecb541790ce379f68828a24517a}{set\+Grid\+Opponent} (char\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} grid\+Opponent)
+\begin{DoxyCompactList}\small\item\em Setter for the opponent\textquotesingle{}s grid. \end{DoxyCompactList}\item 
+void \hyperlink{classPlayer_a9555543f75989387be2e65769fbba816}{set\+Grid\+Opponent} (int x, int y, char val)
+\begin{DoxyCompactList}\small\item\em Setter for an (x, y)-\/element of opponent\textquotesingle{}s grid. \end{DoxyCompactList}\item 
+void \hyperlink{classPlayer_a75ac90ea1583ab7f6b09c48f7f414f44}{set\+Game} (\hyperlink{classGame}{Game} game)
+\begin{DoxyCompactList}\small\item\em Setter for a game. \end{DoxyCompactList}\item 
+boolean \hyperlink{classPlayer_a25d2009e1520e66fa0afed74111e1e7f}{is\+Ready} ()
+\begin{DoxyCompactList}\small\item\em Is a player ready? \end{DoxyCompactList}\item 
+void \hyperlink{classPlayer_a05b0f61d5105e6f759e902aa84c30630}{set\+Ready} (boolean ready)
+\begin{DoxyCompactList}\small\item\em Setter for ready. \end{DoxyCompactList}\item 
+abstract void \hyperlink{classPlayer_ac9db31c39141ff98362287a8bb998ef4}{build\+Ships} ()\hypertarget{classPlayer_ac9db31c39141ff98362287a8bb998ef4}{}\label{classPlayer_ac9db31c39141ff98362287a8bb998ef4}
+
+\begin{DoxyCompactList}\small\item\em Abstract method to build \hyperlink{classShip}{Ship}\textquotesingle{}s. \end{DoxyCompactList}\item 
+abstract void \hyperlink{classPlayer_abd852c2c1a9728644a45dd53a84871de}{attack} ()\hypertarget{classPlayer_abd852c2c1a9728644a45dd53a84871de}{}\label{classPlayer_abd852c2c1a9728644a45dd53a84871de}
+
+\begin{DoxyCompactList}\small\item\em Abstract method to attack the opponent\textquotesingle{}s \hyperlink{classShip}{Ship}\textquotesingle{}s. \end{DoxyCompactList}\item 
+boolean \hyperlink{classPlayer_a21c42ba135673c82075eebb3f9ea6d5c}{attempt\+To\+Build} (int x, int y, int segment\+Num, boolean is\+Horizontal)
+\begin{DoxyCompactList}\small\item\em Attempt to build a segment\+Num-\/segment \hyperlink{classShip}{Ship} at given (x, y) with given orientation. \end{DoxyCompactList}\item 
+void \hyperlink{classPlayer_ae551f266c116f22887d278f6beaf9e75}{show\+Grid\+Mine} (boolean clear)
+\begin{DoxyCompactList}\small\item\em Show player\textquotesingle{}s grid. \end{DoxyCompactList}\item 
+void \hyperlink{classPlayer_ade7e5623438ad21421091dcc201b367c}{show\+Grid\+Opponent} (boolean clear)
+\begin{DoxyCompactList}\small\item\em Show opponent\textquotesingle{}s grid. \end{DoxyCompactList}\item 
+void \hyperlink{classPlayer_ad571760f9739182566e3817e515fd3c1}{show\+Grids} (boolean clear)
+\begin{DoxyCompactList}\small\item\em Show player\textquotesingle{}s and opponent\textquotesingle{}s grids. \end{DoxyCompactList}\item 
+int \hyperlink{classPlayer_ac4e41793e0e2fd8cfaabad6775cdfaa0}{get\+Damage} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Get damage at given (x, y). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classPlayer_a8d4684cfbea821c5e7a028fc55419102}{M\+I\+SS} = 0\hypertarget{classPlayer_a8d4684cfbea821c5e7a028fc55419102}{}\label{classPlayer_a8d4684cfbea821c5e7a028fc55419102}
+
+\begin{DoxyCompactList}\small\item\em Constant for \char`\"{}miss\char`\"{}. \end{DoxyCompactList}\item 
+static final int \hyperlink{classPlayer_aaee095a0425ab0a86e80da80686ef8fa}{H\+IT} = 1\hypertarget{classPlayer_aaee095a0425ab0a86e80da80686ef8fa}{}\label{classPlayer_aaee095a0425ab0a86e80da80686ef8fa}
+
+\begin{DoxyCompactList}\small\item\em Constant for \char`\"{}hit\char`\"{}. \end{DoxyCompactList}\item 
+static final int \hyperlink{classPlayer_a0eceb792379193d9b8467e3ce4ed1dc6}{S\+I\+NK} = 2\hypertarget{classPlayer_a0eceb792379193d9b8467e3ce4ed1dc6}{}\label{classPlayer_a0eceb792379193d9b8467e3ce4ed1dc6}
+
+\begin{DoxyCompactList}\small\item\em Constant for \char`\"{}sink\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classPlayer}{Player} abstract class. 
+
+Implements the idea of a player in a game. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\subsubsection[{\texorpdfstring{Player(\+Game game, int id)}{Player(Game game, int id)}}]{\setlength{\rightskip}{0pt plus 5cm}Player.\+Player (
+\begin{DoxyParamCaption}
+\item[{{\bf Game}}]{game, }
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_a0444e17b6e068f2cbee6937244c8f921}{}\label{classPlayer_a0444e17b6e068f2cbee6937244c8f921}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & \hyperlink{classGame}{Game} object. \\
+\hline
+{\em id} & Id of a player. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Player@{Player}!attempt\+To\+Build@{attempt\+To\+Build}}
+\index{attempt\+To\+Build@{attempt\+To\+Build}!Player@{Player}}
+\subsubsection[{\texorpdfstring{attempt\+To\+Build(int x, int y, int segment\+Num, boolean is\+Horizontal)}{attemptToBuild(int x, int y, int segmentNum, boolean isHorizontal)}}]{\setlength{\rightskip}{0pt plus 5cm}boolean Player.\+attempt\+To\+Build (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{segment\+Num, }
+\item[{boolean}]{is\+Horizontal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_a21c42ba135673c82075eebb3f9ea6d5c}{}\label{classPlayer_a21c42ba135673c82075eebb3f9ea6d5c}
+
+
+Attempt to build a segment\+Num-\/segment \hyperlink{classShip}{Ship} at given (x, y) with given orientation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate. \\
+\hline
+{\em y} & y-\/coordinate. \\
+\hline
+{\em segment\+Num} & number of segments of a \hyperlink{classShip}{Ship} object. \\
+\hline
+{\em is\+Horizontal} & boolean representing an orientation of a \hyperlink{classShip}{Ship} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Player@{Player}!get\+Damage@{get\+Damage}}
+\index{get\+Damage@{get\+Damage}!Player@{Player}}
+\subsubsection[{\texorpdfstring{get\+Damage(int x, int y)}{getDamage(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}int Player.\+get\+Damage (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_ac4e41793e0e2fd8cfaabad6775cdfaa0}{}\label{classPlayer_ac4e41793e0e2fd8cfaabad6775cdfaa0}
+
+
+Get damage at given (x, y). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate. \\
+\hline
+{\em y} & y-\/coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+H\+IT in the case of a hit, S\+I\+NK in the case of sink. 
+\end{DoxyReturn}
+\index{Player@{Player}!get\+Game@{get\+Game}}
+\index{get\+Game@{get\+Game}!Player@{Player}}
+\subsubsection[{\texorpdfstring{get\+Game()}{getGame()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game} Player.\+get\+Game (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_a08580623035eedb19e8b7a028ad64914}{}\label{classPlayer_a08580623035eedb19e8b7a028ad64914}
+
+
+Getter for a game. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classGame}{Game} object. 
+\end{DoxyReturn}
+\index{Player@{Player}!get\+Grid\+Mine@{get\+Grid\+Mine}}
+\index{get\+Grid\+Mine@{get\+Grid\+Mine}!Player@{Player}}
+\subsubsection[{\texorpdfstring{get\+Grid\+Mine()}{getGridMine()}}]{\setlength{\rightskip}{0pt plus 5cm}char \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Player.\+get\+Grid\+Mine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_ae9eb4d4e55b285791cdfa946f33042ae}{}\label{classPlayer_ae9eb4d4e55b285791cdfa946f33042ae}
+
+
+Getter for the player\textquotesingle{}s grid. 
+
+\begin{DoxyReturn}{Returns}
+2-\/dimensional array of char\textquotesingle{}s representing a grid. 
+\end{DoxyReturn}
+\index{Player@{Player}!get\+Grid\+Mine@{get\+Grid\+Mine}}
+\index{get\+Grid\+Mine@{get\+Grid\+Mine}!Player@{Player}}
+\subsubsection[{\texorpdfstring{get\+Grid\+Mine(int x, int y)}{getGridMine(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}char Player.\+get\+Grid\+Mine (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_aee4d0aabd398122c3406d9a193d2fc33}{}\label{classPlayer_aee4d0aabd398122c3406d9a193d2fc33}
+
+
+Getter for an element of the player\textquotesingle{}s grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate of a grid. \\
+\hline
+{\em y} & y-\/coordinate of a grid. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char at (x, y). 
+\end{DoxyReturn}
+\index{Player@{Player}!get\+Grid\+Opponent@{get\+Grid\+Opponent}}
+\index{get\+Grid\+Opponent@{get\+Grid\+Opponent}!Player@{Player}}
+\subsubsection[{\texorpdfstring{get\+Grid\+Opponent()}{getGridOpponent()}}]{\setlength{\rightskip}{0pt plus 5cm}char \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Player.\+get\+Grid\+Opponent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_ae8c3f7b3895e4d8f5e96f5f072bf7211}{}\label{classPlayer_ae8c3f7b3895e4d8f5e96f5f072bf7211}
+
+
+Getter for the oppoent\textquotesingle{}s grid. 
+
+\begin{DoxyReturn}{Returns}
+2-\/dimensional array of char\textquotesingle{}s representing a grid. 
+\end{DoxyReturn}
+\index{Player@{Player}!get\+Grid\+Opponent@{get\+Grid\+Opponent}}
+\index{get\+Grid\+Opponent@{get\+Grid\+Opponent}!Player@{Player}}
+\subsubsection[{\texorpdfstring{get\+Grid\+Opponent(int x, int y)}{getGridOpponent(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}char Player.\+get\+Grid\+Opponent (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_ab82aed9ca2e326d51614a6287dd355d9}{}\label{classPlayer_ab82aed9ca2e326d51614a6287dd355d9}
+
+
+Getter for an element of the opponent\textquotesingle{}s grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate of a grid. \\
+\hline
+{\em y} & y-\/coordinate of a grid. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char at (x, y). 
+\end{DoxyReturn}
+\index{Player@{Player}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Player@{Player}}
+\subsubsection[{\texorpdfstring{get\+Id()}{getId()}}]{\setlength{\rightskip}{0pt plus 5cm}int Player.\+get\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_adea0e90dc94ac68c20d672f801dc951a}{}\label{classPlayer_adea0e90dc94ac68c20d672f801dc951a}
+
+
+Getter for id. 
+
+\begin{DoxyReturn}{Returns}
+id of the player. 
+\end{DoxyReturn}
+\index{Player@{Player}!get\+Ship@{get\+Ship}}
+\index{get\+Ship@{get\+Ship}!Player@{Player}}
+\subsubsection[{\texorpdfstring{get\+Ship(int index)}{getShip(int index)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship} Player.\+get\+Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_af2d7d0a6c12ccb105fedf289516463ca}{}\label{classPlayer_af2d7d0a6c12ccb105fedf289516463ca}
+
+
+Getter for a ship at given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & index of a \hyperlink{classShip}{Ship} to be returned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classShip}{Ship} that has index-\/th index in array of \hyperlink{classShip}{Ship} objects. 
+\end{DoxyReturn}
+\index{Player@{Player}!get\+Ships@{get\+Ships}}
+\index{get\+Ships@{get\+Ships}!Player@{Player}}
+\subsubsection[{\texorpdfstring{get\+Ships()}{getShips()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ship} \mbox{[}$\,$\mbox{]} Player.\+get\+Ships (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_a992bcaa016d561372f176b0021b624d2}{}\label{classPlayer_a992bcaa016d561372f176b0021b624d2}
+
+
+Getter for array of ships. 
+
+\begin{DoxyReturn}{Returns}
+array of \hyperlink{classShip}{Ship} objects of the player. 
+\end{DoxyReturn}
+\index{Player@{Player}!is\+Ready@{is\+Ready}}
+\index{is\+Ready@{is\+Ready}!Player@{Player}}
+\subsubsection[{\texorpdfstring{is\+Ready()}{isReady()}}]{\setlength{\rightskip}{0pt plus 5cm}boolean Player.\+is\+Ready (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_a25d2009e1520e66fa0afed74111e1e7f}{}\label{classPlayer_a25d2009e1520e66fa0afed74111e1e7f}
+
+
+Is a player ready? 
+
+\begin{DoxyReturn}{Returns}
+true if it is, false otherwise. 
+\end{DoxyReturn}
+\index{Player@{Player}!set\+Game@{set\+Game}}
+\index{set\+Game@{set\+Game}!Player@{Player}}
+\subsubsection[{\texorpdfstring{set\+Game(\+Game game)}{setGame(Game game)}}]{\setlength{\rightskip}{0pt plus 5cm}void Player.\+set\+Game (
+\begin{DoxyParamCaption}
+\item[{{\bf Game}}]{game}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_a75ac90ea1583ab7f6b09c48f7f414f44}{}\label{classPlayer_a75ac90ea1583ab7f6b09c48f7f414f44}
+
+
+Setter for a game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & \hyperlink{classGame}{Game} object to be set. \\
+\hline
+\end{DoxyParams}
+\index{Player@{Player}!set\+Grid\+Mine@{set\+Grid\+Mine}}
+\index{set\+Grid\+Mine@{set\+Grid\+Mine}!Player@{Player}}
+\subsubsection[{\texorpdfstring{set\+Grid\+Mine(char[][] grid\+Mine)}{setGridMine(char[][] gridMine)}}]{\setlength{\rightskip}{0pt plus 5cm}void Player.\+set\+Grid\+Mine (
+\begin{DoxyParamCaption}
+\item[{char}]{grid\+Mine\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_affa3bbe73b17f997591a92aaf6d8da33}{}\label{classPlayer_affa3bbe73b17f997591a92aaf6d8da33}
+
+
+Setter for the player\textquotesingle{}s grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid\+Mine} & 2-\/dimensional array of char\textquotesingle{}s representing a grid. \\
+\hline
+\end{DoxyParams}
+\index{Player@{Player}!set\+Grid\+Mine@{set\+Grid\+Mine}}
+\index{set\+Grid\+Mine@{set\+Grid\+Mine}!Player@{Player}}
+\subsubsection[{\texorpdfstring{set\+Grid\+Mine(int x, int y, char val)}{setGridMine(int x, int y, char val)}}]{\setlength{\rightskip}{0pt plus 5cm}void Player.\+set\+Grid\+Mine (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{char}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_a8f3ce6a037eabdb592f421b77948af27}{}\label{classPlayer_a8f3ce6a037eabdb592f421b77948af27}
+
+
+Setter for an (x, y)-\/element of player\textquotesingle{}s grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate. \\
+\hline
+{\em y} & y-\/coordinate. \\
+\hline
+{\em val} & value to be set. \\
+\hline
+\end{DoxyParams}
+\index{Player@{Player}!set\+Grid\+Opponent@{set\+Grid\+Opponent}}
+\index{set\+Grid\+Opponent@{set\+Grid\+Opponent}!Player@{Player}}
+\subsubsection[{\texorpdfstring{set\+Grid\+Opponent(char[][] grid\+Opponent)}{setGridOpponent(char[][] gridOpponent)}}]{\setlength{\rightskip}{0pt plus 5cm}void Player.\+set\+Grid\+Opponent (
+\begin{DoxyParamCaption}
+\item[{char}]{grid\+Opponent\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_a3b65aecb541790ce379f68828a24517a}{}\label{classPlayer_a3b65aecb541790ce379f68828a24517a}
+
+
+Setter for the opponent\textquotesingle{}s grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid\+Mine} & 2-\/dimensional array of char\textquotesingle{}s representing a grid. \\
+\hline
+\end{DoxyParams}
+\index{Player@{Player}!set\+Grid\+Opponent@{set\+Grid\+Opponent}}
+\index{set\+Grid\+Opponent@{set\+Grid\+Opponent}!Player@{Player}}
+\subsubsection[{\texorpdfstring{set\+Grid\+Opponent(int x, int y, char val)}{setGridOpponent(int x, int y, char val)}}]{\setlength{\rightskip}{0pt plus 5cm}void Player.\+set\+Grid\+Opponent (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{char}]{val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_a9555543f75989387be2e65769fbba816}{}\label{classPlayer_a9555543f75989387be2e65769fbba816}
+
+
+Setter for an (x, y)-\/element of opponent\textquotesingle{}s grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/coordinate. \\
+\hline
+{\em y} & y-\/coordinate. \\
+\hline
+{\em val} & value to be set. \\
+\hline
+\end{DoxyParams}
+\index{Player@{Player}!set\+Ready@{set\+Ready}}
+\index{set\+Ready@{set\+Ready}!Player@{Player}}
+\subsubsection[{\texorpdfstring{set\+Ready(boolean ready)}{setReady(boolean ready)}}]{\setlength{\rightskip}{0pt plus 5cm}void Player.\+set\+Ready (
+\begin{DoxyParamCaption}
+\item[{boolean}]{ready}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_a05b0f61d5105e6f759e902aa84c30630}{}\label{classPlayer_a05b0f61d5105e6f759e902aa84c30630}
+
+
+Setter for ready. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ready} & is a player ready? \\
+\hline
+\end{DoxyParams}
+\index{Player@{Player}!set\+Ship@{set\+Ship}}
+\index{set\+Ship@{set\+Ship}!Player@{Player}}
+\subsubsection[{\texorpdfstring{set\+Ship(int index, Ship ship)}{setShip(int index, Ship ship)}}]{\setlength{\rightskip}{0pt plus 5cm}void Player.\+set\+Ship (
+\begin{DoxyParamCaption}
+\item[{int}]{index, }
+\item[{{\bf Ship}}]{ship}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_a3235c3e8a2434947ebe9748abed80fda}{}\label{classPlayer_a3235c3e8a2434947ebe9748abed80fda}
+
+
+Setter for the index-\/th element of an array of \hyperlink{classShip}{Ship}\textquotesingle{}s. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & index of an array to be set. \\
+\hline
+{\em ship} & \hyperlink{classShip}{Ship} to be set. \\
+\hline
+\end{DoxyParams}
+\index{Player@{Player}!set\+Ships@{set\+Ships}}
+\index{set\+Ships@{set\+Ships}!Player@{Player}}
+\subsubsection[{\texorpdfstring{set\+Ships(\+Ship[] ships)}{setShips(Ship[] ships)}}]{\setlength{\rightskip}{0pt plus 5cm}void Player.\+set\+Ships (
+\begin{DoxyParamCaption}
+\item[{{\bf Ship}\mbox{[}$\,$\mbox{]}}]{ships}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_ae4027662c9c93b5c023838a36a303a04}{}\label{classPlayer_ae4027662c9c93b5c023838a36a303a04}
+
+
+Setter for array of \hyperlink{classShip}{Ship} objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ships} & array of \hyperlink{classShip}{Ship}\textquotesingle{}s \\
+\hline
+\end{DoxyParams}
+\index{Player@{Player}!show\+Grid\+Mine@{show\+Grid\+Mine}}
+\index{show\+Grid\+Mine@{show\+Grid\+Mine}!Player@{Player}}
+\subsubsection[{\texorpdfstring{show\+Grid\+Mine(boolean clear)}{showGridMine(boolean clear)}}]{\setlength{\rightskip}{0pt plus 5cm}void Player.\+show\+Grid\+Mine (
+\begin{DoxyParamCaption}
+\item[{boolean}]{clear}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_ae551f266c116f22887d278f6beaf9e75}{}\label{classPlayer_ae551f266c116f22887d278f6beaf9e75}
+
+
+Show player\textquotesingle{}s grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clear} & boolean specifying whether to clean a terminal before showing a grid. \\
+\hline
+\end{DoxyParams}
+\index{Player@{Player}!show\+Grid\+Opponent@{show\+Grid\+Opponent}}
+\index{show\+Grid\+Opponent@{show\+Grid\+Opponent}!Player@{Player}}
+\subsubsection[{\texorpdfstring{show\+Grid\+Opponent(boolean clear)}{showGridOpponent(boolean clear)}}]{\setlength{\rightskip}{0pt plus 5cm}void Player.\+show\+Grid\+Opponent (
+\begin{DoxyParamCaption}
+\item[{boolean}]{clear}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_ade7e5623438ad21421091dcc201b367c}{}\label{classPlayer_ade7e5623438ad21421091dcc201b367c}
+
+
+Show opponent\textquotesingle{}s grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clear} & boolean specifying whether to clean a terminal before showing a grid. \\
+\hline
+\end{DoxyParams}
+\index{Player@{Player}!show\+Grids@{show\+Grids}}
+\index{show\+Grids@{show\+Grids}!Player@{Player}}
+\subsubsection[{\texorpdfstring{show\+Grids(boolean clear)}{showGrids(boolean clear)}}]{\setlength{\rightskip}{0pt plus 5cm}void Player.\+show\+Grids (
+\begin{DoxyParamCaption}
+\item[{boolean}]{clear}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classPlayer_ad571760f9739182566e3817e515fd3c1}{}\label{classPlayer_ad571760f9739182566e3817e515fd3c1}
+
+
+Show player\textquotesingle{}s and opponent\textquotesingle{}s grids. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clear} & boolean specifying whether to clean a terminal before showing grids. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Player.\+java\end{DoxyCompactItemize}
