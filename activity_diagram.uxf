@@ -24,14 +24,14 @@ fontsize=11
 
 
 // This text will be stored with each diagram;  use it for notes.</help_text>
-  <zoom_level>11</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>451</x>
-      <y>143</y>
-      <w>22</w>
-      <h>22</h>
+      <x>384</x>
+      <y>0</y>
+      <w>16</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>type=initial</panel_attributes>
     <additional_attributes/>
@@ -39,10 +39,10 @@ fontsize=11
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>440</x>
-      <y>231</y>
-      <w>44</w>
-      <h>44</h>
+      <x>376</x>
+      <y>64</y>
+      <w>32</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>type=decision</panel_attributes>
     <additional_attributes/>
@@ -50,45 +50,46 @@ fontsize=11
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>451</x>
-      <y>264</y>
+      <x>384</x>
+      <y>88</y>
       <w>88</w>
-      <h>88</h>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-m1=[has ships\nto build]</panel_attributes>
+m1=[Player1 has \nships to build]</panel_attributes>
     <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>473</x>
-      <y>242</y>
-      <w>132</w>
-      <h>231</h>
+      <x>384</x>
+      <y>72</y>
+      <w>120</w>
+      <h>152</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-m2=[has no ships\nto build]</panel_attributes>
-    <additional_attributes>10.0;190.0;100.0;190.0;100.0;10.0;10.0;10.0</additional_attributes>
+m2=[Player1 has no \nships to build]</panel_attributes>
+    <additional_attributes>10.0;170.0;10.0;140.0;120.0;140.0;120.0;10.0;30.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>407</x>
-      <y>330</y>
-      <w>110</w>
-      <h>44</h>
+      <x>352</x>
+      <y>136</y>
+      <w>80</w>
+      <h>32</h>
     </coordinates>
-    <panel_attributes>Build a ship</panel_attributes>
+    <panel_attributes>Player1 builds
+a ship</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>330</x>
-      <y>242</y>
-      <w>132</w>
-      <h>132</h>
+      <x>296</x>
+      <y>72</y>
+      <w>96</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>100.0;10.0;10.0;10.0;10.0;100.0;70.0;100.0</additional_attributes>
@@ -96,10 +97,10 @@ m2=[has no ships\nto build]</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>451</x>
-      <y>143</y>
-      <w>33</w>
-      <h>110</h>
+      <x>384</x>
+      <y>0</y>
+      <w>24</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
@@ -107,205 +108,208 @@ m2=[has no ships\nto build]</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>440</x>
-      <y>429</y>
-      <w>44</w>
-      <h>44</h>
-    </coordinates>
-    <panel_attributes>type=decision</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>451</x>
-      <y>462</y>
-      <w>33</w>
-      <h>88</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLSpecialState</id>
-    <coordinates>
-      <x>440</x>
-      <y>528</y>
-      <w>44</w>
-      <h>44</h>
-    </coordinates>
-    <panel_attributes>type=decision</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>330</x>
-      <y>539</y>
-      <w>132</w>
-      <h>429</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>100.0;10.0;10.0;10.0;10.0;370.0;70.0;370.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>451</x>
-      <y>561</y>
-      <w>143</w>
-      <h>88</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m2=[Game continues]</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>407</x>
-      <y>627</y>
-      <w>110</w>
-      <h>44</h>
-    </coordinates>
-    <panel_attributes>User shoots</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>451</x>
-      <y>660</y>
-      <w>33</w>
-      <h>88</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>407</x>
-      <y>726</y>
-      <w>110</w>
-      <h>44</h>
-    </coordinates>
-    <panel_attributes>Update 
-the game</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>407</x>
-      <y>825</y>
-      <w>110</w>
-      <h>44</h>
-    </coordinates>
-    <panel_attributes>Computer
-shoots</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>451</x>
-      <y>759</y>
-      <w>33</w>
-      <h>88</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLState</id>
-    <coordinates>
-      <x>407</x>
-      <y>924</y>
-      <w>110</w>
-      <h>44</h>
-    </coordinates>
-    <panel_attributes>Update 
-the game</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>451</x>
-      <y>858</y>
-      <w>33</w>
-      <h>88</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLSpecialState</id>
-    <coordinates>
-      <x>440</x>
-      <y>1023</y>
-      <w>44</w>
-      <h>44</h>
-    </coordinates>
-    <panel_attributes>type=decision</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>451</x>
-      <y>957</y>
-      <w>33</w>
-      <h>88</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>473</x>
-      <y>539</y>
-      <w>132</w>
-      <h>528</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m2=[Game over]</panel_attributes>
-    <additional_attributes>10.0;460.0;100.0;460.0;100.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>451</x>
-      <y>1056</y>
-      <w>33</w>
-      <h>88</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLSpecialState</id>
-    <coordinates>
-      <x>451</x>
-      <y>1122</y>
-      <w>22</w>
-      <h>22</h>
+      <x>384</x>
+      <y>800</y>
+      <w>16</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>type=final</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>352</x>
+      <y>280</y>
+      <w>80</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Player2 builds
+a ship</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>376</x>
+      <y>208</y>
+      <w>32</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>type=decision</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
     <id>Relation</id>
     <coordinates>
-      <x>451</x>
-      <y>363</y>
+      <x>296</x>
+      <y>216</y>
+      <w>96</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0;10.0;100.0;70.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>232</y>
       <w>88</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=[Player2 has \nships to build]</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>216</y>
+      <w>120</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=[Player2 has no \nships to build]</panel_attributes>
+    <additional_attributes>10.0;210.0;10.0;140.0;120.0;140.0;120.0;10.0;30.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>352</x>
+      <y>384</y>
+      <w>80</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Player1 shoots</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>376</x>
+      <y>456</y>
+      <w>32</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>type=decision</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>408</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>352</y>
+      <w>128</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=[Player1 hits and\ngame is not over]</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0;120.0;150.0;30.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>480</y>
+      <w>96</w>
       <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-m1=[has ships\nto build]</panel_attributes>
+m2=[Player1 misses]</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>352</x>
+      <y>552</y>
+      <w>80</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Player2 shoots</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>376</x>
+      <y>624</y>
+      <w>32</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>type=decision</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>576</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>520</y>
+      <w>128</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=[Player2 hits and\ngame is not over]</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0;120.0;150.0;30.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>336</y>
+      <w>176</w>
+      <h>368</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=[Player2 misses]</panel_attributes>
+    <additional_attributes>10.0;10.0;200.0;10.0;200.0;440.0;10.0;440.0;10.0;400.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>464</y>
+      <w>128</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=[Player1 hits and\ngame is over]</panel_attributes>
+    <additional_attributes>140.0;430.0;140.0;360.0;30.0;360.0;30.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>632</y>
+      <w>128</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=[Player2 hits and\ngame is over]</panel_attributes>
+    <additional_attributes>140.0;220.0;140.0;150.0;30.0;150.0;30.0;10.0;120.0;10.0</additional_attributes>
   </element>
 </diagram>
