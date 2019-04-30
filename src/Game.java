@@ -1,17 +1,30 @@
+/**
+ * Engine of a game.
+ * Implementation of a concept of game.
+ */
 public class Game {
-    private int turn = 0;
-    private Player[] players;
+    private int turn = 0; ///< turn of a game.
+    private Player[] players; ///< array of Player's
 
-    public final static int MISS = 0;
-    public final static int HIT = 1;
-    public final static int SINK = 2;
+    public final static int MISS = 0; ///< Constant for "miss".
+    public final static int HIT = 1; ///< Constant for "hit".
+    public final static int SINK = 2; ///< Constant for "sink".
 
+    /**
+     * Constructor.
+     * Creates a game in a single player mode.
+     */
     public Game() {
         players = new Player[2];
         players[0] = new User(this, 0);
         players[1] = new Bot(this, 1);
     }
 
+    /**
+     * Constructor.
+     * Creates a game on the mode depending on singlePlayer parameter.
+     * @param singlePlayer boolean specifying whether a game is single player or multiplayer.
+     */
     public Game(boolean singlePlayer) {
         players = new Player[2];
         players[0] = new User(this, 0);
@@ -20,17 +33,24 @@ public class Game {
         else players[1] = new User(this, 1);
     }
 
-    public Game(int userNum) {
-        players = new Player[userNum];
-        for (int i = 0; i < userNum; i++) {
-            players[i] = new User(this, i);
-        }
-    }
-
+    /**
+     * Getter for turn number.
+     * @return turn of the game.
+     */
     public int getTurn() {
         return turn;
     }
 
+    /**
+     * Can build a ship?
+     * Is it possible to build a ship with given configuration?
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param segmentNum number of segments of a ship.
+     * @param isHorizontal boolean specifying the orientation of a ship.
+     * @param id id of a player.
+     * @return true if it is possible to build a ship, false otherwise.
+     */
     public boolean canBuild(int x, int y, int segmentNum, boolean isHorizontal, int id) {
         boolean[][] hasShip = new boolean[10][10];
         if ((isHorizontal && (x + segmentNum > 10 || x < 0)) || (!isHorizontal && (y + segmentNum > 10 || y < 0)))
@@ -61,6 +81,16 @@ public class Game {
         return true;
     }
 
+    /**
+     * Attemp to build a ship.
+     * Try to build a ship with given configuration.
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param segmentNum number of segments of a ship.
+     * @param isHorizontal 
+     * @param id id of a player.
+     * @return true if it attempt is successful, false otherwise.
+     */
     public boolean attemptToBuild(int x, int y, int segmentNum, boolean isHorizontal, int id) {
         if (id < players.length && players[id].getShips()[4] != null) {
             System.out.println("Cannot build more than 5 ships");
@@ -85,6 +115,14 @@ public class Game {
         return true;
     }
 
+    /**
+     * Shoot at the player.
+     * Player with given id shoots at (x, y).
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param id id of a player.
+     * @return HIT/MISS/SINK
+     */
     public int shoot(int x, int y, int id) {
         if (players[(id) % players.length].getGridOpponent(x, y) == '.') return HIT; // Already shot at this point
         if (players[(id + 1) % players.length].getGridMine(x, y) == 'o') {
@@ -97,6 +135,10 @@ public class Game {
         return MISS;
     }
 
+    /**
+     * Play function.
+     * Runs a game.
+     */
     public void play() {
         for (int i = 0; i < players.length; i++) {
             players[i].buildShips();
@@ -122,6 +164,10 @@ public class Game {
         }
     }
 
+    /**
+     * Is game over?
+     * @return id of a loser if game is over, -1 otherwise.
+     */
     public int gameOver() {
         for (int i = 0; i < players.length; i++) {
             int hits = 0;

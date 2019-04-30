@@ -1,7 +1,12 @@
 import java.util.Scanner;
 
+/**
+ * Main class to run a game.
+ */
 public class Main {
-
+    /**
+     * Starting point of a game.
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String response = "";

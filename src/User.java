@@ -1,12 +1,25 @@
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * User class.
+ * Class representing a user that plays a game.
+ */
 public class User extends Player {
 
+    /**
+     * Constructor.
+     * @param game Game object.
+     * @param id id of a player.
+     */
     public User(Game game, int id) {
         super(game, id);
     }
 
+    /**
+     * Build ships.
+     * A method to build ships.
+     */
     @Override
     public void buildShips() {
         Scanner sc = new Scanner(System.in);
@@ -56,6 +69,9 @@ public class User extends Player {
         }
     }
 
+    /**
+     * Attack the opponent's Ship's.
+     */
     @Override
     public void attack() {
         Scanner sc = new Scanner(System.in);

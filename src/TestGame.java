@@ -6,15 +6,30 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/** 
+ * A JUnit test class to test Game class. 
+ * TestGame class tests canBuild, attemptToBuild and shoot functions.
+ * The functions are tested on different edge cases, 
+ * for example building a ship outside the board and etc.
+*/
+
 public class TestGame {
 
-    private Game game;
+    private Game game; ///< Game object that is tested.
 
+    /**
+     * Initializer function.
+     * A function called before each test launched.
+     */
     @BeforeEach
     void init() {
         game = new Game();
     }
 
+    /**
+     * Can build outside the grid test.
+     * Test whether it is possible to build a ship outside a grid.
+     */
     @Test
     void canBuildShipOutside() {
         for (int y = 0; y < 11; ++y) {
@@ -28,6 +43,10 @@ public class TestGame {
         }
     }
 
+    /**
+     * Building outside the grid test.
+     * Attempt to build a ship outside a grid.
+     */
     @Test
     void attemptBuildShipOutside() {
         for (int y = 0; y < 11; ++y) {
@@ -41,6 +60,10 @@ public class TestGame {
         }
     }
 
+    /**
+     * Can build inside the grid test.
+     * Test whether it is possible to build a ship inside a grid.
+     */
     @Test
     void canBuildInsideInside() {
         for (int y = 0; y < 10; ++y) {
@@ -50,6 +73,10 @@ public class TestGame {
         }
     }
 
+    /**
+     * Build more than five ships test.
+     * Test whether it is possible to build more than five ships.
+     */
     @Test
     void attemptBuildInsideMoreThanFive() {
         assertTrue(game.attemptToBuild(0, 0, 2, true, 1));
@@ -60,6 +87,10 @@ public class TestGame {
         assertFalse(game.attemptToBuild(0, 5, 2, true, 1));
     }
 
+    /**
+     * Can build on another ship test.
+     * Test whether it is possible to build a ship on another one.
+     */
     @Test
     void attemptBuildOverShip() {
         assertTrue(game.attemptToBuild(0, 0, 2, true, 1));
@@ -71,6 +102,10 @@ public class TestGame {
         assertFalse(game.attemptToBuild(5, 6, 2, false, 1));
     }
 
+    /**
+     * Shoot 2-segment ship test.
+     * Test whether shooting a 2-segment ship works properly.
+     */
     @Test
     void shoot2() {
         assertTrue(game.attemptToBuild(0, 0, 2, true, 1));
@@ -84,6 +119,10 @@ public class TestGame {
         assertEquals(game.shoot(5, 5, 2), Game.MISS);
     }
 
+    /**
+     * Shoot 3-segment ship test.
+     * Test whether shooting a 3-segment ship works properly.
+     */
     @Test
     void shoot3() {
         assertTrue(game.attemptToBuild(0, 0, 3, true, 1));
@@ -99,6 +138,10 @@ public class TestGame {
         assertEquals(game.shoot(5, 5, 2), Game.MISS);
     }
 
+    /**
+     * Shoot 4-segment ship test.
+     * Test whether shooting a 4-segment ship works properly.
+     */
     @Test
     void shoot4() {
         assertTrue(game.attemptToBuild(0, 0, 4, true, 1));
@@ -116,6 +159,10 @@ public class TestGame {
         assertEquals(game.shoot(5, 5, 2), Game.MISS);
     }
 
+    /**
+     * Shoot 5-segment ship test.
+     * Test whether shooting a 5-segment ship works properly.
+     */
     @Test
     void shoot5() {
         assertTrue(game.attemptToBuild(0, 0, 5, true, 1));
