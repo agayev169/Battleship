@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>450</x>
+      <y>0</y>
+      <w>80</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Player2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>320</x>
+      <y>40</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Game</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>200</x>
+      <y>0</y>
+      <w>80</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Player1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>60</y>
+      <w>30</w>
+      <h>680</h>
+    </coordinates>
+    <panel_attributes>lt=.
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;660.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>60</y>
+      <w>30</w>
+      <h>670</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;650.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>60</y>
+      <w>30</w>
+      <h>680</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;660.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>120</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=[Build ships]</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>180</y>
+      <w>150</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=[Build ships]</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>170</x>
+      <y>100</y>
+      <w>410</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>While has ships to build</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>180</x>
+      <y>360</y>
+      <w>390</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Player1 did not miss</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>390</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=[Shoot]</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>360</x>
+      <y>80</y>
+      <w>20</w>
+      <h>640</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>170</x>
+      <y>320</y>
+      <w>410</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>While game is not over</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>210</x>
+      <y>480</y>
+      <w>310</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Player2 did not miss</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>500</y>
+      <w>150</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=[Shoot]</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>180</x>
+      <y>450</y>
+      <w>390</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>Do not use network
+--
+
+
+
+
+
+
+--
+Uses network</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>600</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=[Send your move]</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>630</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+m2=[Receive opponent's move]</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>180</x>
+      <y>150</y>
+      <w>390</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Do not use network
+--
+
+
+--
+Uses network</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>220</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=[Send your move]</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>250</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+m2=[Receive opponent's move]</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

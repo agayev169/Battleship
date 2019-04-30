@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>486</y>
+      <w>120</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;180.0;40.0;180.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>660</x>
+      <y>486</y>
+      <w>108</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>160.0;10.0;160.0;40.0;10.0;40.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>180</y>
+      <w>246</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=2
+&lt; plays</panel_attributes>
+    <additional_attributes>10.0;20.0;390.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>372</y>
+      <w>246</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=5
+m2=1
+&lt; builds/destroys</panel_attributes>
+    <additional_attributes>10.0;20.0;390.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>24</x>
+      <y>312</y>
+      <w>66</w>
+      <h>324</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt; launches</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;520.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>60</x>
+      <y>312</y>
+      <w>450</w>
+      <h>336</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..2
+&lt; visualizes</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;440.0;440.0;440.0;440.0;530.0;730.0;530.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>378</x>
+      <y>750</y>
+      <w>132</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt; listens to</panel_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>366</w>
+      <h>318</h>
+    </coordinates>
+    <panel_attributes>::Game
+--
+-turn = 0: int
+-players: Player[]
++MISS = 0: int
++HIT = 1: int
++SINK = 2: int
++SINGLE_PLAYER = 0: int
++MULTIPLAYER_ONE_MACHINE = 1: int
++MULTIPLAYER_LOCAL = 2: int
+-gameType: int
++TERMINAL = 0: int
++GUI = 1: int
++userInterface: int
+-networkManager: NetworkManager
+-gridPanel: GridPanel
+--
++Game(int gameType, int userInterface): ctor
++Game(int userInterface, boolean isServer): ctor
++getGridPanel(): GridPanel
++setGridPanel(GridPanel gridPanel): void
++getPlayers(): Player[]
++getTurn(): int
++getGameType(): int
++getNetworkManager(): NetworkManager
++getUserInterface(): int
++canBuild(int x, int y, int segmentNum, boolean isHorizontal, int id): boolean
++attemptToBuild(int x, int y, int segmentNum, boolean isHorizontal, int id): boolean
++shoot(int x, int y, int id): int
++play(): void
++gameOver(): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>96</x>
+      <y>336</y>
+      <w>270</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>::Ship
+--
+-x: int
+-y: int
+-isHorizontal: boolean
+-health: boolean[]
+--
++Ship(int x, int y, int segmentNum, boolean isHorizontal): ctor
++getX(): int
++getY(): int
++isHorizontal(): boolean
++getHealth(): boolean[]
++setX(int x): void
++setY(int y): void
++setHorizontal(boolean horizontal): void
++setHealth(boolean[] health): void
++getDamage(int x, int y): void
++isDead(): boolean
++isAt(int x, int y): boolean
++toString(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>6</x>
+      <y>624</y>
+      <w>264</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>::MainMenuPanel
+--
++WIDTH: int
++HEIGHT: int
+-buttonSP: JButton
+-buttonMP: JButton
+-buttonMPL1: JButton
+-buttonMPL2: JButton
+--
++MainMenuPanel(int width, int height, MainGUI runner): ctor
+#paintComponent(Graphics g): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>6</x>
+      <y>756</y>
+      <w>378</w>
+      <h>342</h>
+    </coordinates>
+    <panel_attributes>::GUIListener
+--
+-WIDTH: int
+-HEIGHT: int
+-game: Game
+-buildIndex = 0: int
+-toBuild = { 2, 3, 3, 4, 5 }: int[]
+-isHorizontal = true: boolean
+-player: Player
+-mouseX = 0: int
+-mouseY = 0: int
+-panel: GridPanel
+-active = true: boolean
+-lineCounter = 0: int
+-lastMove = new StringBuilder(): StringBuilder
+--
++GUIListener(int width, int height, Game game, Player player, GridPanel panel): ctor
++isHorizontal(): boolean
++getMouseX(): int
++getMouseY(): int
++getShipSize(): int
++isActive(): boolean
++setActive(boolean active): void
++mouseClicked(MouseEvent mouseEvent): void
++mousePressed(MouseEvent mouseEvent): void
++mouseReleased(MouseEvent mouseEvent): void
++mouseEntered(MouseEvent mouseEvent): void
++mouseExited(MouseEvent mouseEvent): void
++mouseDragged(MouseEvent mouseEvent): void
++mouseMoved(MouseEvent mouseEvent): void
++keyTyped(KeyEvent keyEvent): void
++keyPressed(KeyEvent keyEvent): void
++keyReleased(KeyEvent keyEvent): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>498</x>
+      <y>612</y>
+      <w>432</w>
+      <h>246</h>
+    </coordinates>
+    <panel_attributes>::GridPanel
+--
++WIDTH: int
++HEIGHT: int
+-user: User
+-game: Game
+-timer: Timer
+-listener: GUIListener
+-isReady = true: boolean
+-readyButton: JButton
+-cardLayoutPanel: JPanel
+--
++GridPanel(int width, int height, User player, Game game, JPanel cardLayoutPanel): ctor
++getListener(): GUIListener
++getGame(): Game
++isReady(): boolean
++setReady(boolean ready): void
++getCardLayoutPanel(): JPanel
+-drawSegment(int x, int y, Color color, boolean left, Graphics g): void
+-drawSunkSegment(int x, int y, Color color, boolean left, Graphics g): void
+-drawShip(int x, int y, int segmentNum, boolean isHorizontal, Color color, boolean left, Graphics g): void
+#paintComponent(Graphics g): void
++actionPerformed(ActionEvent actionEvent): void
++toString(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>750</x>
+      <y>528</y>
+      <w>222</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>::User
+--
+-userInterface: int
+-lastMove: StringBuilder
+--
++User(Game game, int id, int userInterface): ctor
++buildShips(): void
++attack(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>594</x>
+      <y>528</y>
+      <w>144</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>::Bot
+--
+--
++Bot(Game game, int id): ctor
++buildShips(): void
++attack(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>594</x>
+      <y>150</y>
+      <w>324</w>
+      <h>342</h>
+    </coordinates>
+    <panel_attributes>/::Player/
+--
+-ships = new Ship[5]: Ship[]
+-gridMine = new char[10][10]: char[][]
+-gridOpponent = new char[10][10]: char[][]
+-game: Game
+-id: int
+-ready = false: boolean
+--
++Player(Game game, int id): ctor
++getShips(): Ship[]
++getShip(int index): Ship
++getGridMine(): char[][]
++getGridMine(int x, int y): char
++getGridOpponent(): char[][]
++getGridOpponent(int x, int y): char
++getGame(): Game
++getId(): int
++setShips(Ship[] ships): void
++setShip(int index, Ship ship): void
++setGridMine(char[][] gridMine): void
++setGridMine(int x, int y, char val): void
++setGridOpponent(char[][] gridOpponent): void
++setGridOpponent(int x, int y, char val): void
++setGame(Game game): void
++isReady(): boolean
++setReady(boolean ready): void
++buildShips(): void
++attack(): void
++attemptToBuild(int x, int y, int segmentNum, boolean isHorizontal): boolean
++showGridMine(boolean clear): void
++showGridOpponent(boolean clear): void
++showGrids(boolean clear): void
++getDamage(int x, int y): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1086</x>
+      <y>324</y>
+      <w>144</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+::NetworkManager
+--
+--
++read(): String
++write(String toWrite): void
++close(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>990</x>
+      <y>438</y>
+      <w>162</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>::GameServer
+--
+-serverSocket: ServerSocket
+-socket: Socket
+-reader: BufferedReader
+-writer: PrintWriter
+--
++GameServer(): ctor
++getServerSocket(): ServerSocket
++getSocket(): Socket
++read(): String
++write(String toWrite): void
++close(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1164</x>
+      <y>438</y>
+      <w>132</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>::GameClient
+--
+-socket: Socket
+-reader: BufferedReader
+-writer: PrintWriter
+--
++GameClient(): ctor
++getSocket(): Socket
++read(): String
++write(String toWrite): void
++close(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1152</x>
+      <y>396</y>
+      <w>90</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;130.0;40.0;130.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1062</x>
+      <y>396</y>
+      <w>108</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>160.0;10.0;160.0;40.0;10.0;40.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>924</x>
+      <y>330</y>
+      <w>174</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+sends moves with &gt;</panel_attributes>
+    <additional_attributes>10.0;330.0;10.0;10.0;270.0;10.0</additional_attributes>
+  </element>
+</diagram>
