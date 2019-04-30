@@ -1,16 +1,29 @@
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * User class.
+ * Class representing a user that plays a game.
+ */
 public class User extends Player {
 
     private int userInterface;
     private StringBuilder lastMove;
 
+        /**
+     * Constructor.
+     * @param game Game object.
+     * @param id id of a player.
+     */
     public User(Game game, int id, int userInterface) {
         super(game, id);
         this.userInterface = userInterface;
     }
 
+    /**
+     * Build ships.
+     * A method to build ships.
+     */
     @Override
     public void buildShips() throws IOException {
         if (getGame().getGameType() == Game.MULTIPLAYER_LOCAL && (
@@ -89,6 +102,9 @@ public class User extends Player {
         }
     }
 
+    /**
+     * Attack the opponent's Ship's.
+     */
     @Override
     public void attack() throws IOException {
         if (getGame().getGameType() == Game.MULTIPLAYER_LOCAL && (

@@ -1,5 +1,9 @@
 import java.io.IOException;
 
+/**
+ * Player abstract class.
+ * Implements the idea of a player in a game.
+ */
 public abstract class Player {
     private Ship[] ships = new Ship[5];
     private char[][] gridMine = new char[10][10];
@@ -8,7 +12,11 @@ public abstract class Player {
     private final int id;
     private volatile boolean ready = false;
 
-
+    /**
+     * Constructor.
+     * @param game Game object.
+     * @param id Id of a player.
+     */
     public Player(Game game, int id) {
         this.game = game;
         this.id = id;
@@ -88,15 +96,33 @@ public abstract class Player {
     public void setReady(boolean ready) {
         this.ready = ready;
     }
+    
+    /**
+     * Abstract method to build Ship's.
+     */
+    public abstract void buildShips();
 
-    public abstract void buildShips() throws IOException;
+    /**
+     * Abstract method to attack the opponent's Ship's.
+     */
+    public abstract void attack();
 
-    public abstract void attack() throws IOException;
-
+    /**
+     * Attempt to build a segmentNum-segment Ship at given (x, y) with given orientation.
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param segmentNum number of segments of a Ship object. 
+     * @param isHorizontal boolean representing an orientation of a Ship object.
+     * @return
+     */
     public boolean attemptToBuild(int x, int y, int segmentNum, boolean isHorizontal) {
         return game.attemptToBuild(x, y, segmentNum, isHorizontal, id);
     }
 
+    /**
+     * Show player's grid.
+     * @param clear boolean specifying whether to clean a terminal before showing a grid.
+     */
     public void showGridMine(boolean clear) {
         if (clear) {
             System.out.print("\033c");
@@ -118,6 +144,10 @@ public abstract class Player {
         System.out.println();
     }
 
+    /**
+     * Show opponent's grid.
+     * @param clear boolean specifying whether to clean a terminal before showing a grid.
+     */
     public void showGridOpponent(boolean clear) {
         if (clear) {
             System.out.print("\033c");
@@ -139,6 +169,10 @@ public abstract class Player {
         System.out.println();
     }
 
+    /**
+     * Show player's and opponent's grids.
+     * @param clear boolean specifying whether to clean a terminal before showing grids.
+     */
     public void showGrids(boolean clear) {
         if (clear) {
             System.out.print("\033c");
@@ -169,6 +203,12 @@ public abstract class Player {
         System.out.println();
     }
 
+    /**
+     * Get damage at given (x, y).
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @return HIT in the case of a hit, SINK in the case of sink.
+     */
     public int getDamage(int x, int y) {
         int indexShip = 0;
         for (; indexShip < ships.length; ++indexShip) {

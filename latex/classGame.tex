@@ -1,0 +1,85 @@
+\hypertarget{classGame}{}\section{Game Class Reference}
+\label{classGame}\index{Game@{Game}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Game} (int game\+Type, int user\+Interface)  throws I\+O\+Exception \hypertarget{classGame_ae0ca81a868814b02a8267768494527b2}{}\label{classGame_ae0ca81a868814b02a8267768494527b2}
+
+\item 
+{\bfseries Game} (int user\+Interface, boolean is\+Server)  throws I\+O\+Exception \hypertarget{classGame_af7ee3d5189c58ed74d0cb7783ce64632}{}\label{classGame_af7ee3d5189c58ed74d0cb7783ce64632}
+
+\item 
+\hyperlink{classGridPanel}{Grid\+Panel} {\bfseries get\+Grid\+Panel} ()\hypertarget{classGame_af4e648c25a25b73a4cd6fb97688a58ec}{}\label{classGame_af4e648c25a25b73a4cd6fb97688a58ec}
+
+\item 
+void {\bfseries set\+Grid\+Panel} (\hyperlink{classGridPanel}{Grid\+Panel} grid\+Panel)\hypertarget{classGame_a8bbad9db1c17da8848ff253aae44f69c}{}\label{classGame_a8bbad9db1c17da8848ff253aae44f69c}
+
+\item 
+\hyperlink{classPlayer}{Player}\mbox{[}$\,$\mbox{]} {\bfseries get\+Players} ()\hypertarget{classGame_a506ae8e369b87240b4c93e6da86d5cee}{}\label{classGame_a506ae8e369b87240b4c93e6da86d5cee}
+
+\item 
+int {\bfseries get\+Turn} ()\hypertarget{classGame_ae518e278826e5feba6f9fc5f3818ad02}{}\label{classGame_ae518e278826e5feba6f9fc5f3818ad02}
+
+\item 
+int {\bfseries get\+Game\+Type} ()\hypertarget{classGame_a21b344d249e50b6a12fbbb2ab15fd988}{}\label{classGame_a21b344d249e50b6a12fbbb2ab15fd988}
+
+\item 
+\hyperlink{interfaceNetworkManager}{Network\+Manager} {\bfseries get\+Network\+Manager} ()\hypertarget{classGame_a41a21632eaa1842822bf57161bea61e4}{}\label{classGame_a41a21632eaa1842822bf57161bea61e4}
+
+\item 
+int {\bfseries get\+User\+Interface} ()\hypertarget{classGame_a58893520607641213710ecf42d4984c0}{}\label{classGame_a58893520607641213710ecf42d4984c0}
+
+\item 
+boolean {\bfseries can\+Build} (int x, int y, int segment\+Num, boolean is\+Horizontal, int id)\hypertarget{classGame_af151f3c1db692f8dc482b5ad2351c723}{}\label{classGame_af151f3c1db692f8dc482b5ad2351c723}
+
+\item 
+boolean {\bfseries attempt\+To\+Build} (int x, int y, int segment\+Num, boolean is\+Horizontal, int id)\hypertarget{classGame_af2b475289d83fd193e7e648e0f98a69d}{}\label{classGame_af2b475289d83fd193e7e648e0f98a69d}
+
+\item 
+int {\bfseries shoot} (int x, int y, int id)\hypertarget{classGame_acdb27fef4ad28c9a9c07e7f095611f36}{}\label{classGame_acdb27fef4ad28c9a9c07e7f095611f36}
+
+\item 
+void {\bfseries play} ()  throws I\+O\+Exception \hypertarget{classGame_afeae4232ad3b23d07dcccc383e14ff08}{}\label{classGame_afeae4232ad3b23d07dcccc383e14ff08}
+
+\item 
+int {\bfseries game\+Over} ()\hypertarget{classGame_a81bd2e305d61946b102ed5094d2fa6c0}{}\label{classGame_a81bd2e305d61946b102ed5094d2fa6c0}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final int {\bfseries user\+Interface}\hypertarget{classGame_a8ccbeac22c3c1dd4c9e25d958849a00b}{}\label{classGame_a8ccbeac22c3c1dd4c9e25d958849a00b}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int {\bfseries M\+I\+SS} = 0\hypertarget{classGame_a66375c0a8f7f1a1480bd47221bc31917}{}\label{classGame_a66375c0a8f7f1a1480bd47221bc31917}
+
+\item 
+static final int {\bfseries H\+IT} = 1\hypertarget{classGame_a3840c1d15fa897a006516377a7f2e340}{}\label{classGame_a3840c1d15fa897a006516377a7f2e340}
+
+\item 
+static final int {\bfseries S\+I\+NK} = 2\hypertarget{classGame_a025eaf2e2b3235687cebe23b45f74467}{}\label{classGame_a025eaf2e2b3235687cebe23b45f74467}
+
+\item 
+static final int {\bfseries S\+I\+N\+G\+L\+E\+\_\+\+P\+L\+A\+Y\+ER} = 0\hypertarget{classGame_a5339842157512627a57fd244ddf6fee1}{}\label{classGame_a5339842157512627a57fd244ddf6fee1}
+
+\item 
+static final int {\bfseries M\+U\+L\+T\+I\+P\+L\+A\+Y\+E\+R\+\_\+\+O\+N\+E\+\_\+\+M\+A\+C\+H\+I\+NE} = 1\hypertarget{classGame_a154eba714e497a72538c02a4a242e6f0}{}\label{classGame_a154eba714e497a72538c02a4a242e6f0}
+
+\item 
+static final int {\bfseries M\+U\+L\+T\+I\+P\+L\+A\+Y\+E\+R\+\_\+\+L\+O\+C\+AL} = 2\hypertarget{classGame_a33173902f263a3da1fcc20039c5270c4}{}\label{classGame_a33173902f263a3da1fcc20039c5270c4}
+
+\item 
+static final int {\bfseries T\+E\+R\+M\+I\+N\+AL} = 0\hypertarget{classGame_a5b128fb3114228cd96da20f04a242ece}{}\label{classGame_a5b128fb3114228cd96da20f04a242ece}
+
+\item 
+static final int {\bfseries G\+UI} = 1\hypertarget{classGame_a9946b16728ee007ef31ec57e6578d2a2}{}\label{classGame_a9946b16728ee007ef31ec57e6578d2a2}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Game.\+java\end{DoxyCompactItemize}
