@@ -2,9 +2,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
 
 /** 
  * A JUnit test class to test Game class. 
@@ -22,7 +23,7 @@ public class TestGame {
      * A function called before each test launched.
      */
     @BeforeEach
-    void init() {
+    void init() throws IOException {
         game = new Game(Game.SINGLE_PLAYER, Game.TERMINAL);
     }
 
@@ -116,7 +117,7 @@ public class TestGame {
         assertTrue(game.attemptToBuild(5, 0, 2, false, 1));
         assertEquals(game.shoot(5, 0, 2), Game.HIT);
         assertEquals(game.shoot(5, 1, 2), Game.SINK);
-        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+        assertEquals(game.shoot(5, 5, 2), Game.HIT);
     }
 
     /**
@@ -129,13 +130,13 @@ public class TestGame {
         assertEquals(game.shoot(0, 0, 2), Game.HIT);
         assertEquals(game.shoot(1, 0, 2), Game.HIT);
         assertEquals(game.shoot(2, 0, 2), Game.SINK);
-        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+        assertEquals(game.shoot(5, 5, 2), Game.HIT);
 
         assertTrue(game.attemptToBuild(5, 0, 3, false, 1));
         assertEquals(game.shoot(5, 0, 2), Game.HIT);
         assertEquals(game.shoot(5, 1, 2), Game.HIT);
         assertEquals(game.shoot(5, 2, 2), Game.SINK);
-        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+        assertEquals(game.shoot(5, 5, 2), Game.HIT);
     }
 
     /**
@@ -156,7 +157,7 @@ public class TestGame {
         assertEquals(game.shoot(5, 1, 2), Game.HIT);
         assertEquals(game.shoot(5, 2, 2), Game.HIT);
         assertEquals(game.shoot(5, 3, 2), Game.SINK);
-        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+        assertEquals(game.shoot(5, 5, 2), Game.HIT);
     }
 
     /**
@@ -179,6 +180,6 @@ public class TestGame {
         assertEquals(game.shoot(5, 2, 2), Game.HIT);
         assertEquals(game.shoot(5, 3, 2), Game.HIT);
         assertEquals(game.shoot(5, 4, 2), Game.SINK);
-        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+        assertEquals(game.shoot(5, 5, 2), Game.HIT);
     }
 }
