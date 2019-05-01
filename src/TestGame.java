@@ -2,7 +2,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +22,7 @@ public class TestGame {
      */
     @BeforeEach
     void init() {
-        game = new Game();
+        game = new Game(Game.SINGLE_PLAYER, Game.TERMINAL);
     }
 
     /**
@@ -116,7 +115,7 @@ public class TestGame {
         assertTrue(game.attemptToBuild(5, 0, 2, false, 1));
         assertEquals(game.shoot(5, 0, 2), Game.HIT);
         assertEquals(game.shoot(5, 1, 2), Game.SINK);
-        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+        assertEquals(game.shoot(5, 5, 2), Game.HIT);
     }
 
     /**
@@ -135,7 +134,7 @@ public class TestGame {
         assertEquals(game.shoot(5, 0, 2), Game.HIT);
         assertEquals(game.shoot(5, 1, 2), Game.HIT);
         assertEquals(game.shoot(5, 2, 2), Game.SINK);
-        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+        assertEquals(game.shoot(5, 5, 2), Game.HIT);
     }
 
     /**
@@ -156,7 +155,7 @@ public class TestGame {
         assertEquals(game.shoot(5, 1, 2), Game.HIT);
         assertEquals(game.shoot(5, 2, 2), Game.HIT);
         assertEquals(game.shoot(5, 3, 2), Game.SINK);
-        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+        assertEquals(game.shoot(5, 5, 2), Game.HIT);
     }
 
     /**
@@ -179,6 +178,6 @@ public class TestGame {
         assertEquals(game.shoot(5, 2, 2), Game.HIT);
         assertEquals(game.shoot(5, 3, 2), Game.HIT);
         assertEquals(game.shoot(5, 4, 2), Game.SINK);
-        assertEquals(game.shoot(5, 5, 2), Game.MISS);
+        assertEquals(game.shoot(5, 5, 2), Game.HIT);
     }
 }

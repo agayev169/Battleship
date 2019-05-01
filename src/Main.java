@@ -15,7 +15,7 @@ public class Main {
             System.out.println("Type 'm' to play against another user.");
             response = sc.next();
         }
-        Game game = new Game(response.equals("s"));
+        Game game = new Game(response.equals("s") ? Game.SINGLE_PLAYER : Game.MULTIPLAYER_ONE_MACHINE, Game.TERMINAL);
         game.play();
     }
 }
