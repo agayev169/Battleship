@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 /** 
  * A JUnit test class to test Game class. 
  * TestGame class tests canBuild, attemptToBuild and shoot functions.
@@ -22,7 +24,7 @@ public class TestGame {
      * A function called before each test launched.
      */
     @BeforeEach
-    void init() {
+    void init() throws IOException {
         game = new Game(Game.SINGLE_PLAYER, Game.TERMINAL);
     }
 

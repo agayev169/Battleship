@@ -178,12 +178,12 @@ public abstract class Player {
     /**
      * Abstract method to build Ship's.
      */
-    public abstract void buildShips();
+    public abstract void buildShips() throws IOException;
 
     /**
      * Abstract method to attack the opponent's Ship's.
      */
-    public abstract void attack();
+    public abstract void attack() throws IOException;
 
     /**
      * Attempt to build a segmentNum-segment Ship at given (x, y) with given orientation.

@@ -84,7 +84,7 @@ public class MainGUI {
     /**
      * Starting point of a game.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new MainGUI();
     }
 }
