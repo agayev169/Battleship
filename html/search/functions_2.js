@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['getdamage',['getDamage',['../classPlayer.html#ac4e41793e0e2fd8cfaabad6775cdfaa0',1,'Player.getDamage()'],['../classShip.html#ab7049cd23905649a2b382a8e1f022baf',1,'Ship.getDamage()']]],
-  ['gethealth',['getHealth',['../classShip.html#ab18527e0957bdb9a286a91fea5bfd500',1,'Ship']]],
-  ['getx',['getX',['../classShip.html#a1cb1ffc138ae22488954a8f9cbd7a227',1,'Ship']]],
-  ['gety',['getY',['../classShip.html#a7dd07d0fdb652e1ce70f2442d6b1171c',1,'Ship']]]
+  ['canbuild',['canBuild',['../classGame.html#af151f3c1db692f8dc482b5ad2351c723',1,'Game']]],
+  ['close',['close',['../classGameClient.html#a7f4a27d2857721b96ef4be91e5b22c87',1,'GameClient.close()'],['../classGameServer.html#af368cef66168f8b95a11589c0809adfe',1,'GameServer.close()'],['../interfaceNetworkManager.html#a33643bfa896c4b9d0050ef0aa79ac16d',1,'NetworkManager.close()']]]
 ];

@@ -2,6 +2,11 @@
 \label{classGameServer}\index{Game\+Server@{Game\+Server}}
 
 
+Class realizing the idea of a server of a game.  
+
+
+
+
 Inheritance diagram for Game\+Server\+:
 \nopagebreak
 \begin{figure}[H]
@@ -23,21 +28,105 @@ Collaboration diagram for Game\+Server\+:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-Server\+Socket {\bfseries get\+Server\+Socket} ()\hypertarget{classGameServer_a21aa851ead251173e7989c2a2fed0482}{}\label{classGameServer_a21aa851ead251173e7989c2a2fed0482}
+\hyperlink{classGameServer_a529ab6037cd52da73ae053b36410c85e}{Game\+Server} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+Server\+Socket \hyperlink{classGameServer_a21aa851ead251173e7989c2a2fed0482}{get\+Server\+Socket} ()
+\begin{DoxyCompactList}\small\item\em Getter for the Server\+Socket object. \end{DoxyCompactList}\item 
+Socket \hyperlink{classGameServer_a7432bdbfdab3b4de5b087ccc7ec0d6c0}{get\+Socket} ()
+\begin{DoxyCompactList}\small\item\em Getter for the Socket object. \end{DoxyCompactList}\item 
+String \hyperlink{classGameServer_adc364b22489b8e52afe8697c5b92d10c}{read} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Method to read data from the other side of a connection. \end{DoxyCompactList}\item 
+void \hyperlink{classGameServer_a7eb6fac8073558454fc9d4eb1ad78520}{write} (String to\+Write)
+\begin{DoxyCompactList}\small\item\em Method to write to another side of a connection. \end{DoxyCompactList}\item 
+void \hyperlink{classGameServer_af368cef66168f8b95a11589c0809adfe}{close} ()  throws I\+O\+Exception \hypertarget{classGameServer_af368cef66168f8b95a11589c0809adfe}{}\label{classGameServer_af368cef66168f8b95a11589c0809adfe}
 
-\item 
-Socket {\bfseries get\+Socket} ()\hypertarget{classGameServer_a7432bdbfdab3b4de5b087ccc7ec0d6c0}{}\label{classGameServer_a7432bdbfdab3b4de5b087ccc7ec0d6c0}
+\begin{DoxyCompactList}\small\item\em Method to close the connection. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-String {\bfseries read} ()  throws I\+O\+Exception \hypertarget{classGameServer_adc364b22489b8e52afe8697c5b92d10c}{}\label{classGameServer_adc364b22489b8e52afe8697c5b92d10c}
 
-\item 
-void {\bfseries write} (String to\+Write)\hypertarget{classGameServer_a7eb6fac8073558454fc9d4eb1ad78520}{}\label{classGameServer_a7eb6fac8073558454fc9d4eb1ad78520}
+\subsection{Detailed Description}
+Class realizing the idea of a server of a game. 
 
-\item 
-void {\bfseries close} ()  throws I\+O\+Exception \hypertarget{classGameServer_af368cef66168f8b95a11589c0809adfe}{}\label{classGameServer_af368cef66168f8b95a11589c0809adfe}
+\subsection{Constructor \& Destructor Documentation}
+\index{Game\+Server@{Game\+Server}!Game\+Server@{Game\+Server}}
+\index{Game\+Server@{Game\+Server}!Game\+Server@{Game\+Server}}
+\subsubsection[{\texorpdfstring{Game\+Server()}{GameServer()}}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Server.\+Game\+Server (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGameServer_a529ab6037cd52da73ae053b36410c85e}{}\label{classGameServer_a529ab6037cd52da73ae053b36410c85e}
 
-\end{DoxyCompactItemize}
+
+Constructor. 
+
+All communication is done with port 1337 of localhost. 
+
+\subsection{Member Function Documentation}
+\index{Game\+Server@{Game\+Server}!get\+Server\+Socket@{get\+Server\+Socket}}
+\index{get\+Server\+Socket@{get\+Server\+Socket}!Game\+Server@{Game\+Server}}
+\subsubsection[{\texorpdfstring{get\+Server\+Socket()}{getServerSocket()}}]{\setlength{\rightskip}{0pt plus 5cm}Server\+Socket Game\+Server.\+get\+Server\+Socket (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGameServer_a21aa851ead251173e7989c2a2fed0482}{}\label{classGameServer_a21aa851ead251173e7989c2a2fed0482}
+
+
+Getter for the Server\+Socket object. 
+
+\begin{DoxyReturn}{Returns}
+Server\+Socket object of a server. 
+\end{DoxyReturn}
+\index{Game\+Server@{Game\+Server}!get\+Socket@{get\+Socket}}
+\index{get\+Socket@{get\+Socket}!Game\+Server@{Game\+Server}}
+\subsubsection[{\texorpdfstring{get\+Socket()}{getSocket()}}]{\setlength{\rightskip}{0pt plus 5cm}Socket Game\+Server.\+get\+Socket (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGameServer_a7432bdbfdab3b4de5b087ccc7ec0d6c0}{}\label{classGameServer_a7432bdbfdab3b4de5b087ccc7ec0d6c0}
+
+
+Getter for the Socket object. 
+
+\begin{DoxyReturn}{Returns}
+Socket object of a server. 
+\end{DoxyReturn}
+\index{Game\+Server@{Game\+Server}!read@{read}}
+\index{read@{read}!Game\+Server@{Game\+Server}}
+\subsubsection[{\texorpdfstring{read()}{read()}}]{\setlength{\rightskip}{0pt plus 5cm}String Game\+Server.\+read (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGameServer_adc364b22489b8e52afe8697c5b92d10c}{}\label{classGameServer_adc364b22489b8e52afe8697c5b92d10c}
+
+
+Method to read data from the other side of a connection. 
+
+\begin{DoxyReturn}{Returns}
+String representing message sent by the client. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interfaceNetworkManager_a1770d9c0eba406494ffb1f7e9a86e05f}{Network\+Manager}.
+
+\index{Game\+Server@{Game\+Server}!write@{write}}
+\index{write@{write}!Game\+Server@{Game\+Server}}
+\subsubsection[{\texorpdfstring{write(\+String to\+Write)}{write(String toWrite)}}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Server.\+write (
+\begin{DoxyParamCaption}
+\item[{String}]{to\+Write}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGameServer_a7eb6fac8073558454fc9d4eb1ad78520}{}\label{classGameServer_a7eb6fac8073558454fc9d4eb1ad78520}
+
+
+Method to write to another side of a connection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Write} & String object to write. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interfaceNetworkManager_a3c292bfd3d98fa5d04a14c493b8f14b0}{Network\+Manager}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

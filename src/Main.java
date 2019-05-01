@@ -1,8 +1,13 @@
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Main class to run a game.
+ */
 public class Main {
-
+    /**
+     * Starting point of a game.
+     */
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         String response = "";

@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * Listener class.
+ */
 public class GUIListener implements KeyListener, MouseListener, MouseMotionListener {
 
     private final int WIDTH;
@@ -22,6 +25,14 @@ public class GUIListener implements KeyListener, MouseListener, MouseMotionListe
     private int lineCounter = 0;
     private StringBuilder lastMove = new StringBuilder();
 
+    /**
+     * Constructor.
+     * @param width width of a panel.
+     * @param height height of a panel.
+     * @param game Game object.
+     * @param player Player object.
+     * @param panel Panel object.
+     */
     public GUIListener(int width, int height, Game game, Player player, GridPanel panel) {
         this.WIDTH = width;
         this.HEIGHT = height;
@@ -30,27 +41,50 @@ public class GUIListener implements KeyListener, MouseListener, MouseMotionListe
         this.panel = panel;
     }
 
+    /**
+     * Getter for orientation of a ship to be built.
+     * @return true if horizontal, false otherwise.
+     */
     public boolean isHorizontal() {
         return isHorizontal;
     }
 
+    /**
+     * Getter for mouseX.
+     * @return value of mouseX.
+     */
     public int getMouseX() {
         return mouseX;
     }
 
+    /**
+     * Getter for mouseY.
+     * @return value of mouseY.
+     */
     public int getMouseY() {
         return mouseY;
     }
 
+    /**
+     * Getter for shipSize.
+     * @return number of segments of the next ship to be built. -1 in case of all ships built.
+     */
     public int getShipSize() {
         if (buildIndex >= toBuild.length) return -1;
         return toBuild[buildIndex];
     }
 
+    /**
+     * Is Listener active?
+     * @return true if active, false otherwise.
+     */
     public boolean isActive() {
         return active;
     }
 
+    /**
+     * Setter for active
+     */
     public void setActive(boolean active) {
         this.active = active;
     }

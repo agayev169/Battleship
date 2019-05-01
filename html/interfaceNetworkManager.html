@@ -89,28 +89,81 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">NetworkManager Interface Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Interface realizing the idea of Network Management in the game.  
+ <a href="interfaceNetworkManager.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for NetworkManager:</div>
 <div class="dyncontent">
 <div class="center"><img src="interfaceNetworkManager__inherit__graph.png" border="0" usemap="#NetworkManager_inherit__map" alt="Inheritance graph"/></div>
 <map name="NetworkManager_inherit__map" id="NetworkManager_inherit__map">
-<area shape="rect" id="node2" href="classGameClient.html" title="GameClient" alt="" coords="5,80,96,107"/>
-<area shape="rect" id="node3" href="classGameServer.html" title="GameServer" alt="" coords="121,80,215,107"/>
+<area shape="rect" id="node2" href="classGameClient.html" title="Class realizing the idea of a client of a game. " alt="" coords="5,80,96,107"/>
+<area shape="rect" id="node3" href="classGameServer.html" title="Class realizing the idea of a server of a game. " alt="" coords="121,80,215,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1770d9c0eba406494ffb1f7e9a86e05f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1770d9c0eba406494ffb1f7e9a86e05f"></a>
-String&#160;</td><td class="memItemRight" valign="bottom"><b>read</b> ()  throws IOException</td></tr>
+<tr class="memitem:a1770d9c0eba406494ffb1f7e9a86e05f"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceNetworkManager.html#a1770d9c0eba406494ffb1f7e9a86e05f">read</a> ()  throws IOException</td></tr>
+<tr class="memdesc:a1770d9c0eba406494ffb1f7e9a86e05f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to read data from the other side of a connection.  <a href="#a1770d9c0eba406494ffb1f7e9a86e05f">More...</a><br /></td></tr>
 <tr class="separator:a1770d9c0eba406494ffb1f7e9a86e05f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c292bfd3d98fa5d04a14c493b8f14b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c292bfd3d98fa5d04a14c493b8f14b0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>write</b> (String toWrite)</td></tr>
+<tr class="memitem:a3c292bfd3d98fa5d04a14c493b8f14b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceNetworkManager.html#a3c292bfd3d98fa5d04a14c493b8f14b0">write</a> (String toWrite)</td></tr>
+<tr class="memdesc:a3c292bfd3d98fa5d04a14c493b8f14b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to write to another side of a connection.  <a href="#a3c292bfd3d98fa5d04a14c493b8f14b0">More...</a><br /></td></tr>
 <tr class="separator:a3c292bfd3d98fa5d04a14c493b8f14b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33643bfa896c4b9d0050ef0aa79ac16d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33643bfa896c4b9d0050ef0aa79ac16d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>close</b> ()  throws IOException</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceNetworkManager.html#a33643bfa896c4b9d0050ef0aa79ac16d">close</a> ()  throws IOException</td></tr>
+<tr class="memdesc:a33643bfa896c4b9d0050ef0aa79ac16d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to close the connection. <br /></td></tr>
 <tr class="separator:a33643bfa896c4b9d0050ef0aa79ac16d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interface realizing the idea of Network Management in the game. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a1770d9c0eba406494ffb1f7e9a86e05f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String NetworkManager.read </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> throws IOException</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Method to read data from the other side of a connection. </p>
+<dl class="section return"><dt>Returns</dt><dd>String representing message sent by the client/server. </dd></dl>
+
+<p>Implemented in <a class="el" href="classGameServer.html#adc364b22489b8e52afe8697c5b92d10c">GameServer</a>, and <a class="el" href="classGameClient.html#adabd0d577d18af7d8d740a40c8ba071b">GameClient</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3c292bfd3d98fa5d04a14c493b8f14b0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NetworkManager.write </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>toWrite</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Method to write to another side of a connection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">toWrite</td><td>String object to write. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classGameServer.html#a7eb6fac8073558454fc9d4eb1ad78520">GameServer</a>, and <a class="el" href="classGameClient.html#a553f6df87097e02fd5b35e96e5005e7a">GameClient</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
 <li>src/NetworkManager.java</li>
 </ul>

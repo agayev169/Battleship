@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$interfaceNetworkManager.html" title="NetworkManager" alt="" coords="5,31,127,57"/>
-<area shape="rect" id="node2" href="$classGameClient.html" title="GameClient" alt="" coords="177,5,267,32"/>
-<area shape="rect" id="node3" href="$classGameServer.html" title="GameServer" alt="" coords="175,56,269,83"/>
+<area shape="rect" id="node1" href="$interfaceNetworkManager.html" title="Interface realizing the idea of Network Management in the game. " alt="" coords="5,31,127,57"/>
+<area shape="rect" id="node2" href="$classGameClient.html" title="Class realizing the idea of a client of a game. " alt="" coords="177,5,267,32"/>
+<area shape="rect" id="node3" href="$classGameServer.html" title="Class realizing the idea of a server of a game. " alt="" coords="175,56,269,83"/>
 </map>

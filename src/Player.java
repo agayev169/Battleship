@@ -27,72 +27,150 @@ public abstract class Player {
         }
     }
 
+    /**
+     * Getter for array of ships.
+     * @return array of Ship objects of the player.
+     */
     public Ship[] getShips() {
         return ships;
     }
 
+    /**
+     * Getter for a ship at given index.
+     * @param index index of a Ship to be returned.
+     * @return Ship that has index-th index in array of Ship objects.
+     */
     public Ship getShip(int index) {
         if (index >= 0 && index < ships.length)
             return ships[index];
         return null;
     }
 
+    /**
+     * Getter for the player's grid.
+     * @return 2-dimensional array of char's representing a grid.
+     */
     public char[][] getGridMine() {
         return gridMine;
     }
 
+    /**
+     * Getter for an element of the player's grid.
+     * @param x x-coordinate of a grid.
+     * @param y y-coordinate of a grid.
+     * @return char at (x, y).
+     */
     public char getGridMine(int x, int y) {
         return gridMine[y][x];
     }
 
+    /**
+     * Getter for the oppoent's grid.
+     * @return 2-dimensional array of char's representing a grid.
+     */
     public char[][] getGridOpponent() {
         return gridOpponent;
     }
 
+    /**
+     * Getter for an element of the opponent's grid.
+     * @param x x-coordinate of a grid.
+     * @param y y-coordinate of a grid.
+     * @return char at (x, y).
+     */
     public char getGridOpponent(int x, int y) {
         return gridOpponent[y][x];
     }
 
+    /**
+     * Getter for a game.
+     * @return Game object.
+     */
     public Game getGame() {
         return game;
     }
 
+    /**
+     * Getter for id.
+     * @return id of the player.
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Setter for array of Ship objects.
+     * @param ships array of Ship's
+     */
     public void setShips(Ship[] ships) {
         this.ships = ships;
     }
 
+    /**
+     * Setter for the index-th element of an array of Ship's
+     * @param index index of an array to be set.
+     * @param ship Ship to be set.
+     */
     public void setShip(int index, Ship ship) {
         this.ships[index] = ship;
     }
 
+    /**
+     * Setter for the player's grid.
+     * @param gridMine 2-dimensional array of char's representing a grid.
+     */
     public void setGridMine(char[][] gridMine) {
         this.gridMine = gridMine;
     }
 
+    /**
+     * Setter for an (x, y)-element of player's grid 
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param val value to be set.
+     */
     public void setGridMine(int x, int y, char val) {
         this.gridMine[y][x] = val;
     }
 
+    /**
+     * Setter for the opponent's grid.
+     * @param gridMine 2-dimensional array of char's representing a grid.
+     */
     public void setGridOpponent(char[][] gridOpponent) {
         this.gridOpponent = gridOpponent;
     }
 
+    /**
+     * Setter for an (x, y)-element of opponent's grid 
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param val value to be set.
+     */
     public void setGridOpponent(int x, int y, char val) {
         this.gridOpponent[y][x] = val;
     }
 
+    /**
+     * Setter for a game.
+     * @param game Game object to be set.
+     */
     public void setGame(Game game) {
         this.game = game;
     }
 
+    /**
+     * Is a player ready?
+     * @return true if it is, false otherwise.
+     */
     public boolean isReady() {
         return ready;
     }
 
+    /**
+     * Setter for ready.
+     * @param ready is a player ready?
+     */
     public void setReady(boolean ready) {
         this.ready = ready;
     }

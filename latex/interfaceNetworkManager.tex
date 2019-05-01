@@ -2,6 +2,11 @@
 \label{interfaceNetworkManager}\index{Network\+Manager@{Network\+Manager}}
 
 
+Interface realizing the idea of Network Management in the game.  
+
+
+
+
 Inheritance diagram for Network\+Manager\+:
 \nopagebreak
 \begin{figure}[H]
@@ -13,15 +18,57 @@ Inheritance diagram for Network\+Manager\+:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-String {\bfseries read} ()  throws I\+O\+Exception\hypertarget{interfaceNetworkManager_a1770d9c0eba406494ffb1f7e9a86e05f}{}\label{interfaceNetworkManager_a1770d9c0eba406494ffb1f7e9a86e05f}
+String \hyperlink{interfaceNetworkManager_a1770d9c0eba406494ffb1f7e9a86e05f}{read} ()  throws I\+O\+Exception
+\begin{DoxyCompactList}\small\item\em Method to read data from the other side of a connection. \end{DoxyCompactList}\item 
+void \hyperlink{interfaceNetworkManager_a3c292bfd3d98fa5d04a14c493b8f14b0}{write} (String to\+Write)
+\begin{DoxyCompactList}\small\item\em Method to write to another side of a connection. \end{DoxyCompactList}\item 
+void \hyperlink{interfaceNetworkManager_a33643bfa896c4b9d0050ef0aa79ac16d}{close} ()  throws I\+O\+Exception\hypertarget{interfaceNetworkManager_a33643bfa896c4b9d0050ef0aa79ac16d}{}\label{interfaceNetworkManager_a33643bfa896c4b9d0050ef0aa79ac16d}
 
-\item 
-void {\bfseries write} (String to\+Write)\hypertarget{interfaceNetworkManager_a3c292bfd3d98fa5d04a14c493b8f14b0}{}\label{interfaceNetworkManager_a3c292bfd3d98fa5d04a14c493b8f14b0}
+\begin{DoxyCompactList}\small\item\em Method to close the connection. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-void {\bfseries close} ()  throws I\+O\+Exception\hypertarget{interfaceNetworkManager_a33643bfa896c4b9d0050ef0aa79ac16d}{}\label{interfaceNetworkManager_a33643bfa896c4b9d0050ef0aa79ac16d}
 
-\end{DoxyCompactItemize}
+\subsection{Detailed Description}
+Interface realizing the idea of Network Management in the game. 
+
+\subsection{Member Function Documentation}
+\index{Network\+Manager@{Network\+Manager}!read@{read}}
+\index{read@{read}!Network\+Manager@{Network\+Manager}}
+\subsubsection[{\texorpdfstring{read()}{read()}}]{\setlength{\rightskip}{0pt plus 5cm}String Network\+Manager.\+read (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws I\+O\+Exception}\hypertarget{interfaceNetworkManager_a1770d9c0eba406494ffb1f7e9a86e05f}{}\label{interfaceNetworkManager_a1770d9c0eba406494ffb1f7e9a86e05f}
+
+
+Method to read data from the other side of a connection. 
+
+\begin{DoxyReturn}{Returns}
+String representing message sent by the client/server. 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classGameServer_adc364b22489b8e52afe8697c5b92d10c}{Game\+Server}, and \hyperlink{classGameClient_adabd0d577d18af7d8d740a40c8ba071b}{Game\+Client}.
+
+\index{Network\+Manager@{Network\+Manager}!write@{write}}
+\index{write@{write}!Network\+Manager@{Network\+Manager}}
+\subsubsection[{\texorpdfstring{write(\+String to\+Write)}{write(String toWrite)}}]{\setlength{\rightskip}{0pt plus 5cm}void Network\+Manager.\+write (
+\begin{DoxyParamCaption}
+\item[{String}]{to\+Write}
+\end{DoxyParamCaption}
+)}\hypertarget{interfaceNetworkManager_a3c292bfd3d98fa5d04a14c493b8f14b0}{}\label{interfaceNetworkManager_a3c292bfd3d98fa5d04a14c493b8f14b0}
+
+
+Method to write to another side of a connection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Write} & String object to write. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classGameServer_a7eb6fac8073558454fc9d4eb1ad78520}{Game\+Server}, and \hyperlink{classGameClient_a553f6df87097e02fd5b35e96e5005e7a}{Game\+Client}.
+
 
 
 The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}

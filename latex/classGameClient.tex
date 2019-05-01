@@ -2,6 +2,11 @@
 \label{classGameClient}\index{Game\+Client@{Game\+Client}}
 
 
+Class realizing the idea of a client of a game.  
+
+
+
+
 Inheritance diagram for Game\+Client\+:
 \nopagebreak
 \begin{figure}[H]
@@ -23,18 +28,89 @@ Collaboration diagram for Game\+Client\+:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-Socket {\bfseries get\+Socket} ()\hypertarget{classGameClient_aecd4af8ab8269224d8a64f8dd742727b}{}\label{classGameClient_aecd4af8ab8269224d8a64f8dd742727b}
+\hyperlink{classGameClient_a19758271b7b5a53ba372893c0adfc0e1}{Game\+Client} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+Socket \hyperlink{classGameClient_aecd4af8ab8269224d8a64f8dd742727b}{get\+Socket} ()
+\begin{DoxyCompactList}\small\item\em Getter for the Socket object. \end{DoxyCompactList}\item 
+String \hyperlink{classGameClient_adabd0d577d18af7d8d740a40c8ba071b}{read} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Method to read data from the other side of a connection. \end{DoxyCompactList}\item 
+void \hyperlink{classGameClient_a553f6df87097e02fd5b35e96e5005e7a}{write} (String to\+Write)
+\begin{DoxyCompactList}\small\item\em Method to write to another side of a connection. \end{DoxyCompactList}\item 
+void \hyperlink{classGameClient_a7f4a27d2857721b96ef4be91e5b22c87}{close} ()  throws I\+O\+Exception \hypertarget{classGameClient_a7f4a27d2857721b96ef4be91e5b22c87}{}\label{classGameClient_a7f4a27d2857721b96ef4be91e5b22c87}
 
-\item 
-String {\bfseries read} ()  throws I\+O\+Exception \hypertarget{classGameClient_adabd0d577d18af7d8d740a40c8ba071b}{}\label{classGameClient_adabd0d577d18af7d8d740a40c8ba071b}
+\begin{DoxyCompactList}\small\item\em Method to close the connection. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-void {\bfseries write} (String to\+Write)\hypertarget{classGameClient_a553f6df87097e02fd5b35e96e5005e7a}{}\label{classGameClient_a553f6df87097e02fd5b35e96e5005e7a}
 
-\item 
-void {\bfseries close} ()  throws I\+O\+Exception \hypertarget{classGameClient_a7f4a27d2857721b96ef4be91e5b22c87}{}\label{classGameClient_a7f4a27d2857721b96ef4be91e5b22c87}
+\subsection{Detailed Description}
+Class realizing the idea of a client of a game. 
 
-\end{DoxyCompactItemize}
+\subsection{Constructor \& Destructor Documentation}
+\index{Game\+Client@{Game\+Client}!Game\+Client@{Game\+Client}}
+\index{Game\+Client@{Game\+Client}!Game\+Client@{Game\+Client}}
+\subsubsection[{\texorpdfstring{Game\+Client()}{GameClient()}}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Client.\+Game\+Client (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGameClient_a19758271b7b5a53ba372893c0adfc0e1}{}\label{classGameClient_a19758271b7b5a53ba372893c0adfc0e1}
+
+
+Constructor. 
+
+Connects to port 1337 of localhost to communicate with server. 
+
+\subsection{Member Function Documentation}
+\index{Game\+Client@{Game\+Client}!get\+Socket@{get\+Socket}}
+\index{get\+Socket@{get\+Socket}!Game\+Client@{Game\+Client}}
+\subsubsection[{\texorpdfstring{get\+Socket()}{getSocket()}}]{\setlength{\rightskip}{0pt plus 5cm}Socket Game\+Client.\+get\+Socket (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGameClient_aecd4af8ab8269224d8a64f8dd742727b}{}\label{classGameClient_aecd4af8ab8269224d8a64f8dd742727b}
+
+
+Getter for the Socket object. 
+
+\begin{DoxyReturn}{Returns}
+Socket object of a client. 
+\end{DoxyReturn}
+\index{Game\+Client@{Game\+Client}!read@{read}}
+\index{read@{read}!Game\+Client@{Game\+Client}}
+\subsubsection[{\texorpdfstring{read()}{read()}}]{\setlength{\rightskip}{0pt plus 5cm}String Game\+Client.\+read (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGameClient_adabd0d577d18af7d8d740a40c8ba071b}{}\label{classGameClient_adabd0d577d18af7d8d740a40c8ba071b}
+
+
+Method to read data from the other side of a connection. 
+
+\begin{DoxyReturn}{Returns}
+String representing message sent by the server. 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interfaceNetworkManager_a1770d9c0eba406494ffb1f7e9a86e05f}{Network\+Manager}.
+
+\index{Game\+Client@{Game\+Client}!write@{write}}
+\index{write@{write}!Game\+Client@{Game\+Client}}
+\subsubsection[{\texorpdfstring{write(\+String to\+Write)}{write(String toWrite)}}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Client.\+write (
+\begin{DoxyParamCaption}
+\item[{String}]{to\+Write}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classGameClient_a553f6df87097e02fd5b35e96e5005e7a}{}\label{classGameClient_a553f6df87097e02fd5b35e96e5005e7a}
+
+
+Method to write to another side of a connection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+Write} & String object to write. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interfaceNetworkManager_a3c292bfd3d98fa5d04a14c493b8f14b0}{Network\+Manager}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['sethealth',['setHealth',['../classShip.html#af1524176d95bdcd4699606020f491a36',1,'Ship']]],
-  ['sethorizontal',['setHorizontal',['../classShip.html#a170cbc736f06285b709a3d110b0f3da9',1,'Ship']]],
-  ['setx',['setX',['../classShip.html#ae5dfe53a340d63db1dfcda3d43138775',1,'Ship']]],
-  ['sety',['setY',['../classShip.html#a8b4bd2064164d6310f2035249b5c2e8d',1,'Ship']]],
-  ['ship',['Ship',['../classShip.html',1,'Ship'],['../classShip.html#aad9f864d03a4d6e4410ef058a07a887d',1,'Ship.Ship()']]],
-  ['showgridmine',['showGridMine',['../classPlayer.html#ae551f266c116f22887d278f6beaf9e75',1,'Player']]],
-  ['showgridopponent',['showGridOpponent',['../classPlayer.html#ade7e5623438ad21421091dcc201b367c',1,'Player']]],
-  ['showgrids',['showGrids',['../classPlayer.html#ad571760f9739182566e3817e515fd3c1',1,'Player']]]
+  ['paintcomponent',['paintComponent',['../classGridPanel.html#ae44d617ba15ff9b1778cc4c713151650',1,'GridPanel.paintComponent()'],['../classMainMenuPanel.html#a912f66021f4771dfb4bac2150c18ffc6',1,'MainMenuPanel.paintComponent()']]],
+  ['play',['play',['../classGame.html#afeae4232ad3b23d07dcccc383e14ff08',1,'Game']]],
+  ['player',['Player',['../classPlayer.html',1,'Player'],['../classPlayer.html#a0444e17b6e068f2cbee6937244c8f921',1,'Player.Player()']]]
 ];

@@ -1,4 +1,4 @@
 <map id="NetworkManager" name="NetworkManager">
-<area shape="rect" id="node2" href="$classGameClient.html" title="GameClient" alt="" coords="5,80,96,107"/>
-<area shape="rect" id="node3" href="$classGameServer.html" title="GameServer" alt="" coords="121,80,215,107"/>
+<area shape="rect" id="node2" href="$classGameClient.html" title="Class realizing the idea of a client of a game. " alt="" coords="5,80,96,107"/>
+<area shape="rect" id="node3" href="$classGameServer.html" title="Class realizing the idea of a server of a game. " alt="" coords="121,80,215,107"/>
 </map>

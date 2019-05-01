@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * Panel representing board.
+ */
 public class GridPanel extends JPanel implements ActionListener {
     public final int WIDTH;
     public final int HEIGHT;
@@ -17,6 +20,14 @@ public class GridPanel extends JPanel implements ActionListener {
 
     private final JPanel cardLayoutPanel;
 
+    /**
+     * Constructor.
+     * @param width width of panel.
+     * @param height height of panel.
+     * @param player Player object.
+     * @param game Game object.
+     * @param cardLayoutPanel JPanel having CardLayout.
+     */
     public GridPanel(int width, int height, User player, Game game, JPanel cardLayoutPanel) {
         WIDTH = width;
         HEIGHT = height;
@@ -69,6 +80,9 @@ public class GridPanel extends JPanel implements ActionListener {
         return cardLayoutPanel;
     }
 
+    /**
+     * Draw a segment of a ship.
+     */
     private void drawSegment(int x, int y, Color color, boolean left, Graphics g) {
         g.setColor(color);
         if (left)
@@ -77,6 +91,9 @@ public class GridPanel extends JPanel implements ActionListener {
             g.fillRect(WIDTH / 21 * 11 + x * WIDTH / 21, y * HEIGHT / 10, WIDTH / 21, HEIGHT / 10);
     }
 
+    /**
+     * Draw a sunk segment of a ship.
+     */
     private void drawSunkSegment(int x, int y, Color color, boolean left, Graphics g) {
         drawSegment(x, y, color, left, g);
         g.setColor(Color.RED);
@@ -95,6 +112,9 @@ public class GridPanel extends JPanel implements ActionListener {
         }
     }
 
+    /**
+     * Draw a ship.
+     */
     private void drawShip(int x, int y, int segmentNum, boolean isHorizontal, Color color, boolean left, Graphics g) {
         if (isHorizontal) {
             if (x + segmentNum > 10) return;
@@ -109,6 +129,9 @@ public class GridPanel extends JPanel implements ActionListener {
         }
     }
 
+    /**
+     * Draw the board.
+     */
     @Override
     protected void paintComponent(Graphics g) {
         if (isReady || game.getGameType() != Game.MULTIPLAYER_ONE_MACHINE) {
@@ -210,6 +233,9 @@ public class GridPanel extends JPanel implements ActionListener {
         timer.start();
     }
 
+    /**
+     * Repaint each move.
+     */
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         repaint();

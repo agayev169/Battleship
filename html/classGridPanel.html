@@ -91,25 +91,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">GridPanel Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Panel representing board.  
+ <a href="classGridPanel.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for GridPanel:</div>
 <div class="dyncontent">
 <div class="center"><img src="classGridPanel__inherit__graph.png" border="0" usemap="#GridPanel_inherit__map" alt="Inheritance graph"/></div>
-<map name="GridPanel_inherit__map" id="GridPanel_inherit__map">
-</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for GridPanel:</div>
 <div class="dyncontent">
 <div class="center"><img src="classGridPanel__coll__graph.png" border="0" usemap="#GridPanel_coll__map" alt="Collaboration graph"/></div>
-<map name="GridPanel_coll__map" id="GridPanel_coll__map">
-</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af8bf9b3bb5b5548a39f97371848e0ac7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8bf9b3bb5b5548a39f97371848e0ac7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GridPanel</b> (int width, int height, <a class="el" href="classUser.html">User</a> player, <a class="el" href="classGame.html">Game</a> game, JPanel cardLayoutPanel)</td></tr>
+<tr class="memitem:af8bf9b3bb5b5548a39f97371848e0ac7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridPanel.html#af8bf9b3bb5b5548a39f97371848e0ac7">GridPanel</a> (int width, int height, <a class="el" href="classUser.html">User</a> player, <a class="el" href="classGame.html">Game</a> game, JPanel cardLayoutPanel)</td></tr>
+<tr class="memdesc:af8bf9b3bb5b5548a39f97371848e0ac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#af8bf9b3bb5b5548a39f97371848e0ac7">More...</a><br /></td></tr>
 <tr class="separator:af8bf9b3bb5b5548a39f97371848e0ac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a297c91de7bf845e66bd2ae03c1635950"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a297c91de7bf845e66bd2ae03c1635950"></a>
 <a class="el" href="classGUIListener.html">GUIListener</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getListener</b> ()</td></tr>
@@ -127,7 +126,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setReady</b> (boolean
 JPanel&#160;</td><td class="memItemRight" valign="bottom"><b>getCardLayoutPanel</b> ()</td></tr>
 <tr class="separator:a1a8601fc7d4f8175c7aebd6bec8ec6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38f9375b4ed14fa70edaa859b0ed43e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38f9375b4ed14fa70edaa859b0ed43e6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>actionPerformed</b> (ActionEvent actionEvent)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridPanel.html#a38f9375b4ed14fa70edaa859b0ed43e6">actionPerformed</a> (ActionEvent actionEvent)</td></tr>
+<tr class="memdesc:a38f9375b4ed14fa70edaa859b0ed43e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaint each move. <br /></td></tr>
 <tr class="separator:a38f9375b4ed14fa70edaa859b0ed43e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dbc1ff2bf786538707f479837ce2792"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7dbc1ff2bf786538707f479837ce2792"></a>
 String&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> ()</td></tr>
@@ -145,9 +145,77 @@ final int&#160;</td><td class="memItemRight" valign="bottom"><b>HEIGHT</b></td><
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:ae44d617ba15ff9b1778cc4c713151650"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae44d617ba15ff9b1778cc4c713151650"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>paintComponent</b> (Graphics g)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGridPanel.html#ae44d617ba15ff9b1778cc4c713151650">paintComponent</a> (Graphics g)</td></tr>
+<tr class="memdesc:ae44d617ba15ff9b1778cc4c713151650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the board. <br /></td></tr>
 <tr class="separator:ae44d617ba15ff9b1778cc4c713151650"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Panel representing board. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="af8bf9b3bb5b5548a39f97371848e0ac7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GridPanel.GridPanel </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classUser.html">User</a>&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classGame.html">Game</a>&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">JPanel&#160;</td>
+          <td class="paramname"><em>cardLayoutPanel</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>width of panel. </td></tr>
+    <tr><td class="paramname">height</td><td>height of panel. </td></tr>
+    <tr><td class="paramname">player</td><td><a class="el" href="classPlayer.html" title="Player abstract class. ">Player</a> object. </td></tr>
+    <tr><td class="paramname">game</td><td><a class="el" href="classGame.html" title="Engine of a game. ">Game</a> object. </td></tr>
+    <tr><td class="paramname">cardLayoutPanel</td><td>JPanel having CardLayout. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/GridPanel.java</li>
 </ul>

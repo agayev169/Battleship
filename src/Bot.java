@@ -1,11 +1,24 @@
 import java.util.Random;
 
+/**
+ * Bot class.
+ * Class representing a simple AI to play against.
+ */
 public class Bot extends Player {
 
+    /**
+     * Constructor.
+     * @param game Game object.
+     * @param id id of a player.
+     */
     public Bot(Game game, int id) {
         super(game, id);
     }
 
+    /**
+     * Build ships.
+     * A method to build ships.
+     */
     @Override
     public void buildShips() {
         Random rand = new Random();
@@ -22,6 +35,9 @@ public class Bot extends Player {
         }
     }
 
+    /**
+     * Attack the opponent's Ship's.
+     */
     @Override
     public void attack() {
         Random rand = new Random();

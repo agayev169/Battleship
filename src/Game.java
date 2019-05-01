@@ -1,6 +1,10 @@
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Engine of a game.
+ * Implementation of a concept of game.
+ */
 public class Game {
     private int turn = 0;
     private Player[] players;
@@ -24,6 +28,12 @@ public class Game {
 
     private GridPanel gridPanel;
 
+    /**
+     * Constructor.
+     * Creates a game of certain type.
+     * @param gameType type of a game, i.e. single player, multiplayer.
+     * @param userInterface user interface of a game, i.e. text or graphical
+     */
     public Game(int gameType, int userInterface) throws IOException {
         players = new Player[2];
         this.userInterface = userInterface;
@@ -53,6 +63,12 @@ public class Game {
         }
     }
 
+    /**
+     * Constructor for multiplayer with networking.
+     * Creates a server or cleint side game.
+     * @param userInterface user interface of a game, i.e. text or graphical.
+     * @param isServer boolean for specifying whether we create a server or a client.
+     */
     public Game(int userInterface, boolean isServer) throws  IOException {
         players = new Player[2];
         this.userInterface = userInterface;
@@ -68,34 +84,72 @@ public class Game {
         }
     }
 
+    /**
+     * Getter for GridPanel object.
+     * @return GridPanel object attached to a game.
+     */
     public GridPanel getGridPanel() {
         return gridPanel;
     }
 
+    /**
+     * Setter for GridPanel object.
+     * @param gridPanel GridPanel object to be attached to a game.
+     */
     public void setGridPanel(GridPanel gridPanel) {
         this.gridPanel = gridPanel;
     }
 
+    /**
+     * Getter for Player's array.
+     * @return array of Player's.
+     */
     public Player[] getPlayers() {
         return players;
     }
 
+    /**
+     * Getter for turn number.
+     * @return turn of the game.
+     */
     public int getTurn() {
         return turn;
     }
 
+    /**
+     * Getter for a type of a game.
+     * @return type of a game.
+     */
     public int getGameType() {
         return gameType;
     }
 
+    /**
+     * Getter for NetworkManager object.
+     * @return NetworkManager object that is used to connect server and client.
+     */
     public NetworkManager getNetworkManager() {
         return networkManager;
     }
 
+    /**
+     * Getter for type of user interface. (text/graphics)
+     * @return Game.TERMINAL/Game.GUI
+     */
     public int getUserInterface() {
         return userInterface;
     }
 
+    /**
+     * Can build a ship?
+     * Is it possible to build a ship with given configuration?
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param segmentNum number of segments of a ship.
+     * @param isHorizontal boolean specifying the orientation of a ship.
+     * @param id id of a player.
+     * @return true if it is possible to build a ship, false otherwise.
+     */
     public boolean canBuild(int x, int y, int segmentNum, boolean isHorizontal, int id) {
         boolean[][] hasShip = new boolean[10][10];
         if ((isHorizontal && (x + segmentNum > 10 || x < 0)) || (!isHorizontal && (y + segmentNum > 10 || y < 0)))
@@ -126,6 +180,16 @@ public class Game {
         return true;
     }
 
+    /**
+     * Attemp to build a ship.
+     * Try to build a ship with given configuration.
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param segmentNum number of segments of a ship.
+     * @param isHorizontal 
+     * @param id id of a player.
+     * @return true if it attempt is successful, false otherwise.
+     */
     public boolean attemptToBuild(int x, int y, int segmentNum, boolean isHorizontal, int id) {
         if (id < players.length && players[id].getShips()[4] != null) {
             System.out.println("Cannot build more than 5 ships");
@@ -150,6 +214,14 @@ public class Game {
         return true;
     }
 
+    /**
+     * Shoot at the player.
+     * Player with given id shoots at (x, y).
+     * @param x x-coordinate.
+     * @param y y-coordinate.
+     * @param id id of a player.
+     * @return HIT/MISS/SINK
+     */
     public int shoot(int x, int y, int id) {
         if (players[(id) % players.length].getGridOpponent(x, y) == '.' ||
                 players[(id) % players.length].getGridOpponent(x, y) == 'x') return HIT; // Already shot at this point
@@ -163,6 +235,10 @@ public class Game {
         return MISS;
     }
 
+    /**
+     * Play function.
+     * Runs a game.
+     */
     public void play() throws IOException {
         for (int i = 0; i < players.length; i++) {
             players[i].buildShips();
@@ -191,6 +267,10 @@ public class Game {
             networkManager.close();
     }
 
+    /**
+     * Is game over?
+     * @return id of a loser if game is over, -1 otherwise.
+     */
     public int gameOver() {
         for (int i = 0; i < players.length; i++) {
             int hits = 0;
